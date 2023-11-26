@@ -1,0 +1,184 @@
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\bin\Debug\Vistas.exe
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\bin\Debug\Vistas.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\bin\Debug\ClaseBase.dll
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\bin\Debug\ClaseBase.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Vistas.csprojResolveAssemblyReference.cache
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\MainWindow.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinVehiculosPlayas.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinWelcome.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\MainWindow.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinVehiculosPlayas.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinWelcome.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\App.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Vistas_MarkupCompile.cache
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Vistas.g.resources
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Vistas.Properties.Resources.resources
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Vistas.csproj.GenerateResource.Cache
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Vistas.exe
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Vistas.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinPrincipal.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinPrincipal.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\bin\Debug\Util.dll
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\bin\Debug\Util.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinABMVehiculos.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinABMVehiculos.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinABMClientes.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinABMClientes.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\ControlUsuario\Login.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\ControlUsuario\Login.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Vistas_MarkupCompile.lref
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Diccionario\Plantillas.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\App.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Diccionario\Estilos.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Diccionario\Triggers.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\Diccionario\Templates.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\bin\Debug\Vistas.exe.config
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinEstadoSector.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinEstadoSector.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinABMUsuario.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinABMUsuario.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinListaUsuariosFiltros.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\Vistas\obj\x86\Debug\WinListaUsuariosFiltros.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\bin\Debug\Vistas.exe.config
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Vistas.exe
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Vistas.pdb
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\bin\Debug\Vistas.exe
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\bin\Debug\Vistas.pdb
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\bin\Debug\ClaseBase.dll
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\bin\Debug\Util.dll
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\bin\Debug\ClaseBase.pdb
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\bin\Debug\Util.pdb
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Vistas.csprojResolveAssemblyReference.cache
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\ControlUsuario\Login.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Diccionario\Estilos.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Diccionario\Plantillas.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Diccionario\Templates.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Diccionario\Triggers.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\MainWindow.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinABMClientes.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinABMUsuario.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinABMVehiculos.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinEstadoSector.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinListaUsuariosFiltros.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinPrincipal.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinVehiculosPlayas.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\App.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\ControlUsuario\Login.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\MainWindow.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinABMClientes.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinABMUsuario.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinABMVehiculos.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinEstadoSector.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinListaUsuariosFiltros.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinPrincipal.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinVehiculosPlayas.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinWelcome.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\App.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Vistas_MarkupCompile.cache
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Vistas_MarkupCompile.lref
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinWelcome.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Vistas.g.resources
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Vistas.Properties.Resources.resources
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\Vistas.csproj.GenerateResource.Cache
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\VistaPreviaDeImpresion.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\VistaPreviaDeImpresion.g.cs
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinRegistrarEntrada.baml
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\Vistas\obj\x86\Debug\WinRegistrarEntrada.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Vistas.exe.config
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.exe
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.pdb
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Vistas.exe
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Vistas.pdb
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\ClaseBase.dll
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Util.dll
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\ClaseBase.pdb
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Util.pdb
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.csprojResolveAssemblyReference.cache
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\ControlUsuario\Login.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Diccionario\Estilos.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Diccionario\Plantillas.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Diccionario\Templates.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Diccionario\Triggers.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\MainWindow.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\VistaPreviaDeImpresion.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMClientes.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMUsuario.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMVehiculos.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinEstadoSector.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinListaUsuariosFiltros.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinPrincipal.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinRegistrarEntrada.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinVehiculosPlayas.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\App.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\ControlUsuario\Login.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\MainWindow.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\VistaPreviaDeImpresion.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMClientes.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMUsuario.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMVehiculos.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinEstadoSector.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinListaUsuariosFiltros.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinPrincipal.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinRegistrarEntrada.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinVehiculosPlayas.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinWelcome.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\App.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas_MarkupCompile.cache
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas_MarkupCompile.lref
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinWelcome.baml
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.g.resources
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.Properties.Resources.resources
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.csproj.GenerateResource.Cache
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas_Content.g.cs
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Sonido\intro.mp3
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Vistas.exe.config
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.exe
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Sonido\intro.mp3
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Vistas.exe
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Vistas.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\ClaseBase.dll
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Util.dll
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\ClaseBase.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\bin\Debug\Util.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.csprojResolveAssemblyReference.cache
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\ControlUsuario\Login.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Diccionario\Estilos.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Diccionario\Plantillas.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Diccionario\Templates.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Diccionario\Triggers.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\MainWindow.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\VistaPreviaDeImpresion.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMClientes.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMUsuario.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMVehiculos.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinEstadoSector.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinListaUsuariosFiltros.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinPrincipal.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinRegistrarEntrada.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinVehiculosPlayas.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\App.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\ControlUsuario\Login.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\MainWindow.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\VistaPreviaDeImpresion.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMClientes.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMUsuario.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinABMVehiculos.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinEstadoSector.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinListaUsuariosFiltros.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinPrincipal.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinRegistrarEntrada.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinVehiculosPlayas.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinWelcome.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\App.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas_Content.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas_MarkupCompile.cache
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas_MarkupCompile.lref
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\WinWelcome.baml
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.g.resources
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.Properties.Resources.resources
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\Vistas\obj\x86\Debug\Vistas.csproj.GenerateResource.Cache
