@@ -1,0 +1,111 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Trigger Boton Cerrar Login y Formulario-->
+    <Style x:Key="triBotonCerrarLogin" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#DA34AE"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#C62DAE"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Trigger Boton minimizar Login y Formulario-->
+    <Style x:Key="triBotonMinLogin" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#28AEED"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#278BEF"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Trigger Boton AceptarLogin-->
+    <Style x:Key="triBotonAceptarLogin" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#462AD8"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#28AEED"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Trigger Boton Aceptar Formulario-->
+    <Style x:Key="triBotonAceptarForm" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#462AD8"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#6F57EF"/>
+                
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Trigger Boton Modificar Formulario-->
+    <Style x:Key="triBotonModificar" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#DD861E"/>
+
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#F1A448"/>
+
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Trigger Boton Eliminar Formulario-->
+    <Style x:Key="triBotonEliminarForm" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#DF2020"/>
+
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#F05D5D"/>
+
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Trigger Boton Salir Formulario-->
+    <Style x:Key="triBotonSalir" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#DF2020"/>
+        
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#F05D5D"/>
+
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

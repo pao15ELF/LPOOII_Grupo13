@@ -1,0 +1,193 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!--PLANTILLA BOTONES-->
+    <ControlTemplate x:Key="PlantillaBoton" TargetType="{x:Type Button}">
+
+        <Border x:Name="BordeBoton" 
+                    CornerRadius="15"
+                    BorderThickness="3"
+                    BorderBrush="#F08621" 
+                    Background="#F08621"
+                    Margin="0,5,0,0"
+                    Padding="20,5,20,5"
+                    >
+
+            <ContentPresenter 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            </ContentPresenter>
+
+        </Border>
+
+        <ControlTemplate.Triggers>
+
+            <!--<Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background"  Value="white" TargetName="BordeBoton"></Setter>
+                <Setter Property="FontStretch" Value="ExtraExpanded"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Foreground" Value="#FF901A1A"/>
+                <Setter Property="BorderBrush" Value="#FF901A1A" TargetName="BordeBoton"></Setter>
+            </Trigger>-->
+
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background"  Value="White" TargetName="BordeBoton"></Setter>
+                <Setter Property="BorderBrush" Value="#ff6659" TargetName="BordeBoton"></Setter>
+
+                <Setter Property="Foreground" Value="#FF901A1A"/>
+            </Trigger>
+
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Background"  Value="#9a0007" TargetName="BordeBoton"></Setter>
+                <Setter Property="BorderBrush"  Value="#9a0007" TargetName="BordeBoton"/>
+                <Setter Property="FontSize" Value="17"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+
+        </ControlTemplate.Triggers>
+
+    </ControlTemplate>
+    <!--Estilo general para Botones-->
+    <Style x:Key="EstiloConPlantillaDicionario" TargetType="{x:Type Button}">
+
+        <Setter Property="Template" Value="{StaticResource PlantillaBoton}"></Setter>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#ffcdd2"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+    </Style>
+
+
+
+
+    <!--PLANTILLA PARA TEXTBOX-->
+    <ControlTemplate x:Key="PlantillaTextBox" TargetType="{x:Type TextBox}">
+        <Border x:Name="TextBorder"
+                CornerRadius="10"               
+                BorderThickness="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Background="White"
+                BorderBrush="#ff7961"
+                >
+
+            <ScrollViewer x:Name="PART_ContentHost"
+                          Focusable="false"
+                          Margin="3"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          />
+            <!--<ContentPresenter 
+                    Margin="3"
+                    Focusable="false"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            </ContentPresenter>-->
+
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsFocused" Value="true">
+                <Setter Property="Background" TargetName="TextBorder" Value="#f3e5f5"></Setter>
+                <Setter Property="BorderBrush" TargetName="TextBorder" Value="#9c27b0"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+
+    </ControlTemplate>
+    <!--Estilo general para TextBox-->
+    <Style TargetType="{x:Type Control}" x:Key="ControlStyle">
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+    </Style>
+
+    <Style x:Key="EstiloPersonalizadoTextBox" TargetType="{x:Type TextBox}" BasedOn="{StaticResource ControlStyle}">
+        <Setter Property="Height" Value="40"></Setter>
+        <Setter Property="FontSize" Value="15"></Setter>
+        <Setter Property="Padding" Value="2"></Setter>
+        <Setter Property="MaxLength" Value="40"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Template" Value="{StaticResource PlantillaTextBox}"/>
+    </Style>
+
+    <!--stilo para los text box-->
+
+    <Style x:Key="ModernTextbox" TargetType="{x:Type TextBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border CornerRadius="10"
+                        Background="#353340"
+                        Width="150" 
+                        Height="30">
+                        <TextBox Margin="1"
+                             Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text}"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             VerticalContentAlignment="Center"
+                             Padding="1"
+                             Foreground="#CFCFCF"
+                             />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--TEMPLATES PARA TEXTBOX CON ERROR -->
+    <ControlTemplate x:Key="PlantillaTextBoxError">
+        <DockPanel>
+            <Ellipse DockPanel.Dock="Right" Margin="2,0" Width="10" Height="10">
+                <Ellipse.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#11ff1111" Offset="0"/>
+                        <GradientStop Color="#FFFF0000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <AdornedElementPlaceholder/>
+        </DockPanel>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="PlantillaTextBoxParaError" TargetType="{x:Type TextBox}">
+        <Border CornerRadius="10"
+                        Background="#353340"
+                        Width="150" 
+                        Height="30">
+            <TextBox Margin="1"
+                             Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text}"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             VerticalContentAlignment="Center"
+                             Padding="5"
+                             Foreground="#CFCFCF"/>
+        </Border>
+    </ControlTemplate>
+
+    <!--ESTILO PARA TEXTBOX-->
+    <Style x:Key="EstiloErrorTextBox" TargetType="TextBox">
+
+        
+        <Setter Property="MaxLength" Value="40"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+
+        <Setter Property="Template" Value="{StaticResource PlantillaTextBoxParaError}"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource PlantillaTextBoxError}"/>
+
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+
+                <Setter Property="ToolTip" 
+                        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}">
+                </Setter>
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
