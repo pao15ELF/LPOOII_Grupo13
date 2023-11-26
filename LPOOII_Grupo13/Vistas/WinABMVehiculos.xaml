@@ -1,0 +1,424 @@
+﻿<Window x:Class="Vistas.WinABMVehiculos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:ClaseBase;assembly=ClaseBase"
+        Title="WinABMVehiculos"
+        Height="550" 
+        Width="1000" 
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown" Loaded="Window_Loaded">
+    
+    <Window.Resources> 
+        <!--<ObjectDataProvider
+            ObjectType="{x:Type svc:TrabajarTipoVehiculo}"
+            MethodName="traerTiposVehiculos"
+            x:Key="list_TipoVehiculo"/>-->
+
+        <ObjectDataProvider
+            ObjectType="{x:Type svc:TrabajarTipoVehiculo}"
+            MethodName="listarTipoVehiculo"
+            x:Key="list_TipoVehiculo"/>
+    </Window.Resources>
+    
+
+    <Border CornerRadius="25">
+        <Border.Background>
+            <ImageBrush ImageSource="/Vistas;component/Images/fondoForm3.png"/>
+        </Border.Background>
+
+        <Border CornerRadius="25"
+            BorderThickness="3"
+                Opacity="0.93">
+
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462ad8" Offset="0"/>
+                    <GradientStop Color="#da34ae" Offset="0.75"/>
+                    <GradientStop Color="#8a16c1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush  StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1b1448" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="GESTIÓN DE VEHICULOS"
+                               Foreground="DarkGray"
+                           FontSize="12"
+                           FontFamily="Fonts/#Orbitron Medium"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Margin="10,0,0,0"/>
+
+                    <!--BOTON MINIMIZAR-->
+                    <Button x:Name="btnMinimizar"
+                        BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="17"
+                            FontFamily="Arial"
+                            Cursor="Hand"
+                            Grid.Column="1" 
+                            Click="btnMinimizar_Click"
+                            Style="{StaticResource ResourceKey=triBotonMinLogin}">
+                        <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18"
+                                        Height="19"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <!--BOTON CERRAR-->
+                    <Button x:Name="btnCerrar"
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="White"
+                            FontSize="13"
+                            FontFamily="Arial"
+                            Cursor="Hand"
+                            Grid.Column="2" 
+                            Click="btnCerrar_Click"
+                            Style="{StaticResource ResourceKey=triBotonCerrarLogin}">
+
+                        <!--MIDIFICAR EL ESTILO DEL BOTON CERRAR LOGIN(Se movio a triggers)-->
+
+                        <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18"
+                                        Height="19"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Grid>
+
+                <!--STACK PANEL DE DATOS DEL CLIENTE-->
+                <StackPanel Width="400"
+                            Orientation="Vertical"
+                            HorizontalAlignment="Left"
+                            Grid.Row="1">
+                    <TextBlock
+                            Name="txtIdVehiculoMod"
+                            Text="{Binding TypV_Id}"
+                            Grid.Row="0"
+                            Background="Aqua"
+                            Width="40"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top" 
+                            Visibility="Hidden" />
+                    <!--Formulario-->
+                    <!--TITULO-->
+                    <Label Content="DATOS DEL VEHICULO"
+                           Name="lblTituloDatos"
+                           Foreground="DarkGray"
+                           Width="180" 
+                           FontSize="15" 
+                           FontFamily="Arial"
+                           Margin="0,50,0,0"/>
+                    <!---->
+                    <StackPanel Height="60" 
+                                Margin="0,65,0,0"
+                                Width="350">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label
+                                Content="COD. VEHICULO: "
+                                Name="lblCodVehiculo"
+                                Margin="0,15,6,0"
+                                Foreground="DarkGray"
+                                FontSize="13"
+                                FontFamily="Arial"
+                                Grid.Column="0"/>
+                            <TextBox
+                                Grid.Column="1"
+                                Name="txtCodVehiculo"
+                                Margin="0,12,42,0"
+                                Style="{StaticResource EstiloErrorTextBox}">
+                                
+                                <TextBox.Text>
+                                    <Binding Path="TypV_TVCodigo" UpdateSourceTrigger="PropertyChanged"
+                                        ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                                </TextBox.Text>
+                                
+                            </TextBox>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Height="60" 
+                                    Margin="0,5,0,0"
+                                Width="350">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                                Content="DESCRIPCIÓN: "
+                                Name="lblDescripcion"
+                                Margin="6,15,6,0"
+                                Foreground="DarkGray"
+                                FontSize="13"
+                                FontFamily="Arial"
+                                Grid.Column="0"/>
+                            <TextBox
+                                Grid.Column="1"
+                                Name="txtDescripcion"
+                                Margin="0,12,42,0"
+                                Style="{StaticResource EstiloErrorTextBox}">
+                                
+                                <TextBox.Text>
+                                    <Binding Path="TypV_Descripcion" UpdateSourceTrigger="PropertyChanged"
+                                        ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                                </TextBox.Text>
+                            </TextBox>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Height="60" 
+                                    Margin="0,5,0,0"
+                                Width="350">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                                Content="TARIFA: "
+                                Name="lblTarifa"
+                                Margin="6,15,6,0"
+                                Foreground="DarkGray"
+                                FontSize="13"
+                                FontFamily="Arial"
+                                Grid.Column="0"/>
+                            <TextBox
+                                Grid.Column="1"
+                                Name="txtTarifa"
+                                Margin="0,12,42,0"
+                                Style="{StaticResource EstiloErrorTextBox}">
+                                
+                                <TextBox.Text>
+                                    <Binding Path="TypV_Tarifa" UpdateSourceTrigger="PropertyChanged"
+                                        ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                                </TextBox.Text>
+                            </TextBox>
+                        </Grid>
+                    </StackPanel>
+                    
+                    <Grid
+                        Margin="0,30,0,0">
+                        <!--<Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="200" />
+                        </Grid.ColumnDefinitions>-->
+                        
+                        <!--BOTON GUARDAR-->
+                        <Button x:Name="btnGuardarVehiculo"
+                                BorderThickness="0"
+                                Content="GUARDAR"
+                                Cursor="Hand"
+                                Grid.Column="0" 
+                                Margin="0" 
+                                Height="43"
+                                Style="{StaticResource ResourceKey=triBotonAceptarForm}" 
+                                Click="btnGuardarVehiculo_Click">
+
+                            <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="120"
+                                            Height="40"
+                                            CornerRadius="20"
+                                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+
+                    <!--BOTON CANCELAR-->
+                    <!--<Button x:Name="btnModificar"
+                            BorderThickness="0"
+                            Content="MODIFICAR"
+                            Foreground="White"
+                            FontSize="13"
+                            FontFamily="Arial"
+                            Cursor="Hand"
+                            Grid.Column="2" 
+                            Margin="25" 
+                            Height="43"
+                            Style="{StaticResource ResourceKey=triBotonModificar}">-->
+                        
+
+                        <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                        <!--<Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="120"
+                                        Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>-->
+                  </Grid>
+                    
+                    
+                    
+                    
+                </StackPanel>
+
+                <!--STACK PANEL DE LISTADO CLIENTES-->
+                <StackPanel Width="600"
+                            Orientation="Vertical"
+                            HorizontalAlignment="Right"
+                            Grid.Row="1">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="300"/>
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="LISTADO DE VEHICULOS"
+                           Name="lblTituloListadoVehiculos"
+                           Foreground="DarkGray"
+                           HorizontalAlignment="Center"
+                           Margin="0,40,0,0"
+                           Grid.Row="0"
+                           FontSize="18"/>
+
+                    <StackPanel
+                        Grid.Row="1">
+
+                        <Grid>
+                            <ListView
+                                Name="lvwTipoVehiculos"
+                                Width="450"
+                                Height="250"
+                                Margin="67,30,83,0"
+                                ItemsSource="{Binding Source={StaticResource list_TipoVehiculo}}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Width="150" Header="Codigo" DisplayMemberBinding="{Binding Path=TypV_TVCodigo}"/>
+                                        <GridViewColumn Width="150" Header="Descripcion" DisplayMemberBinding="{Binding Path=TypV_Descripcion}"/>
+                                        <GridViewColumn Width="150" Header="Tarifa" DisplayMemberBinding="{Binding Path=TypV_Tarifa}"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                            
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Row="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--BOTON MODIFICAR-->
+                            <Button x:Name="btnModificar"
+                            BorderThickness="0"
+                            Content="MODIFICAR"
+                            Cursor="Hand"
+                            Grid.Column="0" 
+                            Margin="15" 
+                            Height="43"
+                            Style="{StaticResource ResourceKey=triBotonModificar}" Click="btnModificar_Click">
+
+                                <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="120"
+                                        Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+
+                            </Button>
+
+                            <!--BOTON ELIMINAR-->
+                            <Button x:Name="btnEliminar"
+                            BorderThickness="0"
+                            Content="ELIMINAR"
+                            Cursor="Hand"
+                            Grid.Column="1" 
+                            Margin="15" 
+                            Height="43"
+                            Style="{StaticResource ResourceKey=triBotonEliminarForm}" Click="btnEliminar_Click">
+
+                                <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="120"
+                                        Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+
+                            </Button>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+
+                    
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Border>
+
+</Window>

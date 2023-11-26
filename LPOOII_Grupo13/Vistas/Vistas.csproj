@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A5921772-67B6-420D-A2CF-EE32CA1F5D98}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vistas</RootNamespace>
+    <AssemblyName>Vistas</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ControlUsuario\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaPreviaDeImpresion.xaml.cs">
+      <DependentUpon>VistaPreviaDeImpresion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinABMClientes.xaml.cs">
+      <DependentUpon>WinABMClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinABMUsuario.xaml.cs">
+      <DependentUpon>WinABMUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinABMVehiculos.xaml.cs">
+      <DependentUpon>WinABMVehiculos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinEstadoSector.xaml.cs">
+      <DependentUpon>WinEstadoSector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinListaUsuariosFiltros.xaml.cs">
+      <DependentUpon>WinListaUsuariosFiltros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinPrincipal.xaml.cs">
+      <DependentUpon>WinPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinRegistrarEntrada.xaml.cs">
+      <DependentUpon>WinRegistrarEntrada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinVehiculosPlayas.xaml.cs">
+      <DependentUpon>WinVehiculosPlayas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinWelcome.xaml.cs">
+      <DependentUpon>WinWelcome.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ControlUsuario\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Diccionario\Estilos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Diccionario\Plantillas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Diccionario\Templates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Diccionario\Triggers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="VistaPreviaDeImpresion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinABMClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinABMUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinABMVehiculos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinEstadoSector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinListaUsuariosFiltros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinRegistrarEntrada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinVehiculosPlayas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinWelcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClaseBase\ClaseBase.csproj">
+      <Project>{ABC4D649-AA52-4047-863F-7A651D1CAE40}</Project>
+      <Name>ClaseBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{62243AC2-F42D-4177-A20C-506045594898}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fondo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\banner-estacione.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-contraseña-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-usuario-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fondoLogin2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\autos estacionados.png" />
+    <Resource Include="Images\fondoLogin.jpg" />
+    <Resource Include="Images\icono-contraseña.png" />
+    <Resource Include="Images\icono-usuario.png" />
+    <Resource Include="Images\icons8-aparcamiento-descubierto-50.png" />
+    <Resource Include="Images\icons8-auto-50.png" />
+    <Resource Include="Images\icons8-cliente-64.png" />
+    <Resource Include="Images\icons8-clientes-64.png" />
+    <Resource Include="Images\icons8-embotellamiento-50.png" />
+    <Resource Include="Images\icons8-estacionamiento-64.png" />
+    <Resource Include="Images\icons8-flecha-12.png" />
+    <Resource Include="Images\icons8-multiple-pages-mode-50.png" />
+    <Resource Include="Images\icons8-salida-64.png" />
+    <Resource Include="Images\img_arrow.png" />
+    <Resource Include="Images\logoLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\istockphoto-1023557358-612x612.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fondoForm3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-menu-apps-sub-divded-into-parts-in-isolated-on-white-background-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Tiempos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-grupo-de-usuarios-hombre-hombre-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-usuario-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-búsqueda-de-propiedad-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-puerta-de-garaje-abierta-100.png" />
+    <Content Include="Sonido\intro.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

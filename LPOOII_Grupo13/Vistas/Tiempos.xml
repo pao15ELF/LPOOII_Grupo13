@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<tiempo>
+  <tipo name="0" />
+  <!-- Sector Libre-->
+  <tipo name="15"/>
+  <!-- Sector Ocupado -->
+  <tipo name="30" />
+  <!-- Sector Ocupado -->
+  <tipo name="60"/>
+  <!-- Sector Ocupado -->
+  <tipo name="90"/>
+  <!-- Sector Ocupado -->
+  <tipo name="120"/>
+  <!-- Sector Ocupado -->
+</tiempo>
