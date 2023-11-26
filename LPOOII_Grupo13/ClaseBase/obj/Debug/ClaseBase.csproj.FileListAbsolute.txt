@@ -1,0 +1,24 @@
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\ClaseBase\bin\Debug\ClaseBase.dll
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\ClaseBase\bin\Debug\ClaseBase.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\ClaseBase\obj\Debug\ClaseBase.csprojResolveAssemblyReference.cache
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\ClaseBase\obj\Debug\ClaseBase.dll
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\ClaseBase\obj\Debug\ClaseBase.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13\ClaseBase\bin\Debug\ClaseBase.dll.config
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\ClaseBase\bin\Debug\ClaseBase.dll.config
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\ClaseBase\bin\Debug\ClaseBase.dll
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\ClaseBase\bin\Debug\ClaseBase.pdb
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\ClaseBase\obj\Debug\ClaseBase.csprojResolveAssemblyReference.cache
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\ClaseBase\obj\Debug\ClaseBase.dll
+C:\LPOO2\lpoo-grupo13_tp123y4_enviado\ClaseBase\obj\Debug\ClaseBase.pdb
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\bin\Debug\ClaseBase.dll.config
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\bin\Debug\ClaseBase.dll
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\bin\Debug\ClaseBase.pdb
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\obj\Debug\ClaseBase.csprojResolveAssemblyReference.cache
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\obj\Debug\ClaseBase.dll
+C:\LPOO2\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\obj\Debug\ClaseBase.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\bin\Debug\ClaseBase.dll.config
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\bin\Debug\ClaseBase.dll
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\bin\Debug\ClaseBase.pdb
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\obj\Debug\ClaseBase.csprojResolveAssemblyReference.cache
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\obj\Debug\ClaseBase.dll
+C:\Users\paoel\Documents\Visual Studio 2010\Projects\lpoo-grupo13_tp1234y5_pto1y2\ClaseBase\obj\Debug\ClaseBase.pdb
