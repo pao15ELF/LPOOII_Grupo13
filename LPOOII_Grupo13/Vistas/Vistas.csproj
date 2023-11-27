@@ -70,6 +70,9 @@
     <Compile Include="WinABMVehiculos.xaml.cs">
       <DependentUpon>WinABMVehiculos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinAcercaDeNosotros.xaml.cs">
+      <DependentUpon>WinAcercaDeNosotros.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinEstadoSector.xaml.cs">
       <DependentUpon>WinEstadoSector.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinABMVehiculos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinAcercaDeNosotros.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -253,7 +260,13 @@
     <Resource Include="Images\icons8-búsqueda-de-propiedad-64.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Video\SistemaEstacionamiento.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\icons8-puerta-de-garaje-abierta-100.png" />
+    <Resource Include="Images\boton-de-play.png" />
+    <Resource Include="Images\detener.png" />
+    <Resource Include="Images\pausa.png" />
     <Content Include="Sonido\intro.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
