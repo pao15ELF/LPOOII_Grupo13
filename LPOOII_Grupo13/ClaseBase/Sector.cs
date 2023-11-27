@@ -42,5 +42,13 @@ namespace ClaseBase
             get { return sec_Habilitado; }
             set { sec_Habilitado = value; }
         }
+
+        private int sec_ZonaCod;
+
+        public int Sec_ZonaCod
+        {
+            get { return sec_ZonaCod; }
+            set { sec_ZonaCod = value; }
+        }
     }
 }

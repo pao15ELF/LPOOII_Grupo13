@@ -8,10 +8,10 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ClaseBase.Sector" Collapsed="true">
+  <Class Name="ClaseBase.Sector">
     <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABQAAEAUAABAAAAAAAAAAAAAAAACABAAAgAQAA=</HashCode>
+      <HashCode>AAAAAAhQAAEIUAABAAAAAAAAAAAAAAAACABAAAgAQAA=</HashCode>
       <FileName>Sector.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -31,8 +31,8 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ClaseBase.Ticket" Collapsed="true">
-    <Position X="3.25" Y="1.75" Width="1.5" />
+  <Class Name="ClaseBase.Ticket">
+    <Position X="5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EARACBAAADgAAAAAAABAABAQQCAIEAAgCAAAEAgAAAg=</HashCode>
       <FileName>Ticket.cs</FileName>
@@ -68,6 +68,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIAQAIAAAAAAAAAAgAAACAAAAAAA=</HashCode>
       <FileName>TrabajarUsuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClaseBase.Zona">
+    <Position X="9" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAQIAAAAAAAAAAAAAAAAAAAAAABEAAAABAAAAAA=</HashCode>
+      <FileName>Zona.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
