@@ -403,6 +403,47 @@
                     </MenuItem>
 
 
+                    <!--// Main Menu - Acerca de //-->
+
+                    <MenuItem Header="Acerca De .."
+                              Name="mnuAcerca"
+                          Template="{StaticResource Menu_SubMenu_Template}">
+                        <MenuItem.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
+                            </DataTemplate>
+                        </MenuItem.HeaderTemplate>
+
+                        <MenuItem.Icon>
+
+                            <Image Source="/Images/icons8-búsqueda-de-propiedad-64.png"
+                               Stretch="Fill" Width="24" Height="24" />
+
+                        </MenuItem.Icon>
+
+                        <!--// Settings Submenu //-->
+
+                        <MenuItem Header="Nosotros"
+                                  Name="mnuNosotros"
+                              Template="{StaticResource Item_Template}" Click="mnuNosotros_Click">
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+
+                            <MenuItem.Icon>
+
+                                <Image Source="/Images/icons8-usuario-16.png"
+                                   Stretch="Fill" Width="20" Height="20"/>
+
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+
+                    </MenuItem>
+
+
                     <!--// Main Menu - Exit //-->
 
                     <MenuItem Header="Log Out"
