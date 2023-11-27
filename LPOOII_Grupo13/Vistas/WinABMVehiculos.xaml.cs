@@ -13,6 +13,8 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 
 using ClaseBase;
+using Microsoft.Win32;
+using System.IO;
 
 namespace Vistas
 {
@@ -90,6 +92,10 @@ namespace Vistas
             oTipoVehiculo.TypV_Descripcion = txtDescripcion.Text;
             oTipoVehiculo.TypV_Tarifa = Convert.ToInt32(txtTarifa.Text);
             oTipoVehiculo.TypV_Estado = "Habilitado";
+
+            BitmapImage imagen = imgVehiculo.Source as BitmapImage;
+            string x = imgBase64(imagen);
+            oTipoVehiculo.TypV_Imagen = x;
         }
 
         /// <summary>
@@ -148,6 +154,7 @@ namespace Vistas
             txtCodVehiculo.Text = "";
             txtDescripcion.Text = "";
             txtTarifa.Text = "";
+            imgVehiculo.Source = null;
             txtCodVehiculo.Focus();
         }
 
@@ -190,6 +197,54 @@ namespace Vistas
                 
             }
         }
+
+        private void btnInsertarFoto_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Archivo de imagen (.jpg)|*.jpg|All Files (*.*)|*.*";
+            ofd.FilterIndex = 1;
+            ofd.Multiselect = false;
+
+            if (ofd.ShowDialog() == true)
+            {
+                //
+                try
+                {
+                    BitmapImage foto = new BitmapImage();
+                    foto.BeginInit();
+                    foto.UriSource = new Uri(ofd.FileName);
+                    foto.EndInit();
+                    foto.Freeze();
+
+                    imgVehiculo.Source = foto;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar la imagen: " + ex.Message, "Error");
+                }
+            }
+        }
+
+
+        private string imgBase64(BitmapImage foto)
+        {
+            // Convertir la imagen a base64
+            byte[] imageData;
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(foto));
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                encoder.Save(ms);
+                imageData = ms.ToArray();
+            }
+
+            string base64String = Convert.ToBase64String(imageData);
+
+            return base64String;
+        }
+
 
     }
 }

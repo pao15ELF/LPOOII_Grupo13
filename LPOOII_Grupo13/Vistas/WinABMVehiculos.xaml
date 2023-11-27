@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:svc="clr-namespace:ClaseBase;assembly=ClaseBase"
         Title="WinABMVehiculos"
-        Height="550" 
+        Height="670" 
         Width="1000" 
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" 
@@ -244,8 +244,52 @@
                         </Grid>
                     </StackPanel>
                     
-                    <Grid
-                        Margin="0,30,0,0">
+             <StackPanel Height="136" 
+                         Margin="0,5,0,0"
+                         Width="350">
+                        <Grid Height="142">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                          <!--  <Label
+                                Content="IMAGEN: "
+                                Name="lblImg"
+                                Margin="6,15,6,0"
+                                Foreground="DarkGray"
+                                FontSize="13"
+                                FontFamily="Arial"
+                                Grid.Column="0"/> -->
+
+                    <Grid Margin="0,0,0,62">
+                        <Button x:Name="btnInsertarImg" BorderThickness="0" Content="Insertar Foto" Cursor="Hand" Grid.Column="0" Margin="0" Height="43" Style="{StaticResource ResourceKey=triBotonAceptarForm}" Click="btnInsertarFoto_Click">
+                            <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="120" Height="40" CornerRadius="20" Background="Goldenrod">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                    </Grid>
+
+
+                    <Image x:Name="imgVehiculo"
+                           Grid.Column="1" 
+                           Height="108" 
+                           HorizontalAlignment="Center" 
+                           Margin="28,16,42,4" 
+                           Stretch="Fill" 
+                           VerticalAlignment="Center" 
+                           Width="160" />
+            </Grid>
+            </StackPanel>
+
+
+            <Grid Margin="0,30,0,0">
                         <!--<Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200" />
                             <ColumnDefinition Width="200" />
@@ -323,6 +367,7 @@
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="300"/>
                         <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
                     </Grid.RowDefinitions>
 
                     <Label Content="LISTADO DE VEHICULOS"
@@ -348,6 +393,7 @@
                                         <GridViewColumn Width="150" Header="Codigo" DisplayMemberBinding="{Binding Path=TypV_TVCodigo}"/>
                                         <GridViewColumn Width="150" Header="Descripcion" DisplayMemberBinding="{Binding Path=TypV_Descripcion}"/>
                                         <GridViewColumn Width="150" Header="Tarifa" DisplayMemberBinding="{Binding Path=TypV_Tarifa}"/>
+                                        <GridViewColumn Width="150" Header="Imagen" DisplayMemberBinding="{Binding Path=TypV_Imagen}"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
