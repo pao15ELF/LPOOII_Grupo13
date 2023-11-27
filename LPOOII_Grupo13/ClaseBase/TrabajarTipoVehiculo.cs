@@ -74,6 +74,7 @@ namespace ClaseBase
                 tipoVehiculo.TypV_Descripcion= (string)row["TV_Descripcion"];
                 tipoVehiculo.TypV_Tarifa= (decimal)row["TV_Tarifa"];
                 tipoVehiculo.TypV_Estado = (string)row["TV_Estado"];
+                tipoVehiculo.TypV_Imagen = (string)row["TV_Imagen"];
                 
                 listaTipoVehiculo.Add(tipoVehiculo);
             }
@@ -101,6 +102,7 @@ namespace ClaseBase
             cmd.Parameters.AddWithValue("@descripcion", tipoVehiculo.TypV_Descripcion);
             cmd.Parameters.AddWithValue("@tarifa", tipoVehiculo.TypV_Tarifa);
             cmd.Parameters.AddWithValue("@estado", tipoVehiculo.TypV_Estado);
+            cmd.Parameters.AddWithValue("@imagen", tipoVehiculo.TypV_Imagen);
 
             cnn.Open();
             cmd.ExecuteNonQuery();
