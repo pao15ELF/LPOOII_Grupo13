@@ -138,6 +138,7 @@ namespace ClaseBase
             cmd.Parameters.AddWithValue("@descripcion", tipoVehiculo.TypV_Descripcion);
             cmd.Parameters.AddWithValue("@tarifa", tipoVehiculo.TypV_Tarifa);
             cmd.Parameters.AddWithValue("@estado", tipoVehiculo.TypV_Estado);
+            cmd.Parameters.AddWithValue("@imagen", tipoVehiculo.TypV_Imagen);
 
             cnn.Open();
             cmd.ExecuteNonQuery();
