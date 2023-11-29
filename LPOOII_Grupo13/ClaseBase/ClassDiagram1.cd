@@ -8,10 +8,10 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ClaseBase.Sector" Collapsed="true">
+  <Class Name="ClaseBase.Sector">
     <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABQAAEAUAABAAAAAAAAAAAAAAAACABAAAgAQAA=</HashCode>
+      <HashCode>AAAAAAhQAAEIUAABAAAAAAAAAAAAAAAACABAAAgAQAA=</HashCode>
       <FileName>Sector.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -19,6 +19,7 @@
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIQAAAAAIQkBKAAAAABAgAAAAIAAgAIAAABAAQE=</HashCode>
+
       <FileName>TipoVehiculo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -31,15 +32,15 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ClaseBase.Ticket" Collapsed="true">
-    <Position X="3.25" Y="1.75" Width="1.5" />
+  <Class Name="ClaseBase.Ticket">
+    <Position X="5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EARACBAAADgAAAAAAABAABAQQCAIEAAgCAAAEAgAAAg=</HashCode>
       <FileName>Ticket.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClaseBase.TrabajarTipoVehiculo" Collapsed="true">
-    <Position X="5.25" Y="1.75" Width="1.5" />
+    <Position X="5.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAASAAgAAAAAAAAAAAAAAQAAAAAAAAAAAg=</HashCode>
       <FileName>TrabajarTipoVehiculo.cs</FileName>
@@ -52,6 +53,7 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>QAAAAQAABAQABAAAAAAAAAAAAAAAAACIAAAAAAAAAAA=</HashCode>
+
       <FileName>TrabajarCliente.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -70,11 +72,17 @@
       <FileName>TrabajarUsuario.cs</FileName>
     </TypeIdentifier>
   </Class>
+
   <Class Name="ClaseBase.TrabajarTicket" Collapsed="true">
     <Position X="1.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAgAAAAAAAAAIAAAAAAAgAAAAAQAAAAAAAAIAAA=</HashCode>
       <FileName>TrabajarTicket.cs</FileName>
+  <Class Name="ClaseBase.Zona">
+    <Position X="9" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAQIAAAAAAAAAAAAAAAAAAAAAABEAAAABAAAAAA=</HashCode>
+      <FileName>Zona.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

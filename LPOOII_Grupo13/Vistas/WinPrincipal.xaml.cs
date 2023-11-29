@@ -135,5 +135,13 @@ namespace Vistas
             this.Close();
         }
 
+        private void mnuNosotros_Click(object sender, RoutedEventArgs e)
+        {
+            WinAcercaDeNosotros winNosotros = new WinAcercaDeNosotros();
+            winNosotros.Show();
+            this.Close();
+        }
+
+
     }
 }

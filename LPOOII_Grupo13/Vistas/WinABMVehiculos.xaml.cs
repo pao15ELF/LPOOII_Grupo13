@@ -13,6 +13,8 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 
 using ClaseBase;
+using Microsoft.Win32;
+using System.IO;
 
 namespace Vistas
 {
@@ -90,6 +92,10 @@ namespace Vistas
             oTipoVehiculo.TypV_Descripcion = txtDescripcion.Text;
             oTipoVehiculo.TypV_Tarifa = Convert.ToInt32(txtTarifa.Text);
             oTipoVehiculo.TypV_Estado = "Habilitado";
+
+            BitmapImage imagen = imgVehiculo.Source as BitmapImage;
+            string x = imgBase64(imagen);
+            oTipoVehiculo.TypV_Imagen = x;
         }
 
         /// <summary>
@@ -115,8 +121,13 @@ namespace Vistas
                 }
                 else
                 {
+                    BitmapImage imagen = imgVehiculo.Source as BitmapImage;
+                    string x = imgBase64(imagen);
+                    oTipoVehiculo.TypV_Imagen = x;
+
                     TrabajarTipoVehiculo.modificar_TipoVehiculo(oTipoVehiculo);
-                    // Actualizar la lista después de insertar un nuevo elemento
+
+                   // Actualizar la lista después de insertar un nuevo elemento
                     listaTipoVehiculos = TrabajarTipoVehiculo.listarTipoVehiculo();
                     lvwTipoVehiculos.ItemsSource = listaTipoVehiculos;
 
@@ -148,6 +159,7 @@ namespace Vistas
             txtCodVehiculo.Text = "";
             txtDescripcion.Text = "";
             txtTarifa.Text = "";
+            imgVehiculo.Source = null;
             txtCodVehiculo.Focus();
         }
 
@@ -160,6 +172,7 @@ namespace Vistas
         {
             cargarTextBox();
             btnGuardarVehiculo.Content = "ACTUALIZAR";
+            btnInsertarImg.Content = "Cambiar Foto";
         }
 
         public void cargarTextBox()
@@ -172,6 +185,9 @@ namespace Vistas
                 txtCodVehiculo.Text = tipoVehiculoMod.TypV_TVCodigo.ToString();
                 txtDescripcion.Text = tipoVehiculoMod.TypV_Descripcion.ToString();
                 txtTarifa.Text = tipoVehiculoMod.TypV_Tarifa.ToString();
+
+                SeleccionarVehiculo();               
+
             }
         }
 
@@ -190,6 +206,98 @@ namespace Vistas
                 
             }
         }
+
+        private void btnInsertarFoto_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Archivo de imagen (.jpg)|*.jpg|All Files (*.*)|*.*";
+            ofd.FilterIndex = 1;
+            ofd.Multiselect = false;
+
+            if (ofd.ShowDialog() == true)
+            {
+                try
+                {
+                    BitmapImage foto = new BitmapImage();
+                    foto.BeginInit();
+                    foto.UriSource = new Uri(ofd.FileName);
+                    foto.EndInit();
+                    foto.Freeze();
+
+                    imgVehiculo.Source = foto;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar la imagen: " + ex.Message, "Error");
+                }
+            }
+        }
+
+
+        private string imgBase64(BitmapImage foto)
+        {
+                // Convertir la imagen a base64
+                byte[] imageData;
+                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+
+                encoder.Frames.Add(BitmapFrame.Create(foto));
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    encoder.Save(ms);
+                    imageData = ms.ToArray();
+                }
+
+                string base64String = Convert.ToBase64String(imageData);
+                return base64String;
+        }
+
+        //tercero
+        private void SeleccionarVehiculo()
+        {
+            // Obtener la cadena Base64 del vehículo seleccionado desde la base de datos
+            string base64Image = ObtenerBase64DeLaBaseDeDatos();
+
+            // Llamar al método para cargar la imagen
+            CargarImagenDesdeBase64(base64Image);
+        }
+
+        //primero
+        private string ObtenerBase64DeLaBaseDeDatos()
+        {
+            TipoVehiculo tipoVehiculoMod = (TipoVehiculo)lvwTipoVehiculos.SelectedItem;
+            string base64String = tipoVehiculoMod.TypV_Imagen.ToString(); // Aquí obtienes tu cadena Base64 desde tu objeto o propiedad       
+            return base64String;
+         }
+
+        //segundo
+        private void CargarImagenDesdeBase64(string base64String)
+        {
+            //try
+            //{
+                byte[] imageBytes = Convert.FromBase64String(base64String);
+
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.StreamSource = ms;
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmapImage.EndInit();
+
+                    // Asignar la imagen cargada al Image
+                    imgVehiculo.Source = bitmapImage;
+                }
+            //}
+            //catch (Exception ex)
+            //{
+            //    // Manejo de excepciones: muestra información sobre la excepción
+            //    Console.WriteLine("Error al inicializar BitmapImage desde Base64: " + ex.Message);
+            //}
+        }
+
+
 
     }
 }

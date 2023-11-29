@@ -84,6 +84,9 @@ namespace ClaseBase
                     case "TypV_Tarifa":
                         result = validar_TVTarifa();
                         break;
+                        case "TypV_Imagen":
+                        result = validar_TVImagen();
+                        break;
                 }
                 return result;
             }
@@ -132,6 +135,26 @@ namespace ClaseBase
             {
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        private string typV_Imagen;
+
+        public string TypV_Imagen
+        {
+            get { return typV_Imagen; }
+            set { typV_Imagen = value;
+                  Notificador(typV_Imagen);
+                  OnPropertyChanged("TypV_Imagen");
+            }
+        }
+
+        private string validar_TVImagen()
+        {
+            if (String.IsNullOrEmpty(TypV_Imagen))
+            {
+                return "Debe ingresar la imagen del vehiculo";
+            }
+            return null;
         }
 
     }
