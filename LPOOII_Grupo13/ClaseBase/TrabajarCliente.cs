@@ -136,15 +136,44 @@ namespace ClaseBase
             cmd.Connection = cnn;
 
             cmd.Parameters.AddWithValue("@id", cliente.Cli_Id1);
-            //cmd.Parameters.AddWithValue("@dni", cliente.Cli_ClienteDni1);
-            //cmd.Parameters.AddWithValue("@apellido", cliente.Cli_Apellido1);
-            //cmd.Parameters.AddWithValue("@nombre", cliente.Cli_Nombre1);
-            //cmd.Parameters.AddWithValue("@telefono", cliente.Cli_Telefono1);
             cmd.Parameters.AddWithValue("@estado", cliente.Cli_Estado1);
 
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
+        }
+
+        public static Cliente buscarCliente(int dni)
+        {
+            SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarClintePorDni";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+
+            cmd.Parameters.AddWithValue("@dni", dni);
+            //ejecuta la consulta
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            //llena los datos de la consulta en el DataTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            if (dt.Rows.Count > 0 && dt.Rows[0]["Cli_Estado"].ToString()=="Habilitado")
+            {
+                Cliente cliente = new Cliente();
+                cliente.Cli_Id1 = Convert.ToInt32(dt.Rows[0]["Cli_Id"]);
+                cliente.Cli_ClienteDni1 = Convert.ToInt32(dt.Rows[0]["Cli_Dni"]);
+                cliente.Cli_Apellido1 = dt.Rows[0]["Cli_Apellido"].ToString();
+                cliente.Cli_Nombre1 = dt.Rows[0]["Cli_Nombre"].ToString();
+                cliente.Cli_Telefono1 = dt.Rows[0]["Cli_Telefono"].ToString();
+                return cliente;
+            }
+            else 
+            {
+                return null;
+            }
         }
     }
 }

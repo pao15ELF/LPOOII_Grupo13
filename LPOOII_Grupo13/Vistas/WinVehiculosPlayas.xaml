@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Vehiculos en Playa" 
-        Height="560" 
-        Width="480" 
+        Height="620" 
+        Width="1100" 
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" 
         ResizeMode="CanResizeWithGrip"
@@ -112,47 +112,56 @@
                     </Button>
                 </Grid>
 
-                <!--SECTORES E1 HASTA E10-->
-                <StackPanel Width="400"
+                <!--SEPARADOR DE ZONAS 1, 2 Y 3-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!--ZONA 1-->
+                    <!--SECTORES E1 HASTA E10-->
+                    
+                    <StackPanel Width="300"
                             Height="290"
                             Orientation="Vertical"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Center"
                             Grid.Row="1"
                             Margin="0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="53"/>
-                            <RowDefinition Height="53"/>
-                            <RowDefinition Height="53"/>
-                            <RowDefinition Height="53"/>
-                            <RowDefinition Height="53"/>
-                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                            </Grid.RowDefinitions>
 
-                        <!--BOTON E1 Y E6-->
-                        <StackPanel Height="53" 
-                                Width="400"
+                            <!--BOTON E1 Y E6-->
+                            <StackPanel Height="53" 
+                                Width="300"
                                 Grid.Row="0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="200"/>
-                                </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
 
-                                <Button 
+                                    <Button 
                                     Content="E1" 
                                     Height="53" 
                                     HorizontalAlignment="Left" 
                                     Name="btnE1"  
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" 
-                                    Click="btnE1_Click">
-                                </Button>
+                                    Foreground="White" Click="Boton_Click">
+                                    </Button>
 
-                                <Button 
+                                    <Button 
                                     Content="E6" 
                                     Height="53" 
                                     HorizontalAlignment="Right" 
@@ -160,35 +169,33 @@
                                     Grid.Column="1" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" 
-                                    Click="btnE6_Click" />
-                                
-                            </Grid>
-                        </StackPanel>
+                                    Foreground="White" Click="Boton_Click" />
 
-                        <!--BOTON E2 Y E7-->
-                        <StackPanel Height="53" 
-                                Width="400"
+                                </Grid>
+                            </StackPanel>
+
+                            <!--BOTON E2 Y E7-->
+                            <StackPanel Height="53" 
+                                Width="300"
                                 Grid.Row="1"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="200"/>
-                                </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
 
-                                <Button 
+                                    <Button 
                                     Content="E2" 
                                     Height="53" 
                                     HorizontalAlignment="Left" 
                                     Name="btnE2" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" 
-                                    Click="btnE2_Click" />
+                                    Foreground="White" Click="Boton_Click" />
 
-                                <Button 
+                                    <Button 
                                     Content="E7" 
                                     Height="53" 
                                     HorizontalAlignment="Right" 
@@ -196,33 +203,31 @@
                                     Name="btnE7" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" 
-                                    Click="btnE7_Click" />
-                            </Grid>
-                        </StackPanel>
+                                    Foreground="White" Click="Boton_Click" />
+                                </Grid>
+                            </StackPanel>
 
-                        <!--BOTON E3 Y E8-->
-                        <StackPanel Height="53" 
-                                Width="400"
+                            <!--BOTON E3 Y E8-->
+                            <StackPanel Height="53" 
+                                Width="300"
                                 Grid.Row="2"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="200"/>
-                                </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
 
-                                <Button 
+                                    <Button 
                                     Content="E3" 
                                     Height="53" 
                                     HorizontalAlignment="Left" 
                                     Name="btnE3" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" 
-                                    Click="btnE3_Click" />
-                                <Button 
+                                    Foreground="White" Click="Boton_Click" />
+                                    <Button 
                                     Content="E8" 
                                     Height="53" 
                                     HorizontalAlignment="Right" 
@@ -230,24 +235,23 @@
                                     Width="119" 
                                     Grid.Column="1"
                                     Background="#FF00E100" 
-                                    Foreground="White" 
-                                    Click="btnE8_Click" />
-                            </Grid>
-                        </StackPanel>
+                                    Foreground="White" Click="Boton_Click" />
+                                </Grid>
+                            </StackPanel>
 
-                        <!--BOTON E4 Y E9-->
-                        <StackPanel Height="53" 
-                                Width="400"
+                            <!--BOTON E4 Y E9-->
+                            <StackPanel Height="53" 
+                                Width="300"
                                 Grid.Row="3"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="200"/>
-                                </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
 
-                                <Button 
+                                    <Button 
                                     Content="E4" 
                                     Height="53" 
                                     HorizontalAlignment="Left"
@@ -255,10 +259,9 @@
                                     Width="119" 
                                     Background="#FF00E100" 
                                     BorderBrush="#FF707070" 
-                                    Foreground="White" 
-                                    Click="btnE4_Click" />
-                                
-                                <Button 
+                                    Foreground="White" Click="Boton_Click" />
+
+                                    <Button 
                                     Content="E9" 
                                     Height="53" 
                                     HorizontalAlignment="Right" 
@@ -266,34 +269,32 @@
                                     Grid.Column="1"
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" 
-                                    Click="btnE9_Click" />
-                            </Grid>
-                        </StackPanel>
+                                    Foreground="White" Click="Boton_Click" />
+                                </Grid>
+                            </StackPanel>
 
-                        <!--BOTON E5 Y E10-->
-                        <StackPanel Height="53" 
-                                Width="400"
+                            <!--BOTON E5 Y E10-->
+                            <StackPanel Height="53" 
+                                Width="300"
                                 Grid.Row="4"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="200"/>
-                                </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
 
-                                <Button 
+                                    <Button 
                             Content="E5" 
                             Height="53" 
                             HorizontalAlignment="Left" 
                             Name="btnE5" 
                             Width="119" 
                             Background="#FF00E100" 
-                            Foreground="White" 
-                            Click="btnE5_Click" />
+                            Foreground="White" Click="Boton_Click" />
 
-                                <Button 
+                                    <Button 
                             Content="E10" 
                             Height="53" 
                             HorizontalAlignment="Right" 
@@ -301,54 +302,61 @@
                             Grid.Column="2"
                             Width="119" 
                             Background="#FF00E100" 
-                            Foreground="White" 
-                            Click="btnE10_Click" />
+                            Foreground="White" Click="Boton_Click" />
 
-                            </Grid>
-                        </StackPanel>
+                                </Grid>
+                            </StackPanel>
 
-                    </Grid>
-                </StackPanel>
+                        </Grid>
+                    </StackPanel>
 
-                <Separator 
+                    <Separator 
                     Grid.Row="1" 
                     Height="15" 
                     Margin="0,290,0,0" 
                     Name="separator1" 
                     VerticalAlignment="Top" 
-                    Width="400" 
+                    Width="300" 
                     HorizontalAlignment="Center"
                     Background="#A4FFFFFF" />
-                
-                <StackPanel
-                    Width="400"
+                    
+                    <Label Content="ZONA 1" 
+                           Width="70" 
+                           Height="30"
+                           Margin="144,305,143,208"
+                           Foreground="DarkGray"
+                           FontSize="15"
+                           FontFamily="Arial"
+                           />
+                    
+                    <StackPanel
+                    Width="300"
                     Height="120"
                     Orientation="Vertical"
                     VerticalAlignment="Center"
-                    Margin="0,225,0,0"
-                    HorizontalAlignment="Center"
-                    Grid.Row="1">
-                    
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="160"/>
-                            <ColumnDefinition Width="40"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        
-                        <StackPanel
+                    Margin="28,370,29,53"
+                    HorizontalAlignment="Center">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel
                             Orientation="Vertical"
                             VerticalAlignment="Top"
                             Grid.Column="0">
-                            
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="35"/>
-                                    <RowDefinition Height="35"/>
-                                    <RowDefinition Height="35"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Label 
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35"/>
+                                        <RowDefinition Height="35"/>
+                                        <RowDefinition Height="35"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label 
                                     Content="OCUPADO" 
                                     Height="28" 
                                     HorizontalAlignment="Left"  
@@ -360,7 +368,7 @@
                                     FontSize="15"
                                     Grid.Row="0"/>
 
-                                <Label 
+                                    <Label 
                                     Content="DISPONIBLE" 
                                     Height="28" 
                                     HorizontalAlignment="Left"  
@@ -372,7 +380,7 @@
                                     FontSize="15"
                                     Grid.Row="1"/>
 
-                                <Label 
+                                    <Label 
                                     Content="DESHABILITADO" 
                                     Height="28" 
                                     HorizontalAlignment="Left"  
@@ -384,22 +392,22 @@
                                     FontSize="15"
                                     Grid.Row="2"/>
 
-                            </Grid>
-                        </StackPanel>
+                                </Grid>
+                            </StackPanel>
 
-                        <StackPanel
+                            <StackPanel
                             Orientation="Vertical"
                             VerticalAlignment="Top"
                             Grid.Column="1">
-                            
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="35"/>
-                                    <RowDefinition Height="35"/>
-                                    <RowDefinition Height="35"/>
-                                </Grid.RowDefinitions>
 
-                                <Rectangle 
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35"/>
+                                        <RowDefinition Height="35"/>
+                                        <RowDefinition Height="35"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Rectangle 
                                     Height="21" 
                                     HorizontalAlignment="Center" 
                                     Name="recRojo" 
@@ -410,7 +418,7 @@
                                     Grid.Column="1"
                                     Grid.Row="0"/>
 
-                                <Rectangle 
+                                    <Rectangle 
                                     Height="21" 
                                     HorizontalAlignment="Center" 
                                     Name="recVerde" 
@@ -421,7 +429,7 @@
                                     Grid.Column="1"
                                     Grid.Row="1"/>
 
-                                <Rectangle 
+                                    <Rectangle 
                                     Height="21" 
                                     HorizontalAlignment="Center" 
                                     Name="recGris" 
@@ -430,49 +438,441 @@
                                     Width="36" 
                                     Fill="#FF6F6C6C" 
                                     Grid.Row="2"/>
-                            </Grid>
-                        </StackPanel>
+                                </Grid>
+                            </StackPanel>
 
-                    </Grid>
-                </StackPanel>
+                        </Grid>
+                    </StackPanel>
 
-                <StackPanel 
-                    Width="400"
+                    
+                    <!--FIN ZONA 1-->
+                    
+                    <!--ZONA 2-->
+                    <!--SECTORES E11 HASTA E20-->
+                    <StackPanel Width="300"
+                            Height="290"
+                            Orientation="Vertical"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                            </Grid.RowDefinitions>
+
+                            <!--BOTON E11 Y E16-->
+                            <StackPanel Height="53" 
+                                Width="300"
+                                Grid.Row="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button 
+                                    Content="E11" 
+                                    Height="53" 
+                                    HorizontalAlignment="Left" 
+                                    Name="btnE11"  
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click">
+                                    </Button>
+
+                                    <Button 
+                                    Content="E16" 
+                                    Height="53" 
+                                    HorizontalAlignment="Right" 
+                                    Name="btnE16" 
+                                    Grid.Column="1" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+
+                                </Grid>
+                            </StackPanel>
+
+                            <!--BOTON E12 Y E17-->
+                            <StackPanel Height="53" 
+                                Width="300"
+                                Grid.Row="1"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button 
+                                    Content="E12" 
+                                    Height="53" 
+                                    HorizontalAlignment="Left" 
+                                    Name="btnE12" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+
+                                    <Button 
+                                    Content="E17" 
+                                    Height="53" 
+                                    HorizontalAlignment="Right" 
+                                    Grid.Column="1"
+                                    Name="btnE17" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+                                </Grid>
+                            </StackPanel>
+
+                            <!--BOTON E13 Y E18-->
+                            <StackPanel Height="53" 
+                                Width="300"
+                                Grid.Row="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button 
+                                    Content="E13" 
+                                    Height="53" 
+                                    HorizontalAlignment="Left" 
+                                    Name="btnE13" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+                                    <Button 
+                                    Content="E18" 
+                                    Height="53" 
+                                    HorizontalAlignment="Right" 
+                                    Name="btnE18" 
+                                    Width="119" 
+                                    Grid.Column="1"
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+                                </Grid>
+                            </StackPanel>
+
+                            <!--BOTON E14 Y E19-->
+                            <StackPanel Height="53" 
+                                Width="300"
+                                Grid.Row="3"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button 
+                                    Content="E14" 
+                                    Height="53" 
+                                    HorizontalAlignment="Left"
+                                    Name="btnE14" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    BorderBrush="#FF707070" 
+                                    Foreground="White" Click="Boton_Click" />
+
+                                    <Button 
+                                    Content="E19" 
+                                    Height="53" 
+                                    HorizontalAlignment="Right" 
+                                    Name="btnE19" 
+                                    Grid.Column="1"
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+                                </Grid>
+                            </StackPanel>
+
+                            <!--BOTON E15 Y E20-->
+                            <StackPanel Height="53" 
+                                Width="300"
+                                Grid.Row="4"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button 
+                            Content="E15" 
+                            Height="53" 
+                            HorizontalAlignment="Left" 
+                            Name="btnE15" 
+                            Width="119" 
+                            Background="#FF00E100" 
+                            Foreground="White" Click="Boton_Click" />
+
+                                    <Button 
+                            Content="E20" 
+                            Height="53" 
+                            HorizontalAlignment="Right" 
+                            Name="btnE20" 
+                            Grid.Column="2"
+                            Width="119" 
+                            Background="#FF00E100" 
+                            Foreground="White" Click="Boton_Click" />
+
+                                </Grid>
+                            </StackPanel>
+
+                        </Grid>
+                    </StackPanel>
+                    <!--FIN ZONA 2-->
+                    
+                    <!--ZONA 3-->
+                    <!--SECTORES E21 HASTA E30-->
+                    <StackPanel Width="300"
+                            Height="290"
+                            Orientation="Vertical"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                                <RowDefinition Height="53"/>
+                            </Grid.RowDefinitions>
+
+                            <!--BOTON E21 Y E26-->
+                            <StackPanel Height="53" 
+                                Width="300"
+                                Grid.Row="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button 
+                                    Content="E21" 
+                                    Height="53" 
+                                    HorizontalAlignment="Left" 
+                                    Name="btnE21"  
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click">
+                                    </Button>
+
+                                    <Button 
+                                    Content="E26" 
+                                    Height="53" 
+                                    HorizontalAlignment="Right" 
+                                    Name="btnE26" 
+                                    Grid.Column="1" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+
+                                </Grid>
+                            </StackPanel>
+
+                            <!--BOTON E22 Y E27-->
+                            <StackPanel Height="53" 
+                                Width="300"
+                                Grid.Row="1"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button 
+                                    Content="E22" 
+                                    Height="53" 
+                                    HorizontalAlignment="Left" 
+                                    Name="btnE22" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+
+                                    <Button 
+                                    Content="E27" 
+                                    Height="53" 
+                                    HorizontalAlignment="Right" 
+                                    Grid.Column="1"
+                                    Name="btnE27" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+                                </Grid>
+                            </StackPanel>
+
+                            <!--BOTON E23 Y E28-->
+                            <StackPanel Height="53" 
+                                Width="300"
+                                Grid.Row="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button 
+                                    Content="E23" 
+                                    Height="53" 
+                                    HorizontalAlignment="Left" 
+                                    Name="btnE23" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+                                    <Button 
+                                    Content="E28" 
+                                    Height="53" 
+                                    HorizontalAlignment="Right" 
+                                    Name="btnE28" 
+                                    Width="119" 
+                                    Grid.Column="1"
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+                                </Grid>
+                            </StackPanel>
+
+                            <!--BOTON E24 Y E29-->
+                            <StackPanel Height="53" 
+                                Width="300"
+                                Grid.Row="3"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button 
+                                    Content="E24" 
+                                    Height="53" 
+                                    HorizontalAlignment="Left"
+                                    Name="btnE24" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    BorderBrush="#FF707070" 
+                                    Foreground="White" Click="Boton_Click" />
+
+                                    <Button 
+                                    Content="E29" 
+                                    Height="53" 
+                                    HorizontalAlignment="Right" 
+                                    Name="btnE29" 
+                                    Grid.Column="1"
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+                                </Grid>
+                            </StackPanel>
+
+                            <!--BOTON E25 Y E30-->
+                            <StackPanel Height="53" 
+                                Width="300"
+                                Grid.Row="4"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button 
+                                    Content="E25" 
+                                    Height="53" 
+                                    HorizontalAlignment="Left" 
+                                    Name="btnE25" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+
+                                    <Button 
+                                    Content="E30" 
+                                    Height="53" 
+                                    HorizontalAlignment="Right" 
+                                    Name="btnE30" 
+                                    Grid.Column="2"
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+
+                                </Grid>
+                            </StackPanel>
+
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel 
+                    Width="300"
                     Height="45"
                     Orientation="Vertical"
                     VerticalAlignment="Center"
-                    Margin="0,385,0,0"
-                    HorizontalAlignment="Center"
-                    Grid.Row="1">
-                    
-                    <!--BOTON MODIFICAR-->
-                    <Button x:Name="btnModificar"
+                    Margin="36,475,20,23"
+                    HorizontalAlignment="Center" Grid.Column="2">
+
+                        <!--BOTON SALIR-->
+                        <Button x:Name="btnSalir"
                             BorderThickness="0"
                             Content="SALIR"
                             Cursor="Hand"
-                            Grid.Row="1"
+                            Grid.Column="2"
                             Height="43"
+                            Margin="0,0,7,0"
                             HorizontalAlignment="Right"
                             Click="btnSalir_Click"
                             Style="{StaticResource ResourceKey=triBotonSalir}">
 
 
-                        <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="120"
+                            <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="120"
                                         Height="40"
                                         CornerRadius="20"
                                         Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
+                                        <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
 
-                    </Button>
+                        </Button>
 
-                </StackPanel>
+                    </StackPanel>
+                    <Separator Background="#A4FFFFFF" Height="15" HorizontalAlignment="Center" Margin="35,290,35,0" Name="separator2" VerticalAlignment="Top" Width="300" Grid.Column="1" />
+                    <Separator Background="#A4FFFFFF" Height="15" HorizontalAlignment="Center" Margin="35,290,35,0" Name="separator3" VerticalAlignment="Top" Width="300" Grid.Column="2" />
+                    <Label Content="ZONA 2" FontFamily="Arial" FontSize="15" Foreground="DarkGray" Height="30" Margin="141,305,145,208" Width="70" Grid.Column="1" />
+                    <Label Content="ZONA 3" FontFamily="Arial" FontSize="15" Foreground="DarkGray" Height="30" Margin="144,305,143,208" Width="70" Grid.Column="2" />
+                    <!--FIN ZONA 3-->
+                </Grid>
+
+                
                 
             </Grid>
         </Border>

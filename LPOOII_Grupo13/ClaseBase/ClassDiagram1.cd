@@ -18,7 +18,8 @@
   <Class Name="ClaseBase.TipoVehiculo" Collapsed="true">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIQAAAAAISkBKAAAAABAgAQAAKAAgAIAAABAAQE=</HashCode>
+      <HashCode>AAAAAIQAAAAAIQkBKAAAAABAgAAAAIAAgAIAAABAAQE=</HashCode>
+
       <FileName>TipoVehiculo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -51,7 +52,8 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>QAAAAQAABAAABAAAAAAAAAAAAAAAAACIAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAQAABAQABAAAAAAAAAAAAAAAAACIAAAAAAAAAAA=</HashCode>
+
       <FileName>TrabajarCliente.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -70,6 +72,12 @@
       <FileName>TrabajarUsuario.cs</FileName>
     </TypeIdentifier>
   </Class>
+
+  <Class Name="ClaseBase.TrabajarTicket" Collapsed="true">
+    <Position X="1.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAgAAAAAAAAAIAAAAAAAgAAAAAQAAAAAAAAIAAA=</HashCode>
+      <FileName>TrabajarTicket.cs</FileName>
   <Class Name="ClaseBase.Zona">
     <Position X="9" Y="0.75" Width="1.5" />
     <TypeIdentifier>

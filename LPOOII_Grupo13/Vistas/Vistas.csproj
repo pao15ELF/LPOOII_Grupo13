@@ -85,6 +85,12 @@
     <Compile Include="WinRegistrarEntrada.xaml.cs">
       <DependentUpon>WinRegistrarEntrada.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinRegistrarSalida.xaml.cs">
+      <DependentUpon>WinRegistrarSalida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinTicketRegistrarEntrada.xaml.cs">
+      <DependentUpon>WinTicketRegistrarEntrada.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinVehiculosPlayas.xaml.cs">
       <DependentUpon>WinVehiculosPlayas.xaml</DependentUpon>
     </Compile>
@@ -156,6 +162,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinRegistrarEntrada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinRegistrarSalida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinTicketRegistrarEntrada.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
