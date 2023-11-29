@@ -1,0 +1,593 @@
+﻿<Window x:Class="Vistas.WinRegistrarSalida"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+         xmlns:svc="clr-namespace:ClaseBase;assembly=ClaseBase"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="WinRegistrarSalida"
+
+    Height="586" Width="1110"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown" Topmost="True">
+
+    <Window.Resources>
+        <ObjectDataProvider
+            ObjectType="{x:Type svc:TrabajarTicket}"
+            MethodName="traerTicketConHoraSalNull"
+            x:Key="LIST_TICKET"/>
+    </Window.Resources>
+    
+    <Border CornerRadius="25">
+        <Border.Background>
+            <ImageBrush ImageSource="/Vistas;component/Images/fondoForm3.png"/>
+        </Border.Background>
+
+        <Border CornerRadius="25"
+            BorderThickness="3"
+                Opacity="0.93">
+
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462ad8" Offset="0"/>
+                    <GradientStop Color="#da34ae" Offset="0.75"/>
+                    <GradientStop Color="#8a16c1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush  StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1b1448" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="REGISTRO DE SALIDA DEL VEHICULO"
+                               Foreground="DarkGray"
+                           FontSize="12"
+                           FontFamily="Fonts/#Orbitron Medium"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Margin="10,0,0,0"/>
+
+                    <!--BOTON MINIMIZAR-->
+                    <Button x:Name="btnMinimizar"
+                        BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="17"
+                            FontFamily="Arial"
+                            Cursor="Hand"
+                            Grid.Column="1" 
+                            Click="btnMinimizar_Click"
+                            Style="{StaticResource ResourceKey=triBotonMinLogin}">
+                        <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18"
+                                        Height="19"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <!--BOTON CERRAR-->
+                    <Button x:Name="btnCerrar"
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="White"
+                            FontSize="13"
+                            FontFamily="Arial"
+                            Cursor="Hand"
+                            Grid.Column="2" 
+                            Click="btnCerrar_Click"
+                            Style="{StaticResource ResourceKey=triBotonCerrarLogin}">
+
+                        <!--MIDIFICAR EL ESTILO DEL BOTON CERRAR LOGIN(Se movio a triggers)-->
+
+                        <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18"
+                                        Height="19"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Grid>
+
+                <!--STACK PANEL DE DATOS DEL TICKET-->
+                <StackPanel Width="689"
+                            Orientation="Vertical"
+                            HorizontalAlignment="Left"
+                            Grid.Row="1">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="300"/>
+                        </Grid.RowDefinitions>
+                        <!--Formulario-->
+                        <!--TITULO-->
+                        <Label Content="REGISTRAR SALIDA DEL VEHICULO"
+                           Name="lblTituloDatos"
+                           Foreground="DarkGray"
+                           Width="275" 
+                           FontSize="15" 
+                           Grid.Row="0"
+                           FontFamily="Arial"
+                           Margin="0,30,0,0"/>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Height="60" 
+                                Margin="0,0,0,0"
+                                Width="340"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                HorizontalAlignment="Left">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label
+                                Content="N° DE TICKET: "
+                                Name="lblNTicket"
+                                Margin="6,15,198,0"
+                                Foreground="DarkGray"
+                                FontSize="13"
+                                FontFamily="Arial"
+                                 Grid.ColumnSpan="2"/>
+                                    <TextBox
+                                Grid.Column="1"
+                                Name="txtNTicket"
+                                Margin="62,12,6,0"
+                                DataContext="{}"
+                                Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Height="60" 
+                                Margin="0,0,0,0"
+                                Width="340"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalAlignment="Left">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label
+                                Content="FECHA Y HS ENTRADA: "
+                                Name="lblFecYHoraEntrada"
+                                Margin="6,15,198,0"
+                                Foreground="DarkGray"
+                                FontSize="13"
+                                FontFamily="Arial"
+                                 Grid.ColumnSpan="2"/>
+                                    <TextBox
+                                Grid.Column="1"
+                                Name="txtFecYHoraEntrada"
+                                Margin="62,12,6,0"
+                                DataContext="{}"
+                                Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                            
+
+                        <!--INGRESO DE DATOS-->
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="0"
+                                    HorizontalAlignment="Right">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="FECHA SALIDA: "
+                                            Name="lblFecha"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtFecha"
+                                            
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Right">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="DNI CLIENTE: "
+                                            Name="lblClienteDni"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtClienteDni"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="2"
+                                    HorizontalAlignment="Right">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="PATENTE: "
+                                            Name="lblPatente"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtPatente"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}"
+                                            ></TextBox>
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="3"
+                                    HorizontalAlignment="Right">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="TARIFA: "
+                                            Name="lblSector"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtTarifaXHora"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                            <Grid
+                                Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="0"
+                                    HorizontalAlignment="Left">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="HORA SALIDA: "
+                                            Name="lblHora"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtHora"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Left">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="APELLIDO CLIENTE: "
+                                            Name="lblApellido"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtApellido"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="2"
+                                    HorizontalAlignment="Left">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="TIPO VEHICULO: "
+                                            Name="lblTipoVeh"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtTipoVehiculo"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="3"
+                                    HorizontalAlignment="Left">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="TOTAL: "
+                                            Name="lblTotal"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtTotal"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
+
+
+                    <Grid>
+                        <!--<Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="200" />
+                        </Grid.ColumnDefinitions>-->
+
+                        <!--BOTON -->
+                        <Button x:Name="btnImprimirTicket"
+                                BorderThickness="0"
+                                Content="REGISTRAR SALIDA"
+                                Cursor="Hand"
+                                Grid.Column="0" 
+                                Margin="10" 
+                                Height="43"
+                                Style="{StaticResource ResourceKey=triBotonAceptarForm}" >
+
+                            <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="170"
+                                            Height="40"
+                                            CornerRadius="20"
+                                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+
+
+                    </Grid>
+                </StackPanel>
+
+
+
+                <!--STACK PANEL DE LISTADO CLIENTES-->
+                <StackPanel Width="400"
+                            Orientation="Vertical"
+                            HorizontalAlignment="Right"
+                            Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="300"/>
+                            <RowDefinition Height="70"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="AUTOS ESTACIONADOS EN LOS SECTORES"
+                               Name="lblListadoClientes"
+                               Foreground="DarkGray"
+                               HorizontalAlignment="Center"
+                               Margin="0,40,0,0"
+                               Grid.Row="0"
+                               FontSize="18"/>
+
+                        <StackPanel
+                        Grid.Row="1">
+
+                            <Grid>
+
+                                <Canvas
+                                Margin="45,30,0,0">
+                                    <ListView
+                                Name="lvwTickets"
+                                Width="350"
+                                Height="250"
+                                IsSynchronizedWithCurrentItem="True"
+                                ItemsSource="{Binding Source={StaticResource LIST_TICKETS}}"   Canvas.Left="-18" >
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Width="87" Header="Nro Ticket" />
+                                                <GridViewColumn Width="87" Header="DNI Cliente"   />
+                                                <GridViewColumn Width="87" Header="Patente"/>
+                                                <GridViewColumn Header="Sector"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </Canvas>
+
+                            </Grid>
+
+                        </StackPanel>
+                        <StackPanel
+                        Grid.Row="2">
+                            <!--BOTON MODIFICAR-->
+                            <Button x:Name="btnSeleccionarCliente"
+                            BorderThickness="0"
+                            Content="SELECCIONAR"
+                            Cursor="Hand"
+                            Grid.Column="2" 
+                            Margin="15" 
+                            Height="43"
+                            Style="{StaticResource ResourceKey=triBotonModificar}">
+
+                                <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="120"
+                                        Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+
+                            </Button>
+
+
+                        </StackPanel>
+                    </Grid>
+
+
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Border>
+
+
+</Window>

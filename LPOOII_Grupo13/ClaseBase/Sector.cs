@@ -35,9 +35,9 @@ namespace ClaseBase
             get { return sec_Identificador; }
             set { sec_Identificador = value; }
         }
-        private bool sec_Habilitado;
+        private string sec_Habilitado;
 
-        public bool Sec_Habilitado
+        public string Sec_Habilitado
         {
             get { return sec_Habilitado; }
             set { sec_Habilitado = value; }

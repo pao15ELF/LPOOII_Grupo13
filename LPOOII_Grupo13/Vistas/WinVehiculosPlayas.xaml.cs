@@ -5,12 +5,15 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using ClaseBase;
 namespace Vistas
 {
     /// <summary>
@@ -24,8 +27,81 @@ namespace Vistas
 
         public WinVehiculosPlayas()
         {
-           InitializeComponent();
+            InitializeComponent();
+            comprobarEstadoSectores();
+            //suscribirBotones();
         }
+
+        private void comprobarEstadoSectores()
+        {
+            SolidColorBrush colorDisponible = new SolidColorBrush(disponible);
+            SolidColorBrush colorOcupado = new SolidColorBrush(ocupado);
+            DataTable sectores = TrabajarSectores.traerSectores();
+
+            for (int i = 1; i <= 30; i++)
+            {
+                // Obtener el nombre del botón actual
+                string nombreBoton = "btnE" + i;
+
+                // Encontrar el botón correspondiente
+                Button boton = FindName(nombreBoton) as Button;
+
+                if (boton != null)
+                {
+                    // Obtener el registro correspondiente al botón actual
+                    DataRow[] fila = sectores.Select("Sec_Identificador = 'E" + i + "'");
+
+                    if (fila.Length > 0)
+                    {
+                        // Obtener el estado del botón
+                        string estado = fila[0]["Sec_Habilitado"].ToString();
+
+                        // Cambiar el color dependiendo del estado
+                        if (estado == "Disponible")
+                        {
+                            boton.Background = colorDisponible; // Color verde si está habilitado
+                        }
+                        else if (estado == "Ocupado")
+                        {
+                            boton.Background = colorOcupado; // Color rojo si está ocupado
+                        }
+                    }
+                }
+            }
+        }
+        //private void comprobarEstadoSectores()
+        //{
+        //    SolidColorBrush colorDisponible = new SolidColorBrush(disponible);
+        //    SolidColorBrush colorOcupado = new SolidColorBrush(ocupado);
+        //    Button[] botones = new Button[] { btnE1, btnE2, btnE3, btnE4, btnE5, btnE6, btnE7, btnE8, btnE9, btnE10 };
+        //    DataTable sectores = TrabajarSectores.traerSectores();
+
+        //    foreach (Button boton in botones)
+        //    {
+        //        // Obtener el número del botón (E1, E2, ..., E10)
+        //        string nombreBoton = boton.Name;
+        //        string numeroBoton = nombreBoton.Substring(4); // Suponiendo que siempre son 4 caracteres "btnE"
+
+        //        // Obtener el registro correspondiente al botón actual
+        //        DataRow[] fila = sectores.Select("Sec_Identificador = 'E" + numeroBoton + "'");
+
+        //        if (fila.Length > 0)
+        //        {
+        //            // Obtener el estado del botón
+        //            string estado = fila[0]["Sec_Habilitado"].ToString();
+
+        //            // Cambiar el color dependiendo del estado
+        //            if (estado == "Disponible")
+        //            {
+        //                boton.Background = colorDisponible; // Color verde si está habilitado
+        //            }
+        //            else if (estado == "Ocupado")
+        //            {
+        //                boton.Background = colorOcupado; // Color rojo si está ocupado
+        //            }
+        //        }
+        //    }
+        //}
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -48,7 +124,8 @@ namespace Vistas
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            btnE7.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFEB0000"));
+            //son los datos cargados en el primer tp
+            //btnE7.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFEB0000"));
             btnE4.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF6F6C6C"));
         }
 
@@ -67,13 +144,13 @@ namespace Vistas
 
             if (colorBoton == disponible)
             {
-                MessageBox.Show("Sector Disponible. Resgistrar Entrada");
+                MessageBox.Show("Sector Disponible. Resgistrar Entrada"); //AGREGAR FUNCION PARA MANDAR A REGISTRAR ENTRADA
             }
             else
             {
                 if (colorBoton == ocupado)
                 {
-                    MessageBox.Show("Sector Ocupado. Registrar Salida");
+                    MessageBox.Show("Sector Ocupado. Registrar Salida"); //AGREGAR FUNCION PARA MANDAR A REGISTRAR SALIDA
                 }
                 else
                 {
@@ -83,56 +160,15 @@ namespace Vistas
             }
         }
 
-        private void btnE1_Click(object sender, RoutedEventArgs e)
+        private void Boton_Click(object sender, RoutedEventArgs e)
         {
-            comprobarSector(btnE1.Background);
-        }
+            // Determinar qué botón se hizo clic
+            Button boton = sender as Button;
 
-        private void btnE2_Click(object sender, RoutedEventArgs e)
-        {
-            comprobarSector(btnE2.Background);
+            if (boton != null)
+            {
+                comprobarSector(boton.Background);
+            }
         }
-
-        private void btnE3_Click(object sender, RoutedEventArgs e)
-        {
-            comprobarSector(btnE3.Background);
-        }
-
-        private void btnE4_Click(object sender, RoutedEventArgs e)
-        {
-            comprobarSector(btnE4.Background);
-        }
-
-        private void btnE5_Click(object sender, RoutedEventArgs e)
-        {
-            comprobarSector(btnE5.Background);
-        }
-
-        private void btnE6_Click(object sender, RoutedEventArgs e)
-        {
-            comprobarSector(btnE6.Background);
-        }
-
-        private void btnE7_Click(object sender, RoutedEventArgs e)
-        {
-            comprobarSector(btnE7.Background);
-        }
-
-        private void btnE8_Click(object sender, RoutedEventArgs e)
-        {
-            comprobarSector(btnE8.Background);
-        }
-
-        private void btnE9_Click(object sender, RoutedEventArgs e)
-        {
-            comprobarSector(btnE9.Background);
-        }
-
-        private void btnE10_Click(object sender, RoutedEventArgs e)
-        {
-            comprobarSector(btnE10.Background);
-        }
-
-        
     }
 }
