@@ -10,6 +10,57 @@
         Background="Transparent"
         AllowsTransparency="True"
         MouseDown="Window_MouseDown" Loaded="Window_Loaded">
+    
+   <!-- <Window.Resources>
+        <Style TargetType="Button">
+            <EventSetter Event="MouseEnter" Handler="Button_MouseEnter"/>
+            <EventSetter Event="MouseLeave" Handler="Button_MouseLeave"/>
+        </Style>
+
+        <TextBlock x:Key="mensajeTxtBlock" HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center" Visibility="Hidden" 
+                                           Foreground="White" FontWeight="Bold" FontSize="13" 
+                                           Height="30" Margin="6,17,41,18" Width="100" 
+                                           FontFamily="Barlow" ForceCursor="False" Background="#FF6128F2" 
+                                           TextAlignment="Center" />
+    </Window.Resources> -->
+
+    <Window.Resources>
+       
+        <Style TargetType="Button">
+            <EventSetter Event="MouseEnter" Handler="Button_MouseEnter"/>
+            <EventSetter Event="MouseLeave" Handler="Button_MouseLeave"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <!-- Contenido del botón -->
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+
+                            <ContentControl x:Name="mensajeContentControl" Visibility="Hidden">
+                                <TextBlock x:Name="mensajeTxtBlock"
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center" 
+                                           Foreground="White" 
+                                           FontWeight="Bold" 
+                                           FontSize="13" 
+                                           Height="30" 
+                                           Width="100" 
+                                           FontFamily="Barlow" 
+                                           ForceCursor="False" 
+                                           Background="#FF6128F2" 
+                                           TextAlignment="Center"/>
+                            </ContentControl>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources> 
 
     <Border CornerRadius="25">
         <Border.Background>
@@ -160,7 +211,8 @@
                                     Background="#FF00E100" 
                                     Foreground="White" Click="Boton_Click">
                                     </Button>
-
+                                   <!-- <ContentControl Content="{StaticResource mensajeTxtBlock}" />  -->
+                                   
                                     <Button 
                                     Content="E6" 
                                     Height="53" 
@@ -169,8 +221,10 @@
                                     Grid.Column="1" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
-
+                                    Foreground="White" Click="Boton_Click">
+                                    </Button>
+                                  <!--  <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-216,0" /> -->
+ 
                                 </Grid>
                             </StackPanel>
 
@@ -193,7 +247,8 @@
                                     Name="btnE2" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                 <!--   <ContentControl Content="{StaticResource mensajeTxtBlock}" />  -->
 
                                     <Button 
                                     Content="E7" 
@@ -203,7 +258,9 @@
                                     Name="btnE7" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-214,0" />  -->
+                                    
                                 </Grid>
                             </StackPanel>
 
@@ -215,8 +272,9 @@
                                 VerticalAlignment="Top">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="80*" />
+                                        <ColumnDefinition Width="70*" />
+                                        <ColumnDefinition Width="150*" />
                                     </Grid.ColumnDefinitions>
 
                                     <Button 
@@ -226,16 +284,20 @@
                                     Name="btnE3" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click" Grid.ColumnSpan="2"/>
+                                  <!--  <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" />  -->
+                                    
                                     <Button 
                                     Content="E8" 
                                     Height="53" 
                                     HorizontalAlignment="Right" 
                                     Name="btnE8" 
                                     Width="119" 
-                                    Grid.Column="1"
+                                    Grid.Column="2"
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="3" Margin="0,0,-220,0" />  -->
+                                    
                                 </Grid>
                             </StackPanel>
 
@@ -247,19 +309,21 @@
                                 VerticalAlignment="Top">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="78*" />
+                                        <ColumnDefinition Width="72*" />
                                     </Grid.ColumnDefinitions>
-
+                        
                                     <Button 
                                     Content="E4" 
                                     Height="53" 
                                     HorizontalAlignment="Left"
-                                    Name="btnE4" 
+                                    Name="btnE4"    
                                     Width="119" 
                                     Background="#FF00E100" 
                                     BorderBrush="#FF707070" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" />   -->
 
                                     <Button 
                                     Content="E9" 
@@ -269,7 +333,10 @@
                                     Grid.Column="1"
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click" Grid.ColumnSpan="2"/>
+                                 <!--   <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="3" Margin="0,0,-217,0" />  -->
+                                   
+                                    
                                 </Grid>
                             </StackPanel>
 
@@ -281,29 +348,30 @@
                                 VerticalAlignment="Top">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="160*" />
+                                        <ColumnDefinition Width="140*" />
                                     </Grid.ColumnDefinitions>
 
                                     <Button 
-                            Content="E5" 
-                            Height="53" 
-                            HorizontalAlignment="Left" 
-                            Name="btnE5" 
-                            Width="119" 
-                            Background="#FF00E100" 
-                            Foreground="White" Click="Boton_Click" />
+                                    Content="E5" 
+                                    Height="53" 
+                                    HorizontalAlignment="Left" 
+                                    Name="btnE5" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click" />
+                                 <!--   <ContentControl Content="{StaticResource mensajeTxtBlock}" Margin="0,0,13,0" />  -->
 
                                     <Button 
-                            Content="E10" 
-                            Height="53" 
-                            HorizontalAlignment="Right" 
-                            Name="btnE10" 
-                            Grid.Column="2"
-                            Width="119" 
-                            Background="#FF00E100" 
-                            Foreground="White" Click="Boton_Click" />
-
+                                    Content="E10" 
+                                    Height="53" 
+                                    HorizontalAlignment="Right" 
+                                    Name="btnE10" 
+                                    Grid.Column="2"
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click"/>
+                                 <!--   <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-214,0" />  -->
                                 </Grid>
                             </StackPanel>
 
@@ -485,8 +553,8 @@
                                     Name="btnE11"  
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click">
-                                    </Button>
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" /> -->
 
                                     <Button 
                                     Content="E16" 
@@ -496,7 +564,8 @@
                                     Grid.Column="1" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                              <!--      <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-214,0" />   -->
 
                                 </Grid>
                             </StackPanel>
@@ -520,7 +589,8 @@
                                     Name="btnE12" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" />  -->
 
                                     <Button 
                                     Content="E17" 
@@ -530,7 +600,9 @@
                                     Name="btnE17" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-219,0" /> -->
+                                    
                                 </Grid>
                             </StackPanel>
 
@@ -553,7 +625,9 @@
                                     Name="btnE13" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                              <!--      <ContentControl Content="{StaticResource mensajeTxtBlock}" />    -->
+                                    
                                     <Button 
                                     Content="E18" 
                                     Height="53" 
@@ -562,7 +636,9 @@
                                     Width="119" 
                                     Grid.Column="1"
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                             <!--     <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-219,0" />   -->
+                                    
                                 </Grid>
                             </StackPanel>
 
@@ -586,7 +662,8 @@
                                     Width="119" 
                                     Background="#FF00E100" 
                                     BorderBrush="#FF707070" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" />   -->
 
                                     <Button 
                                     Content="E19" 
@@ -596,7 +673,9 @@
                                     Grid.Column="1"
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                               <!--     <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-217,0" />   -->
+                                    
                                 </Grid>
                             </StackPanel>
 
@@ -613,23 +692,25 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Button 
-                            Content="E15" 
-                            Height="53" 
-                            HorizontalAlignment="Left" 
-                            Name="btnE15" 
-                            Width="119" 
-                            Background="#FF00E100" 
-                            Foreground="White" Click="Boton_Click" />
+                                    Content="E15" 
+                                    Height="53" 
+                                    HorizontalAlignment="Left" 
+                                    Name="btnE15" 
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click"/>
+                                 <!--   <ContentControl Content="{StaticResource mensajeTxtBlock}" />   -->
 
                                     <Button 
-                            Content="E20" 
-                            Height="53" 
-                            HorizontalAlignment="Right" 
-                            Name="btnE20" 
-                            Grid.Column="2"
-                            Width="119" 
-                            Background="#FF00E100" 
-                            Foreground="White" Click="Boton_Click" />
+                                    Content="E20" 
+                                    Height="53" 
+                                    HorizontalAlignment="Right" 
+                                    Name="btnE20" 
+                                    Grid.Column="2"
+                                    Width="119" 
+                                    Background="#FF00E100" 
+                                    Foreground="White" Click="Boton_Click"/>
+                               <!--     <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-211,0" />  -->
 
                                 </Grid>
                             </StackPanel>
@@ -676,8 +757,8 @@
                                     Name="btnE21"  
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click">
-                                    </Button>
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" />  -->
 
                                     <Button 
                                     Content="E26" 
@@ -687,7 +768,8 @@
                                     Grid.Column="1" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-214,0" /> -->
 
                                 </Grid>
                             </StackPanel>
@@ -711,7 +793,8 @@
                                     Name="btnE22" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                 <!--   <ContentControl Content="{StaticResource mensajeTxtBlock}" />  -->
 
                                     <Button 
                                     Content="E27" 
@@ -721,7 +804,9 @@
                                     Name="btnE27" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                 <!--   <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-216,0" />  -->
+                                    
                                 </Grid>
                             </StackPanel>
 
@@ -744,7 +829,9 @@
                                     Name="btnE23" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" />   -->
+                                    
                                     <Button 
                                     Content="E28" 
                                     Height="53" 
@@ -753,7 +840,9 @@
                                     Width="119" 
                                     Grid.Column="1"
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                               <!--     <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-219,0" />  -->
+                                    
                                 </Grid>
                             </StackPanel>
 
@@ -777,7 +866,8 @@
                                     Width="119" 
                                     Background="#FF00E100" 
                                     BorderBrush="#FF707070" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" />   -->
 
                                     <Button 
                                     Content="E29" 
@@ -787,7 +877,9 @@
                                     Grid.Column="1"
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-213,0" />   -->
+                                    
                                 </Grid>
                             </StackPanel>
 
@@ -810,7 +902,8 @@
                                     Name="btnE25" 
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                                <!--    <ContentControl Content="{StaticResource mensajeTxtBlock}" />  -->
 
                                     <Button 
                                     Content="E30" 
@@ -820,7 +913,8 @@
                                     Grid.Column="2"
                                     Width="119" 
                                     Background="#FF00E100" 
-                                    Foreground="White" Click="Boton_Click" />
+                                    Foreground="White" Click="Boton_Click"/>
+                               <!--     <ContentControl Content="{StaticResource mensajeTxtBlock}" Grid.ColumnSpan="2" Margin="0,0,-214,0" />  -->
 
                                 </Grid>
                             </StackPanel>

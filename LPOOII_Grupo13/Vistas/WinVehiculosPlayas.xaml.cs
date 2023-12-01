@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using ClaseBase;
+using System.Diagnostics;
 namespace Vistas
 {
     /// <summary>
@@ -126,7 +127,7 @@ namespace Vistas
         {
             //son los datos cargados en el primer tp
             //btnE7.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFEB0000"));
-            btnE4.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF6F6C6C"));
+              btnE4.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF6F6C6C"));
         }
 
 
@@ -156,6 +157,7 @@ namespace Vistas
                 {
                     if (colorBoton == deshabilitado)
                         MessageBox.Show("Sector Deshabilitado");
+
                 }
             }
         }
@@ -170,5 +172,195 @@ namespace Vistas
                 comprobarSector(boton.Background);
             }
         }
+
+        //private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        //{
+        //    //DataTable datosTicket = TrabajarTicket.traerTicket();
+        //    //List<Button> botones = new List<Button> { btnE1, btnE2, btnE3, btnE4, btnE5, btnE6, btnE7,
+        //    //                                          btnE8, btnE9, btnE10, btnE11, btnE12, btnE13, btnE14,
+        //    //                                          btnE15, btnE16, btnE17, btnE18, btnE19, btnE20,
+        //    //                                          btnE21, btnE22, btnE23, btnE24, btnE25, btnE26,
+        //    //                                          btnE27, btnE28, btnE29, btnE30 };
+
+        //    if (sender is Button)
+        //    //foreach (Button boton in botones)
+        //    {
+        //        Button boton = (Button)sender;
+
+        //        // Verificar el color de fondo
+        //        //SolidColorBrush backgroundBrush = botones.Background as SolidColorBrush;
+
+        //        SolidColorBrush backgroundBrush = boton.Background as SolidColorBrush;
+
+        //        TextBlock mensajeTxtBlock = FindResource("mensajeTxtBlock") as TextBlock;
+        //        // TextBlock mensajeTxtBlock = (sender as Button).Template.FindName("mensajeTxtBlock", sender as Button) as TextBlock;
+
+
+        //        if (backgroundBrush != null)
+        //        {
+        //            Color colorFondo = backgroundBrush.Color;
+
+        //            if (colorFondo == disponible)
+        //            {
+        //                mensajeTxtBlock.Text = "Sector Libre";
+        //                // Mouestra el mensaje cuando el mouse entra en el botón
+        //                mensajeTxtBlock.Visibility = Visibility.Visible;
+
+        //            }
+        //            else
+        //            {
+        //                if (colorFondo == ocupado)
+        //                {
+
+        //                    mensajeTxtBlock.Text = "Sector Ocupado\n Tiempo ocupado: \nVehiculo:\n Monto a pagar:";
+        //                    // Mouestra el mensaje cuando el mouse entra en el botón
+        //                    mensajeTxtBlock.Visibility = Visibility.Visible;
+
+        //                }
+        //                else
+        //                {
+        //                    if (colorFondo == deshabilitado)
+        //                        mensajeTxtBlock.Text = "Sector NO Disponible";
+        //                    // Mouestra el mensaje cuando el mouse entra en el botón
+        //                    mensajeTxtBlock.Visibility = Visibility.Visible;
+
+        //                }
+        //            }
+        //        }
+        //    }
+        //}  
+
+
+        //private void Button_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        //{
+        //    TextBlock mensajeTxtBlock = FindResource("mensajeTxtBlock") as TextBlock;
+        //    //TextBlock mensajeTxtBlock = (sender as Button).Template.FindName("mensajeTxtBlock", sender as Button) as TextBlock;
+
+        //    // Oculta el mensaje cuando el mouse sale del botón
+        //    mensajeTxtBlock.Visibility = Visibility.Hidden;
+        //}
+
+
+        //private void Button_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    // Cambiar la visibilidad del TextBlock a Visible cuando se pasa el ratón por encima
+        //    if (sender is Button)
+        //    {
+        //        Button button = sender as Button;
+        //        ContentControl contentControl = button.Template.FindName("mensajeTxtBlock", button) as ContentControl;
+        //        if (contentControl != null)
+        //        {
+        //            mensajeTxtBlock.Text = "Sector NO Disponible";
+        //            contentControl.Visibility = Visibility.Visible;
+        //        }
+        //    }
+        //}
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button button = sender as Button;
+
+                SolidColorBrush backgroundBrush = button.Background as SolidColorBrush;
+
+                ContentControl contentControl = button.Template.FindName("mensajeContentControl", button) as ContentControl;
+
+                if (contentControl != null && backgroundBrush != null)
+                {
+                    Color colorFondo = backgroundBrush.Color;
+                    TextBlock mensajeTxtBlock = contentControl.Content as TextBlock;
+
+                    if (mensajeTxtBlock != null && colorFondo == disponible)
+                    {
+                        mensajeTxtBlock.Text = "Sector Libre";
+                        contentControl.Visibility = Visibility.Visible;
+                    }
+                    else 
+                    {
+                        if (mensajeTxtBlock != null && colorFondo == ocupado)
+                        {
+                            mensajeTxtBlock.Text = "Sector Ocupado\n Tiempo ocupado: \nVehiculo:\n Monto a pagar:";
+                            // Mouestra el mensaje cuando el mouse entra en el botón
+                            contentControl.Visibility = Visibility.Visible;
+                        }
+                        else
+                        {
+                            if (mensajeTxtBlock != null && colorFondo == deshabilitado)
+                            {
+                                mensajeTxtBlock.Text = "Sector NO Disponible";
+                                // Mouestra el mensaje cuando el mouse entra en el botón
+                                contentControl.Visibility = Visibility.Visible;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        ///// <summary>
+        ///// ESTE ANDA
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void Button_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    if (sender is Button)
+        //    {
+        //        Button button = sender as Button;
+        //        ContentControl contentControl = button.Template.FindName("mensajeContentControl", button) as ContentControl;
+
+        //        if (contentControl != null)
+        //        {
+        //            TextBlock mensajeTxtBlock = contentControl.Content as TextBlock;
+
+        //            if (mensajeTxtBlock != null)
+        //            {
+        //                mensajeTxtBlock.Text = "Sector NO Disponible";
+        //            }
+
+        //            contentControl.Visibility = Visibility.Visible;
+        //        }
+        //    }
+        //}
+
+
+        //private void Button_MouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    // Cambiar la visibilidad del TextBlock a Hidden cuando el ratón sale del botón
+        //    if (sender is Button)
+        //    {
+        //        Button button = sender as Button;
+        //        ContentControl contentControl = button.Template.FindName("mensajeTxtBlock", button) as ContentControl;
+        //        if (contentControl != null)
+        //        {
+        //            contentControl.Visibility = Visibility.Hidden;
+        //        }
+        //    }
+        //}
+
+
+        private void Button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button button = sender as Button;
+                ContentControl contentControl = button.Template.FindName("mensajeContentControl", button) as ContentControl;
+
+                if (contentControl != null)
+                {
+                    TextBlock mensajeTxtBlock = contentControl.Content as TextBlock;
+
+                    if (mensajeTxtBlock != null)
+                    {
+                        mensajeTxtBlock.Text = " ";
+                    }
+
+                    contentControl.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+
+
     }
 }
