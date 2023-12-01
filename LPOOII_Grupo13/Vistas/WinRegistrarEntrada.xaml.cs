@@ -29,11 +29,11 @@ namespace Vistas
         public WinRegistrarEntrada()
         {
             InitializeComponent();
-            txtFecha.Text = DateTime.Now.ToString("dd/MM/yy");
-            txtHora.Text = DateTime.Now.ToString("HH:mm");
-            
-            int numTicket=TrabajarTicket.traerTicket().Rows.Count+1;
-            txtNTicket.Text = numTicket.ToString();
+            //txtFecha.Text = DateTime.Now.ToString("dd/MM/yy");
+            //txtHora.Text = DateTime.Now.ToString("HH:mm");
+            cargarNumTicketYFecHora();
+            //int numTicket=TrabajarTicket.traerTicket().Rows.Count+1;
+            //txtNTicket.Text = numTicket.ToString();
 
             cargarComboboxTipoVehiculo();
             cargarComboboxZonaSector();
@@ -50,6 +50,15 @@ namespace Vistas
                 cmbZonaSector.SelectedValuePath = "Sec_Codigo";
             }
             //cmbZonaSector.SelectionChanged += cmbZonaSector.SelectionChanged;
+        }
+
+        private void cargarNumTicketYFecHora()
+        {
+            int numTicket = TrabajarTicket.traerTicket().Rows.Count + 1;
+            txtNTicket.Text = numTicket.ToString();
+
+            txtFecha.Text = DateTime.Now.ToString("dd/MM/yy");
+            txtHora.Text = DateTime.Now.ToString("HH:mm");
         }
 
         private void cargarComboboxTipoVehiculo()
@@ -178,13 +187,31 @@ namespace Vistas
             {
                 cargarTicket();
                 TrabajarTicket.registrarEntradaTicket(oTicket);
+                Util.Util.setTicketEntrada(oTicket);
                 cambiarEstadoSector(oTicket.Tick_SectorCodigo);
-                MessageBox.Show("MOSTRAR TICKET");
+                MessageBox.Show("EL VEHICULO FUE REGISTRADO EXITOSAMENTE");
+                WinTicketRegistrarEntrada winTicketEntrada = new WinTicketRegistrarEntrada();
+                winTicketEntrada.Topmost = true;
+                winTicketEntrada.Show();
+
+                limpiarForm();
+
+                cargarNumTicketYFecHora();
             }
             else
             {
                 MessageBox.Show("Debe completar todos los campos del formulario para poder realizar el registro de entrada");
             }  
+        }
+
+        private void limpiarForm()
+        {
+            txtClienteDni.Text = "";
+            txtApellido.Text = "";
+            txtPatente.Text = ""; 
+            cmbTipoVehiculo.SelectedItem = null;
+            cmbZonaSector.SelectedItem = null;
+            txtTarifa.Text = "";
         }
     }
 }

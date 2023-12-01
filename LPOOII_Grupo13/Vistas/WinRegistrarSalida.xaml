@@ -14,7 +14,7 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
-        MouseDown="Window_MouseDown" Topmost="True">
+        MouseDown="Window_MouseDown" Topmost="False">
 
     <Window.Resources>
         <ObjectDataProvider
@@ -129,6 +129,7 @@
                             Orientation="Vertical"
                             HorizontalAlignment="Left"
                             Grid.Row="1">
+                    
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -146,6 +147,16 @@
                            Grid.Row="0"
                            FontFamily="Arial"
                            Margin="0,30,0,0"/>
+
+                        <TextBlock
+                            Name="txtIdTicketSalida"
+                            Text="{Binding User_Id}"
+                            Grid.Row="0"
+                            Background="Aqua"
+                            Width="40"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top" Visibility="Hidden" />
 
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
@@ -195,7 +206,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Label
-                                Content="FECHA Y HS ENTRADA: "
+                                Content="FEC. Y HS ENTRADA: "
                                 Name="lblFecYHoraEntrada"
                                 Margin="6,15,198,0"
                                 Foreground="DarkGray"
@@ -269,8 +280,8 @@
                                         </Grid.ColumnDefinitions>
 
                                         <Label
-                                            Content="DNI CLIENTE: "
-                                            Name="lblClienteDni"
+                                            Content="PATENTE: "
+                                            Name="lblPatente"
                                             Margin="6,15,198,0"
                                             Foreground="DarkGray"
                                             FontSize="13"
@@ -278,7 +289,7 @@
                                              Grid.ColumnSpan="2"/>
                                         <TextBox
                                             Grid.Column="1"
-                                            Name="txtClienteDni"
+                                            Name="txtPatente"
                                             Margin="22,12,6,0"
                                             DataContext="{}"
                                             Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
@@ -297,8 +308,8 @@
                                         </Grid.ColumnDefinitions>
 
                                         <Label
-                                            Content="PATENTE: "
-                                            Name="lblPatente"
+                                            Content="TIPO VEHICULO: "
+                                            Name="lblTipoVeh"
                                             Margin="6,15,198,0"
                                             Foreground="DarkGray"
                                             FontSize="13"
@@ -306,11 +317,10 @@
                                              Grid.ColumnSpan="2"/>
                                         <TextBox
                                             Grid.Column="1"
-                                            Name="txtPatente"
+                                            Name="txtTipoVehiculo"
                                             Margin="22,12,6,0"
                                             DataContext="{}"
-                                            Style="{StaticResource EstiloErrorTextBox}"
-                                            ></TextBox>
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
                                     </Grid>
                                 </StackPanel>
 
@@ -419,8 +429,8 @@
                                         </Grid.ColumnDefinitions>
 
                                         <Label
-                                            Content="TIPO VEHICULO: "
-                                            Name="lblTipoVeh"
+                                            Content="DURACIÓN: "
+                                            Name="lblDuracion"
                                             Margin="6,15,198,0"
                                             Foreground="DarkGray"
                                             FontSize="13"
@@ -428,7 +438,7 @@
                                              Grid.ColumnSpan="2"/>
                                         <TextBox
                                             Grid.Column="1"
-                                            Name="txtTipoVehiculo"
+                                            Name="txtDuracion"
                                             Margin="22,12,6,0"
                                             DataContext="{}"
                                             Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
@@ -475,14 +485,14 @@
                         </Grid.ColumnDefinitions>-->
 
                         <!--BOTON -->
-                        <Button x:Name="btnImprimirTicket"
+                        <Button x:Name="btnRegistrarSalida"
                                 BorderThickness="0"
                                 Content="REGISTRAR SALIDA"
                                 Cursor="Hand"
                                 Grid.Column="0" 
                                 Margin="10" 
                                 Height="43"
-                                Style="{StaticResource ResourceKey=triBotonAceptarForm}" >
+                                Style="{StaticResource ResourceKey=triBotonAceptarForm}" Click="btnRegistrarSalida_Click">
 
                             <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
                             <Button.Template>
@@ -537,13 +547,13 @@
                                 Width="350"
                                 Height="250"
                                 IsSynchronizedWithCurrentItem="True"
-                                ItemsSource="{Binding Source={StaticResource LIST_TICKETS}}"   Canvas.Left="-18" >
+                                ItemsSource="{Binding Source={StaticResource LIST_TICKET}}"   Canvas.Left="-18" >
                                         <ListView.View>
                                             <GridView>
-                                                <GridViewColumn Width="87" Header="Nro Ticket" />
-                                                <GridViewColumn Width="87" Header="DNI Cliente"   />
-                                                <GridViewColumn Width="87" Header="Patente"/>
-                                                <GridViewColumn Header="Sector"/>
+                                                <GridViewColumn Width="87" Header="Nro Ticket" DisplayMemberBinding="{Binding Path= Tick_TicketNro}"/>
+                                                <GridViewColumn Width="87" Header="DNI Cliente"  DisplayMemberBinding="{Binding Path= Tick_ClienteDni}" />
+                                                <GridViewColumn Width="87" Header="Patente"  DisplayMemberBinding="{Binding Path= Tick_Patente}"/>
+                                                <GridViewColumn Header="Sector" DisplayMemberBinding="{Binding Path= Tick_SectorCodigo}"/>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
@@ -555,14 +565,14 @@
                         <StackPanel
                         Grid.Row="2">
                             <!--BOTON MODIFICAR-->
-                            <Button x:Name="btnSeleccionarCliente"
+                            <Button x:Name="btnSeleccionarTicket"
                             BorderThickness="0"
                             Content="SELECCIONAR"
                             Cursor="Hand"
                             Grid.Column="2" 
                             Margin="15" 
                             Height="43"
-                            Style="{StaticResource ResourceKey=triBotonModificar}">
+                            Style="{StaticResource ResourceKey=triBotonModificar}" Click="btnSeleccionarTicket_Click">
 
                                 <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
                                 <Button.Template>

@@ -118,7 +118,27 @@ namespace ClaseBase
 
         }
 
-        public static DataTable traerTicketConHoraSalNull()
+        //public static DataTable traerTicketConHoraSalNull()
+        //{
+        //    SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
+
+        //    SqlCommand cmd = new SqlCommand();
+
+        //    cmd.CommandText = "SELECT * FROM Ticket WHERE Tic_FecHoraSal IS NULL";
+        //    cmd.CommandType = CommandType.Text;
+        //    cmd.Connection = cnn;
+
+        //    // Ejecuta la consulta
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+        //    // Llena los datos de la consulta en la DataTable
+        //    DataTable dt = new DataTable();
+        //    da.Fill(dt);
+
+        //    return dt;
+        //}
+
+        public static ObservableCollection<Ticket> traerTicketConHoraSalNull()
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
 
@@ -128,14 +148,51 @@ namespace ClaseBase
             cmd.CommandType = CommandType.Text;
             cmd.Connection = cnn;
 
-            // Ejecuta la consulta
+            //Ejecuta la consulta
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            // Llena los datos de la consulta en la DataTable
+            //Llena los datos de la consulta en la DateTable
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            return dt;
+            ObservableCollection<Ticket> listaTicket = new ObservableCollection<Ticket>();
+            foreach (DataRow row in dt.Rows)
+            {
+                Ticket ticket = new Ticket
+                {
+                    Tick_Id= (int)row["Tic_Id"],
+                    Tick_TicketNro= (int)row["Tic_TicketNro"],
+                    Tick_FechaHoraEnt= (DateTime)row["Tic_FecHoraEnt"],
+                    Tick_ClienteDni=(int)row["Tic_CliDni"],
+                    Tick_TVCodigo=(int)row["Tic_TVCodigo"],
+                    Tick_Patente=(string)row["Tic_Patente"],
+                    Tick_SectorCodigo=(int)row["Tic_SecCodigo"],
+                    Tick_Tarifa=(decimal)row["Tic_Tarifa"]
+                };
+                listaTicket.Add(ticket);
+            }
+            return listaTicket;
+        }
+
+        public static void registrarSalidaTicket(Ticket ticket)
+        {
+            SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "registrarSalidaTicket";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+
+
+            cmd.Parameters.AddWithValue("@ticketId", ticket.Tick_Id);
+            cmd.Parameters.AddWithValue("@duracion", ticket.Tick_Duracion);
+            cmd.Parameters.AddWithValue("@total", ticket.Tick_Total);
+            cmd.Parameters.AddWithValue("@fecYhoraSalida", ticket.Tick_FechaHoraSal);
+
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+
         }
     }
 }

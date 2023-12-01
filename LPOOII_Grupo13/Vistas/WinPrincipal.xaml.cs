@@ -142,6 +142,13 @@ namespace Vistas
             this.Close();
         }
 
+        private void mnuResgistrarSalida_Click(object sender, RoutedEventArgs e)
+        {
+            WinRegistrarSalida winRegSalida = new WinRegistrarSalida();
+            winRegSalida.Show();
+            this.Close();
+        }
+
 
     }
 }
