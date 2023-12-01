@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using ClaseBase;
+
 namespace Vistas
 {
     /// <summary>
@@ -21,24 +23,41 @@ namespace Vistas
         public WinTicketRegistrarEntrada()
         {
             InitializeComponent();
+            //Loaded += Window_Loaded;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            txbEmpresa.Text = "Balut Srl";
-            txbDireccion.Text = "Leandro Alem";
-            txbTelefono.Text = "4515-1515";
-            txbEmail.Text = "prueba@gmail.com";
-            txbPasajeNumero.Text += "10";
-            txbFechaOperacion.Text += "01/10/2016";
-            txbFechaHoraPartida.Text += "04/10/2016";
-            txbOrigen.Text += "Jujuy";
-            txbDestino.Text += "Salta";
-            txbTipoServicio.Text += "Semi-cama";
-            txbButaca.Text += "20";
-            txbPrecio.Text += "100";
-            txbCliente.Text += "Ramon Diaz";
-            txbUsuario.Text += "Sixto" + " " + "Alberto";
+            txbNTicket.Text= "Ticket:   #"+Util.Util.getTicketEntrada().Tick_TicketNro.ToString();
+            txbNombreCliente.Text = "Cliente:   " + nombreCliente(Util.Util.getTicketEntrada().Tick_ClienteDni);
+            txbPatente.Text = "Patente:   "+Util.Util.getTicketEntrada().Tick_Patente;
+            txbHoraIngreso.Text = "Fecha Ingreso:   " + Util.Util.getTicketEntrada().Tick_FechaHoraEnt.ToString();
+            txbTipoVehiculo.Text = "Tipo Vehiculo:   " + tipoVehiculo(Util.Util.getTicketEntrada().Tick_TVCodigo);
+            txbTarifa.Text = "Tarifa:   $" + Util.Util.getTicketEntrada().Tick_Tarifa.ToString();
+
+            txbUsuario.Text = "Usuario:   " + Util.Util.getUsuario().User_UserName;
+        }
+
+        private string tipoVehiculo(int codigoVehiculo)
+        {
+            string tipoVeh;
+            TipoVehiculo vehiculo = new TipoVehiculo();
+
+            vehiculo = TrabajarTipoVehiculo.buscarTipoVehiculoXCodigo(codigoVehiculo);
+            tipoVeh = vehiculo.TypV_Descripcion;
+
+            return tipoVeh;
+        }
+
+        private string nombreCliente(int dniCliente)
+        {
+            string nombreCompleto;
+            Cliente cliente = new Cliente();
+
+            cliente = TrabajarCliente.buscarCliente(dniCliente);
+            nombreCompleto = cliente.Cli_Apellido1 + ", " + cliente.Cli_Nombre1;
+
+            return nombreCompleto;
         }
     }
 }

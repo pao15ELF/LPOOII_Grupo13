@@ -91,6 +91,9 @@
     <Compile Include="WinTicketRegistrarEntrada.xaml.cs">
       <DependentUpon>WinTicketRegistrarEntrada.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinTicketRegistrarSalida.xaml.cs">
+      <DependentUpon>WinTicketRegistrarSalida.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinVehiculosPlayas.xaml.cs">
       <DependentUpon>WinVehiculosPlayas.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinTicketRegistrarEntrada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinTicketRegistrarSalida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -274,6 +281,8 @@
     <Resource Include="Images\icons8-búsqueda-de-propiedad-64.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\icons8-puerta-de-garaje-abierta-100 %281%29.png" />
+    <Resource Include="Images\icons8-cierre-la-puerta-del-garaje-100.png" />
     <Content Include="Video\SistemaEstacionamiento.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

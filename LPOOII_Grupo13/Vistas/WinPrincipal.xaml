@@ -360,7 +360,7 @@
 
                         </MenuItem.Icon>
                         
-                        <!--// Settings Submenu - Vehiculos en Playa //-->
+                        <!--// Settings Submenu - Registrar Entrada //-->
 
                         <MenuItem Header="Registrar Entrada"
                                   Name="mnuResgistrarEntrada"
@@ -373,7 +373,27 @@
 
                             <MenuItem.Icon>
 
-                                <Image Source="/Vistas;component/Images/icons8-puerta-de-garaje-abierta-100.png"
+                                <Image Source="/Vistas;component/Images/icons8-puerta-de-garaje-abierta-100%20%281%29.png"
+                                   Stretch="Fill" Width="20" Height="20"/>
+
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+
+                        <!--// Settings Submenu - Registrar Salida //-->
+
+                        <MenuItem Header="Registrar Salida"
+                                  Name="mnuResgistrarSalida"
+                              Template="{StaticResource Item_Template}" Click="mnuResgistrarSalida_Click">
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+
+                            <MenuItem.Icon>
+
+                                <Image Source="/Vistas;component/Images/icons8-cierre-la-puerta-del-garaje-100.png"
                                    Stretch="Fill" Width="20" Height="20"/>
 
                             </MenuItem.Icon>
