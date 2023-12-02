@@ -194,5 +194,29 @@ namespace ClaseBase
             cnn.Close();
 
         }
+
+        // trabaja con vehiculosPlaya
+        public static DataTable traerTicketRegEntrada()
+        {
+            SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "SELECT * FROM Ticket";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cnn;
+
+            //Ejecuta la consulta
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            //Llena los datos de la consulta en la DateTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+
+
+       
     }
 }
