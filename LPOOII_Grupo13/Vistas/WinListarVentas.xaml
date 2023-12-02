@@ -1,0 +1,288 @@
+﻿<Window x:Class="Vistas.WinListarVentas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WinListarVentas" Height="650" Width="1000"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
+
+    <!--FONDO DONDE SE ENCUENTRA LA IMAGEN-->
+    <Border CornerRadius="35">
+        <!--CONTENEDOR DE LA IMAGEN-->
+        <Border.Background>
+            <ImageBrush ImageSource="/Vistas;component/Images/fondoLogin2.jpg"
+                        Stretch="UniformToFill"
+                        
+                        />
+        </Border.Background>
+
+        <!--FONDO DEL FORMULARIO-->
+        <Border CornerRadius="20" 
+                BorderThickness="5"
+                Opacity="0.90">
+            <!--BORDE GRADIENTE-->
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462AD8" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75"/>
+                    <GradientStop Color="#8A16C1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <!--FONDO GRADIENTE-->
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <!--CONTENEDOR PARA LOS COMPONENTES DEL LOGIN-->
+            <Grid>
+                <!--FILAS DE DIVISION PARA LA BARRA DE CERRAR-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <!--DIVISION DE LAS COLUMNAS EN LA PRIMERA FILA-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--TITULO-->
+                    <TextBlock Text="LISTADO DE VENTAS REALIZADAS"
+                                Foreground="DarkGray"
+                               FontSize="13"
+                               FontFamily="Arial"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+                    <!--BOTON MINIMIZAR-->
+                    <Button x:Name="btnMinimizar"
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="17"
+                            FontFamily="Arial"
+                            Cursor="Hand"
+                            Grid.Column="1" Click="btnMinimizar_Click">
+
+                        <!--MIDIFICAR EL ESTILO DEL BOTON-->
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18"
+                                        Height="19"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+                    <!--BOTON CERRAR-->
+                    <Button x:Name="btnCerrar"
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="White"
+                            FontSize="13"
+                            FontFamily="Arial"
+                            Cursor="Hand"
+                            Grid.Column="2" Click="btnCerrar_Click">
+
+                        <!--MIDIFICAR EL ESTILO DEL BOTON-->
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#DA34AE"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#C62DAE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18"
+                                        Height="19"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Grid>
+
+                <StackPanel
+                    Width="920"
+                    Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="300"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="70"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Canvas.Left="220" Canvas.Top="60" Content="Listado de Ventas Realizadas" Height="42" Name="label1" Foreground="White" FontSize="25" FontFamily="Source Sans Pro" FontWeight="Bold" Margin="278,24,299,24" />
+                        <StackPanel Grid.Row="1">
+                            <Grid Height="100">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="350"/>
+                                    <ColumnDefinition Width="350"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <DatePicker Height="25" 
+                                            Name="dpFechaInicio" 
+                                            Width="225" 
+                                            Grid.Column="0"
+                                            VerticalAlignment="Center"/>
+                                <DatePicker Height="25" 
+                                            Name="dpFechaFinal" 
+                                            Width="225" 
+                                            Grid.Column="1"
+                                            VerticalAlignment="Center"/>
+
+                                <Button Width="70" 
+                                        Height="50" 
+                                        Name="btnBuscar"
+                                        BorderThickness="0" 
+                                        Background="Transparent"
+                                        Grid.Column="2" Click="btnBuscar_Click">
+                                    <Image Source="/Vistas;component/Images/icons8-buscar-en-el-navegador-100.png" Width="50" Height="40" Stretch="Fill"  />
+                                </Button>
+                            </Grid>
+                            
+                        </StackPanel>
+                        <Canvas></Canvas>
+                        <Label Grid.Row="3" Content="Total de Ventas en el Rango de Fechas:" Height="42" Name="lblTotal" Width="365" Foreground="White" FontSize="15" FontFamily="Source Sans Pro" FontWeight="Bold" Margin="0,2,554,56" Grid.RowSpan="2" />
+                        <Button x:Name="btnVistaPrevia" Grid.Row="4" BorderThickness="0" Content="Vista Previa" Cursor="Hand" Margin="0" Height="43" Style="{StaticResource ResourceKey=triBotonAceptarForm}" Click="btnVistaPrevia_Click">
+                            <!-- PLANTILLA DETERMINADA DEL BOTON-->
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="120" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <ListView Name="lvwListaVentas" Grid.Row="2" Height="250" Width="920" FontFamily="Book Antiqua" FontSize="13" Foreground="DarkCyan" Margin="2,28,-2,22" IsSynchronizedWithCurrentItem="True">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView>
+                                    <GridView.Columns>
+                                        <GridViewColumn Width="Auto" 
+                                                        Header="Zona" 
+                                                        DisplayMemberBinding="{Binding Path= Zona}" />
+                                        <GridViewColumn Width="Auto" 
+                                                        Header="Sector" 
+                                                        DisplayMemberBinding="{Binding Path= Sector}" />
+                                        <GridViewColumn Width="Auto" 
+                                                        Header="N° Ticket" 
+                                                        DisplayMemberBinding="{Binding Path= NTicket}" />
+                                        <!--<GridViewColumn 
+                                                Width="Auto" 
+                                                Header="Hora Entrada"
+                                                />-->
+                                        <GridViewColumn Width="170">
+                                            <GridViewColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                        <TextBlock Text="Fecha Y Hora" />
+                                                        <TextBlock Text="De Entrada" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </GridViewColumn.HeaderTemplate>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding FecHoraEntrada, StringFormat={}{0:dd/MM/yyyy HH:mm}}" />
+                                                        <!--<TextBlock Text="{Binding Transcurrido}" />-->
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Width="170">
+                                            <GridViewColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                        <TextBlock Text="Fecha Y Hora" />
+                                                        <TextBlock Text="De Salida" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </GridViewColumn.HeaderTemplate>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding FechaHoraSalida, StringFormat={}{0:dd/MM/yyyy HH:mm}}" />
+                                                        <!--<TextBlock Text="{Binding Transcurrido}" />-->
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Width="130" 
+                                                        Header="Cliente" 
+                                                        DisplayMemberBinding="{Binding Path= Cliente}" />
+                                        <GridViewColumn Width="Auto" 
+                                                        Header="TipoVehiculo" 
+                                                        DisplayMemberBinding="{Binding Path= TipoVehiculo}" />
+                                        <GridViewColumn Width="Auto" 
+                                                        Header="Patente" 
+                                                        DisplayMemberBinding="{Binding Path= Patente}" />
+                                        <GridViewColumn Width="100" 
+                                                        Header="Duración"
+                                                        DisplayMemberBinding="{Binding Path= Duracion}"/>
+                                        <GridViewColumn Width="60" 
+                                                        Header="Tarifa" 
+                                                        DisplayMemberBinding="{Binding Path= Tarifa}"/>
+                                        <GridViewColumn Width="60" 
+                                                        Header="Total" 
+                                                        DisplayMemberBinding="{Binding Path= Total}"/>
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+    </Border>
+</Window>

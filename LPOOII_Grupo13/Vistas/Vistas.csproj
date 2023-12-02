@@ -61,6 +61,12 @@
     <Compile Include="VistaPreviaDeImpresion.xaml.cs">
       <DependentUpon>VistaPreviaDeImpresion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VistaPreviaDeImpresionSecOcupados.xaml.cs">
+      <DependentUpon>VistaPreviaDeImpresionSecOcupados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaPreviaDeImpresionVentas.xaml.cs">
+      <DependentUpon>VistaPreviaDeImpresionVentas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinABMClientes.xaml.cs">
       <DependentUpon>WinABMClientes.xaml</DependentUpon>
     </Compile>
@@ -75,6 +81,12 @@
     </Compile>
     <Compile Include="WinEstadoSector.xaml.cs">
       <DependentUpon>WinEstadoSector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinListarSectores.xaml.cs">
+      <DependentUpon>WinListarSectores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinListarVentas.xaml.cs">
+      <DependentUpon>WinListarVentas.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinListaUsuariosFiltros.xaml.cs">
       <DependentUpon>WinListaUsuariosFiltros.xaml</DependentUpon>
@@ -136,6 +148,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="VistaPreviaDeImpresionSecOcupados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaPreviaDeImpresionVentas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinABMClientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,6 +173,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinEstadoSector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinListarSectores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinListarVentas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -283,6 +311,10 @@
   <ItemGroup>
     <Resource Include="Images\icons8-puerta-de-garaje-abierta-100 %281%29.png" />
     <Resource Include="Images\icons8-cierre-la-puerta-del-garaje-100.png" />
+    <Resource Include="Images\icons8-aparcamiento-cubierto-100.png" />
+    <Resource Include="Images\icons8-billete-de-estacionamiento-100.png" />
+    <Resource Include="Images\icons8-estacionamiento-100.png" />
+    <Resource Include="Images\icons8-buscar-en-el-navegador-100.png" />
     <Content Include="Video\SistemaEstacionamiento.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
