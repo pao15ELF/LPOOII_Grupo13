@@ -74,6 +74,7 @@ namespace ClaseBase
                 tipoVehiculo.TypV_Descripcion= (string)row["TV_Descripcion"];
                 tipoVehiculo.TypV_Tarifa= (decimal)row["TV_Tarifa"];
                 tipoVehiculo.TypV_Estado = (string)row["TV_Estado"];
+                tipoVehiculo.TypV_Imagen = (string)row["TV_Imagen"];
                 
                 listaTipoVehiculo.Add(tipoVehiculo);
             }
@@ -101,6 +102,7 @@ namespace ClaseBase
             cmd.Parameters.AddWithValue("@descripcion", tipoVehiculo.TypV_Descripcion);
             cmd.Parameters.AddWithValue("@tarifa", tipoVehiculo.TypV_Tarifa);
             cmd.Parameters.AddWithValue("@estado", tipoVehiculo.TypV_Estado);
+            cmd.Parameters.AddWithValue("@imagen", tipoVehiculo.TypV_Imagen);
 
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -136,10 +138,48 @@ namespace ClaseBase
             cmd.Parameters.AddWithValue("@descripcion", tipoVehiculo.TypV_Descripcion);
             cmd.Parameters.AddWithValue("@tarifa", tipoVehiculo.TypV_Tarifa);
             cmd.Parameters.AddWithValue("@estado", tipoVehiculo.TypV_Estado);
+            cmd.Parameters.AddWithValue("@imagen", tipoVehiculo.TypV_Imagen);
 
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
+        }
+
+        public static TipoVehiculo buscarTipoVehiculoXCodigo(int codigo)
+        {
+            SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarTipoVehiculoXCodigo";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+            //ejecuta la consulta
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            //llena los datos de la consulta en el DataTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            if (dt.Rows.Count>0)
+            {
+                TipoVehiculo tipoVehiculo = new TipoVehiculo();
+                tipoVehiculo.TypV_Descripcion = dt.Rows[0]["TV_Descripcion"].ToString();
+
+                //Cliente cliente = new Cliente();
+                //cliente.Cli_Id1 = Convert.ToInt32(dt.Rows[0]["Cli_Id"]);
+                //cliente.Cli_ClienteDni1 = Convert.ToInt32(dt.Rows[0]["Cli_Dni"]);
+                //cliente.Cli_Apellido1 = dt.Rows[0]["Cli_Apellido"].ToString();
+                //cliente.Cli_Nombre1 = dt.Rows[0]["Cli_Nombre"].ToString();
+                //cliente.Cli_Telefono1 = dt.Rows[0]["Cli_Telefono"].ToString();
+                //return cliente;
+                return tipoVehiculo;
+            }
+            else
+            {
+                return null;
+            }
         }
 
     }

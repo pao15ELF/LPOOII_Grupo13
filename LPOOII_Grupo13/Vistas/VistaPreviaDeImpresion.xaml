@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
-        MouseDown="Window_MouseDown" Topmost="True">
+        MouseDown="Window_MouseDown" Topmost="False">
 
  <!--   <Window.Resources>
 

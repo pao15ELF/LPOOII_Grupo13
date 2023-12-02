@@ -35,12 +35,20 @@ namespace ClaseBase
             get { return sec_Identificador; }
             set { sec_Identificador = value; }
         }
-        private bool sec_Habilitado;
+        private string sec_Habilitado;
 
-        public bool Sec_Habilitado
+        public string Sec_Habilitado
         {
             get { return sec_Habilitado; }
             set { sec_Habilitado = value; }
+        }
+
+        private int sec_ZonaCod;
+
+        public int Sec_ZonaCod
+        {
+            get { return sec_ZonaCod; }
+            set { sec_ZonaCod = value; }
         }
     }
 }

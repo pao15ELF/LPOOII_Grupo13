@@ -61,13 +61,18 @@
     <Compile Include="Ticket.cs" />
     <Compile Include="TipoVehiculo.cs" />
     <Compile Include="TrabajarCliente.cs" />
+    <Compile Include="TrabajarSectores.cs" />
+    <Compile Include="TrabajarTicket.cs" />
     <Compile Include="TrabajarTipoVehiculo.cs" />
     <Compile Include="TrabajarUsuario.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="playaDataSet.xsc">
       <DependentUpon>playaDataSet.xsd</DependentUpon>
     </None>

@@ -63,9 +63,9 @@ namespace ClaseBase
             get { return tick_SectorCodigo; }
             set { tick_SectorCodigo = value; }
         }
-        private double tick_Duracion;
+        private string tick_Duracion;
 
-        public double Tick_Duracion
+        public string Tick_Duracion
         {
             get { return tick_Duracion; }
             set { tick_Duracion = value; }

@@ -6,14 +6,21 @@
         
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     
-        Title="WinRegistrarEntrada" Height="548" Width="997"
+        Title="WinRegistrarEntrada" Height="586" Width="1110"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
-        MouseDown="Window_MouseDown" Topmost="True">
+        MouseDown="Window_MouseDown" Topmost="False">
 
+    <Window.Resources>
+        <ObjectDataProvider
+            ObjectType="{x:Type svc:TrabajarCliente}"
+            MethodName="listarClientes"
+            x:Key="LIST_CLIENTES"/>
+    </Window.Resources>
+    
     <Border CornerRadius="25">
         <Border.Background>
             <ImageBrush ImageSource="/Vistas;component/Images/fondoForm3.png"/>
@@ -52,7 +59,7 @@
                         <ColumnDefinition Width="5"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Registro de Entrada"
+                    <TextBlock Text="REGISTRO DE ENTRADA DEL VEHICULO"
                                Foreground="DarkGray"
                            FontSize="12"
                            FontFamily="Fonts/#Orbitron Medium"
@@ -115,162 +122,314 @@
                     </Button>
                 </Grid>
 
-                <!--STACK PANEL DE DATOS DEL CLIENTE-->
-                <StackPanel Width="378"
+                <!--STACK PANEL DE DATOS DEL TICKET-->
+                <StackPanel Width="689"
                             Orientation="Vertical"
                             HorizontalAlignment="Left"
                             Grid.Row="1">
-                    <TextBlock
-                            Name="txtIdCliModificar"
-                            Text="{Binding User_Id}"
-                            Grid.Row="0"
-                            Background="Aqua"
-                            Width="40"
-                            Height="30"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top" Visibility="Hidden" />
-                    <!--Formulario-->
-                    <!--TITULO-->
-                    <Label Content="DATOS DE INGRESO DEL VEHICULO"
+                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="300"/>
+                        </Grid.RowDefinitions>
+                        <!--Formulario-->
+                        <!--TITULO-->
+                        <Label Content="DATOS DE INGRESO DEL VEHICULO"
                            Name="lblTituloDatos"
                            Foreground="DarkGray"
                            Width="275" 
                            FontSize="15" 
+                           Grid.Row="0"
                            FontFamily="Arial"
                            Margin="0,30,0,0"/>
-                    <!---->
-                    <StackPanel Height="60" 
-                                Margin="0,40,0,0"
-                                Width="340">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="90"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            
-                            <Label
-                                Content="CLIENTE DNI: "
-                                Name="lblCli"
+
+                        <StackPanel Height="60" 
+                                Margin="20,0,0,0"
+                                Width="348"
+                                Grid.Row="1"
+                                HorizontalAlignment="Left">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                Content="N° DE TICKET: "
+                                Name="lblNTicket"
                                 Margin="6,15,198,0"
                                 Foreground="DarkGray"
                                 FontSize="13"
                                 FontFamily="Arial"
                                  Grid.ColumnSpan="2"/>
-                            <TextBox
+                                <TextBox
                                 Grid.Column="1"
-                                Name="txtCliente"
+                                Name="txtNTicket"
                                 Margin="62,12,6,0"
                                 DataContext="{}"
-                                Style="{StaticResource EstiloErrorTextBox}"
-                                >
-                                <TextBox.Text>
-                                    <Binding Path="Cli_ClienteDni1" UpdateSourceTrigger="PropertyChanged"
-                                        ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
-                                    </TextBox.Text>
-                            </TextBox>
-                               
+                                Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"> </TextBox>
+                            </Grid>
+                        </StackPanel>
+                        
+                        <!--INGRESO DE DATOS-->
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
                             
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="0"
+                                    HorizontalAlignment="Right">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="FECHA ENTRADA: "
+                                            Name="lblFecha"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                                    <TextBox
+                                            Grid.Column="1"
+                                            Name="txtFecha"
+                                            
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                     </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Right">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="DNI CLIENTE: "
+                                            Name="lblClienteDni"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtClienteDni"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="2"
+                                    HorizontalAlignment="Right">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="PATENTE: "
+                                            Name="lblPatente"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtPatente"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}"
+                                            ></TextBox>
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="3"
+                                    HorizontalAlignment="Right">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="ZONA y SECTOR: "
+                                            Name="lblZonaSector"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <ComboBox  
+                                          Grid.Column="1" 
+                                          Height="40" 
+                                          HorizontalAlignment="Center" 
+                                          Name="cmbZonaSector" 
+                                          VerticalAlignment="Top" 
+                                          Width="150"
+                                          VerticalContentAlignment="Center" SelectionChanged="cmbTipoVehiculo_SelectionChanged" />
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                            <Grid
+                                Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="0"
+                                    HorizontalAlignment="Left">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="HORA ENTRADA: "
+                                            Name="lblHora"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtHora"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Left">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="APELLIDO CLIENTE: "
+                                            Name="lblApellido"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtApellido"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="2"
+                                    HorizontalAlignment="Left">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="TIPO VEHICULO: "
+                                            Name="lblTipoVeh"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <ComboBox  
+                                          Grid.Column="1" 
+                                          Height="40" 
+                                          HorizontalAlignment="Center" 
+                                          Name="cmbTipoVehiculo" 
+                                          VerticalAlignment="Top" 
+                                          Width="150"
+                                          VerticalContentAlignment="Center" SelectionChanged="cmbTipoVehiculo_SelectionChanged" />
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel Height="60" 
+                                    Margin="0,0,0,0"
+                                    Width="335"
+                                    Grid.Row="3"
+                                    HorizontalAlignment="Left">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Content="TARIFA: "
+                                            Name="lblTarifa"
+                                            Margin="6,15,198,0"
+                                            Foreground="DarkGray"
+                                            FontSize="13"
+                                            FontFamily="Arial"
+                                             Grid.ColumnSpan="2"/>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            Name="txtTarifa"
+                                            Margin="22,12,6,0"
+                                            DataContext="{}"
+                                            Style="{StaticResource EstiloErrorTextBox}" IsEnabled="False"></TextBox>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
                         </Grid>
-                    </StackPanel>
+                    </Grid>
                     
-                    <StackPanel Height="60" 
-                                    Margin="0,5,0,0"
-                                Width="340">
-                        <Grid Width="338">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="90"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <Label
-                                Content="PATENTE: "
-                                Name="lblPatente"
-                                Margin="6,15,6,0"
-                                Foreground="DarkGray"
-                                FontSize="13"
-                                FontFamily="Arial"
-                                Grid.Column="0"/>
-                            <TextBox
-                                Grid.Column="1"
-                                Name="txtPatente"
-                                Margin="61,15,6,-3"
-                                DataContext="{}"
-                                Style="{StaticResource EstiloErrorTextBox}">
-                                
-                                <TextBox.Text>
-                                    <Binding Path="Cli_Apellido1" UpdateSourceTrigger="PropertyChanged"
-                                        ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
-                                    </TextBox.Text>
-                                
-                            </TextBox>
-                        </Grid>
-                    </StackPanel>
-                    
-                    <StackPanel Height="60" 
-                                    Margin="0,5,0,0"
-                                Width="340">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="90"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <Label
-                                Content="TIPO DE VEHICULO: "
-                                Name="lblTipoV"
-                                Margin="6,15,180,0"
-                                Foreground="DarkGray"
-                                FontSize="13"
-                                FontFamily="Arial"
-                                 Grid.ColumnSpan="2"/>
-                            <TextBox
-                                Grid.Column="1"
-                                Name="txtTipoV"
-                                Margin="62,12,6,0"
-                                DataContext="{}"
-                                Style="{StaticResource EstiloErrorTextBox}">
-                                <TextBox.Text>
-                                    <Binding Path="Cli_Nombre1" UpdateSourceTrigger="PropertyChanged"
-                                        ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
-                                    </TextBox.Text>
-                            </TextBox>
-                        </Grid>
-                    </StackPanel>
-
-                    <StackPanel Height="60" 
-                                    Margin="0,5,0,0"
-                                Width="340">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="90"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <Label
-                                Content="FECHA Y HORA: "
-                                Name="lblFecha"
-                                Margin="6,15,190,0"
-                                Foreground="DarkGray"
-                                FontSize="13"
-                                FontFamily="Arial"
-                                 Grid.ColumnSpan="2"/>
-                         <!--   <TextBox
-                                Grid.Column="1"
-                                Name="txtFecha"
-                                Margin="62,6,6,6"
-                                DataContext="{}"
-                                Style="{StaticResource EstiloErrorTextBox}">
-                                <TextBox.Text>
-                                    <Binding Path="Cli_Telefono1" UpdateSourceTrigger="PropertyChanged"
-                                        ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
-                                    </TextBox.Text>
-                            </TextBox> -->
-                    <DatePicker SelectedDate="{x:Static sys:DateTime.Now}" Height="25" Name="datePicker1" Grid.Column="1" Margin="66,8,7,6" />
-
-
-            </Grid>
-            
-            </StackPanel>
                     
                     
                     <Grid>
@@ -280,19 +439,19 @@
                         </Grid.ColumnDefinitions>-->
 
                     <!--BOTON -->
-                    <Button x:Name="btnConfirmar"
+                    <Button x:Name="btnImprimirTicket"
                                 BorderThickness="0"
-                                Content="CONFIRMAR"
+                                Content="REGISTRAR ENTRADA"
                                 Cursor="Hand"
                                 Grid.Column="0" 
                                 Margin="10" 
                                 Height="43"
-                                Style="{StaticResource ResourceKey=triBotonAceptarForm}">
+                                Style="{StaticResource ResourceKey=triBotonAceptarForm}" Click="btnImprimirTicket_Click">
 
                         <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-                                <Border Width="120"
+                                <Border Width="170"
                                             Height="40"
                                             CornerRadius="20"
                                             Background="{TemplateBinding Background}">
@@ -311,7 +470,7 @@
 
 
             <!--STACK PANEL DE LISTADO CLIENTES-->
-            <StackPanel Width="600"
+            <StackPanel Width="400"
                             Orientation="Vertical"
                             HorizontalAlignment="Right"
                             Grid.Row="1">
@@ -322,8 +481,8 @@
                         <RowDefinition Height="70"/>
                     </Grid.RowDefinitions>
 
-                    <Label Content="LISTADO DE REGISTROS"
-                               Name="lblListadoVehiculos"
+                    <Label Content="LISTADO DE CLIENTES"
+                               Name="lblListadoClientes"
                                Foreground="DarkGray"
                                HorizontalAlignment="Center"
                                Margin="0,40,0,0"
@@ -336,19 +495,18 @@
                         <Grid>
 
                             <Canvas
-                                Margin="70,30,0,0">
+                                Margin="45,30,0,0">
                                 <ListView
-                                Name="lvwRegistro"
-                                Width="460"
+                                Name="lvwClientes"
+                                Width="350"
                                 Height="250"
                                 IsSynchronizedWithCurrentItem="True"
-                                ItemsSource="{Binding Source={}}">
+                                ItemsSource="{Binding Source={StaticResource LIST_CLIENTES}}"  Canvas.Left="-18" SelectionChanged="lvwRegistro_SelectionChanged">
                                     <ListView.View>
                                         <GridView>
-                                            <GridViewColumn Width="115" Header="Cliente" />
-                                            <GridViewColumn Width="115" Header="Patente" />
-                                            <GridViewColumn Width="115" Header="Tipo de Vehiculo" />
-                                            <GridViewColumn Width="115" Header="Fecha y Hora" />
+                                                <GridViewColumn Width="115" Header="DNI Cliente"  DisplayMemberBinding="{Binding Path= Cli_ClienteDni1}" />
+                                                <GridViewColumn Width="115" Header="Apellido" DisplayMemberBinding="{Binding Path=Cli_Apellido1}"/>
+                                                <GridViewColumn Width="115" Header="Nombre" DisplayMemberBinding="{Binding Path=Cli_Nombre1}"/>
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
@@ -360,14 +518,14 @@
                     <StackPanel
                         Grid.Row="2">
                         <!--BOTON MODIFICAR-->
-                        <Button x:Name="btnTicket"
+                        <Button x:Name="btnSeleccionarCliente"
                             BorderThickness="0"
-                            Content="TICKET"
+                            Content="SELECCIONAR"
                             Cursor="Hand"
                             Grid.Column="2" 
                             Margin="15" 
                             Height="43"
-                            Style="{StaticResource ResourceKey=triBotonModificar}">
+                            Style="{StaticResource ResourceKey=triBotonModificar}" Click="btnSeleccionarCliente_Click">
 
                             <!--ANULAR PLANTILLA DETERMINADA DEL BOTON-->
                             <Button.Template>

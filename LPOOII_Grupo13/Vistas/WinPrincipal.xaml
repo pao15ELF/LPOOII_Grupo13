@@ -177,7 +177,27 @@
 
                         </MenuItem.Icon>
 
-                        <!--// Music Submenu - All Songs //-->
+                        <!--// Sectores Submenu - Vehiculos en Playa //-->
+
+                        <MenuItem Header="Vehiculos en Playa"
+                                  Name="mnuVehiculoPlaya"
+                              Template="{StaticResource Item_Template}" Click="mnuVehiculoPlaya_Click">
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+
+                            <MenuItem.Icon>
+
+                                <Image Source="/Images/icons8-aparcamiento-descubierto-50.png"
+                                   Stretch="Fill" Width="20" Height="20"/>
+
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+
+                        <!--// Sectores Submenu - Estado Sectores //-->
 
                         <MenuItem Header="Estado de Sectores"
                                   Name="mnuEstadoSectores"
@@ -194,6 +214,26 @@
                                    Stretch="Fill" Width="20" Height="20" />
 
                         </MenuItem.Icon>
+
+                        </MenuItem>
+
+                        <!--// Sectores Submenu - Listados de Sectores Ocupados //-->
+
+                        <MenuItem Header="Sectores Ocupados"
+                                  Name="mnuSectoresOcupados"
+                              Template="{StaticResource Item_Template}" Click="mnuSectoresOcupados_Click">
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+
+                            <MenuItem.Icon>
+
+                                <Image Source="/Vistas;component/Images/icons8-estacionamiento-100.png"
+                                   Stretch="Fill" Width="20" Height="20" />
+
+                            </MenuItem.Icon>
 
                         </MenuItem>
 
@@ -360,7 +400,7 @@
 
                         </MenuItem.Icon>
                         
-                        <!--// Settings Submenu - Vehiculos en Playa //-->
+                        <!--// Estacionamiento Submenu - Registrar Entrada //-->
 
                         <MenuItem Header="Registrar Entrada"
                                   Name="mnuResgistrarEntrada"
@@ -373,18 +413,18 @@
 
                             <MenuItem.Icon>
 
-                                <Image Source="/Vistas;component/Images/icons8-puerta-de-garaje-abierta-100.png"
+                                <Image Source="/Vistas;component/Images/icons8-puerta-de-garaje-abierta-100%20%281%29.png"
                                    Stretch="Fill" Width="20" Height="20"/>
 
                             </MenuItem.Icon>
 
                         </MenuItem>
 
-                        <!--// Settings Submenu - Vehiculos en Playa //-->
+                        <!--// Estacionamiento Submenu - Registrar Salida //-->
 
-                        <MenuItem Header="Vehiculos en Playa"
-                                  Name="mnuVehiculoPlaya"
-                              Template="{StaticResource Item_Template}" Click="mnuVehiculoPlaya_Click">
+                        <MenuItem Header="Registrar Salida"
+                                  Name="mnuResgistrarSalida"
+                              Template="{StaticResource Item_Template}" Click="mnuResgistrarSalida_Click">
                             <MenuItem.HeaderTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
@@ -393,7 +433,70 @@
 
                             <MenuItem.Icon>
 
-                                <Image Source="/Images/icons8-aparcamiento-descubierto-50.png"
+                                <Image Source="/Vistas;component/Images/icons8-cierre-la-puerta-del-garaje-100.png"
+                                   Stretch="Fill" Width="20" Height="20"/>
+
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+
+                        <!--// Estacionamiento Submenu - Ventas Realizadas //-->
+
+                        <MenuItem Header="Ventas Realizadas"
+                                  Name="mnuVentas"
+                              Template="{StaticResource Item_Template}" Click="mnuVentas_Click">
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+
+                            <MenuItem.Icon>
+
+                                <Image Source="/Vistas;component/Images/icons8-billete-de-estacionamiento-100.png"
+                                   Stretch="Fill" Width="20" Height="20"/>
+
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+
+                        
+
+                    </MenuItem>
+
+
+                    <!--// Main Menu - Acerca de //-->
+
+                    <MenuItem Header="Acerca De .."
+                              Name="mnuAcerca"
+                          Template="{StaticResource Menu_SubMenu_Template}">
+                        <MenuItem.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
+                            </DataTemplate>
+                        </MenuItem.HeaderTemplate>
+
+                        <MenuItem.Icon>
+
+                            <Image Source="/Images/icons8-búsqueda-de-propiedad-64.png"
+                               Stretch="Fill" Width="24" Height="24" />
+
+                        </MenuItem.Icon>
+
+                        <!--// Settings Submenu //-->
+
+                        <MenuItem Header="Nosotros"
+                                  Name="mnuNosotros"
+                              Template="{StaticResource Item_Template}" Click="mnuNosotros_Click">
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+
+                            <MenuItem.Icon>
+
+                                <Image Source="/Images/icons8-usuario-16.png"
                                    Stretch="Fill" Width="20" Height="20"/>
 
                             </MenuItem.Icon>

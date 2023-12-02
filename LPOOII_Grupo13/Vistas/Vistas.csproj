@@ -61,6 +61,12 @@
     <Compile Include="VistaPreviaDeImpresion.xaml.cs">
       <DependentUpon>VistaPreviaDeImpresion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VistaPreviaDeImpresionSecOcupados.xaml.cs">
+      <DependentUpon>VistaPreviaDeImpresionSecOcupados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaPreviaDeImpresionVentas.xaml.cs">
+      <DependentUpon>VistaPreviaDeImpresionVentas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinABMClientes.xaml.cs">
       <DependentUpon>WinABMClientes.xaml</DependentUpon>
     </Compile>
@@ -70,8 +76,17 @@
     <Compile Include="WinABMVehiculos.xaml.cs">
       <DependentUpon>WinABMVehiculos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinAcercaDeNosotros.xaml.cs">
+      <DependentUpon>WinAcercaDeNosotros.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinEstadoSector.xaml.cs">
       <DependentUpon>WinEstadoSector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinListarSectores.xaml.cs">
+      <DependentUpon>WinListarSectores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinListarVentas.xaml.cs">
+      <DependentUpon>WinListarVentas.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinListaUsuariosFiltros.xaml.cs">
       <DependentUpon>WinListaUsuariosFiltros.xaml</DependentUpon>
@@ -81,6 +96,15 @@
     </Compile>
     <Compile Include="WinRegistrarEntrada.xaml.cs">
       <DependentUpon>WinRegistrarEntrada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinRegistrarSalida.xaml.cs">
+      <DependentUpon>WinRegistrarSalida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinTicketRegistrarEntrada.xaml.cs">
+      <DependentUpon>WinTicketRegistrarEntrada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinTicketRegistrarSalida.xaml.cs">
+      <DependentUpon>WinTicketRegistrarSalida.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinVehiculosPlayas.xaml.cs">
       <DependentUpon>WinVehiculosPlayas.xaml</DependentUpon>
@@ -124,6 +148,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="VistaPreviaDeImpresionSecOcupados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaPreviaDeImpresionVentas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinABMClientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,7 +168,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinAcercaDeNosotros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinEstadoSector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinListarSectores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinListarVentas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,6 +193,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinRegistrarEntrada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinRegistrarSalida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinTicketRegistrarEntrada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinTicketRegistrarSalida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -253,7 +309,19 @@
     <Resource Include="Images\icons8-búsqueda-de-propiedad-64.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\icons8-puerta-de-garaje-abierta-100 %281%29.png" />
+    <Resource Include="Images\icons8-cierre-la-puerta-del-garaje-100.png" />
+    <Resource Include="Images\icons8-aparcamiento-cubierto-100.png" />
+    <Resource Include="Images\icons8-billete-de-estacionamiento-100.png" />
+    <Resource Include="Images\icons8-estacionamiento-100.png" />
+    <Resource Include="Images\icons8-buscar-en-el-navegador-100.png" />
+    <Content Include="Video\SistemaEstacionamiento.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\icons8-puerta-de-garaje-abierta-100.png" />
+    <Resource Include="Images\boton-de-play.png" />
+    <Resource Include="Images\detener.png" />
+    <Resource Include="Images\pausa.png" />
     <Content Include="Sonido\intro.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
