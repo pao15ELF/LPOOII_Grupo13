@@ -149,6 +149,20 @@ namespace Vistas
             this.Close();
         }
 
+        private void mnuSectoresOcupados_Click(object sender, RoutedEventArgs e)
+        {
+            WinListarSectores winListaReg = new WinListarSectores();
+            winListaReg.Show();
+            this.Close();
+        }
+
+        private void mnuVentas_Click(object sender, RoutedEventArgs e)
+        {
+            WinListarVentas winVentas = new WinListarVentas();
+            winVentas.Show();
+            this.Close();
+        }
+
 
     }
 }

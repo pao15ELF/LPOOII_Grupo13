@@ -177,7 +177,27 @@
 
                         </MenuItem.Icon>
 
-                        <!--// Music Submenu - All Songs //-->
+                        <!--// Sectores Submenu - Vehiculos en Playa //-->
+
+                        <MenuItem Header="Vehiculos en Playa"
+                                  Name="mnuVehiculoPlaya"
+                              Template="{StaticResource Item_Template}" Click="mnuVehiculoPlaya_Click">
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+
+                            <MenuItem.Icon>
+
+                                <Image Source="/Images/icons8-aparcamiento-descubierto-50.png"
+                                   Stretch="Fill" Width="20" Height="20"/>
+
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+
+                        <!--// Sectores Submenu - Estado Sectores //-->
 
                         <MenuItem Header="Estado de Sectores"
                                   Name="mnuEstadoSectores"
@@ -194,6 +214,26 @@
                                    Stretch="Fill" Width="20" Height="20" />
 
                         </MenuItem.Icon>
+
+                        </MenuItem>
+
+                        <!--// Sectores Submenu - Listados de Sectores Ocupados //-->
+
+                        <MenuItem Header="Sectores Ocupados"
+                                  Name="mnuSectoresOcupados"
+                              Template="{StaticResource Item_Template}" Click="mnuSectoresOcupados_Click">
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+
+                            <MenuItem.Icon>
+
+                                <Image Source="/Vistas;component/Images/icons8-estacionamiento-100.png"
+                                   Stretch="Fill" Width="20" Height="20" />
+
+                            </MenuItem.Icon>
 
                         </MenuItem>
 
@@ -360,7 +400,7 @@
 
                         </MenuItem.Icon>
                         
-                        <!--// Settings Submenu - Registrar Entrada //-->
+                        <!--// Estacionamiento Submenu - Registrar Entrada //-->
 
                         <MenuItem Header="Registrar Entrada"
                                   Name="mnuResgistrarEntrada"
@@ -380,7 +420,7 @@
 
                         </MenuItem>
 
-                        <!--// Settings Submenu - Registrar Salida //-->
+                        <!--// Estacionamiento Submenu - Registrar Salida //-->
 
                         <MenuItem Header="Registrar Salida"
                                   Name="mnuResgistrarSalida"
@@ -400,11 +440,11 @@
 
                         </MenuItem>
 
-                        <!--// Settings Submenu - Vehiculos en Playa //-->
+                        <!--// Estacionamiento Submenu - Ventas Realizadas //-->
 
-                        <MenuItem Header="Vehiculos en Playa"
-                                  Name="mnuVehiculoPlaya"
-                              Template="{StaticResource Item_Template}" Click="mnuVehiculoPlaya_Click">
+                        <MenuItem Header="Ventas Realizadas"
+                                  Name="mnuVentas"
+                              Template="{StaticResource Item_Template}" Click="mnuVentas_Click">
                             <MenuItem.HeaderTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding}" TextTrimming="WordEllipsis" TextWrapping="Wrap" Width="150" FontSize="13"/>
@@ -413,12 +453,14 @@
 
                             <MenuItem.Icon>
 
-                                <Image Source="/Images/icons8-aparcamiento-descubierto-50.png"
+                                <Image Source="/Vistas;component/Images/icons8-billete-de-estacionamiento-100.png"
                                    Stretch="Fill" Width="20" Height="20"/>
 
                             </MenuItem.Icon>
 
                         </MenuItem>
+
+                        
 
                     </MenuItem>
 

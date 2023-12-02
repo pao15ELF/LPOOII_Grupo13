@@ -96,35 +96,13 @@ namespace Vistas
 
         public void calcularTotalYHora(DateTime fechaHoraEnt)
         {
-            
-            // Obtiene la fecha y hora actual
-            //DateTime ahora = DateTime.Now;
-
-            // Parsea la fecha y hora de entrada a un objeto DateTime
-            //DateTime fechaHoraEntrada = DateTime.ParseExact(txtFecYHoraEntrada.Text, "dd/MM/yy HH:mm", CultureInfo.InvariantCulture);
-            //DateTime fechaHoraEntrada = DateTime.ParseExact(txtFecYHoraEntrada.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-
-            // Obtiene la diferencia
-            //TimeSpan diferencia = ahora.Subtract(fechaHoraEntrada);
-
-            // Accede a las horas y minutos de la diferencia
-            //int horas = diferencia.Hours;
-            //int minutos = diferencia.Minutes;
-
-            //txtTiempoHsMin.Text= horas.ToString()+"Hs - "+minutos.ToString()+"Min";
-
-            // Ahora puedes utilizar las variables horas y minutos como necesites
-            //if(horas >0)
-            //{
-            //    txtTotal.Text = (horas * Convert.ToDecimal(txtTarifaXHora.Text)).ToString();
-            //}
-
             DateTime fechaHoraEntrada;
-            if (DateTime.TryParseExact(txtFecYHoraEntrada.Text, "d/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaHoraEntrada))
-            {
+            //if (DateTime.TryParseExact(txtFecYHoraEntrada.Text, "d/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaHoraEntrada))
+            //{
                 // Continuar con el procesamiento
                 DateTime ahora = DateTime.Now;
-                TimeSpan diferencia = ahora.Subtract(fechaHoraEntrada);
+                //TimeSpan diferencia = ahora.Subtract(fechaHoraEntrada);
+                TimeSpan diferencia = ahora.Subtract(fechaHoraEnt);
 
                 int horas = diferencia.Hours;
                 int minutos = diferencia.Minutes;
@@ -146,11 +124,11 @@ namespace Vistas
                 {
                     txtTotal.Text = txtTarifaXHora.Text;
                 }
-            }
-            else
-            {
-                MessageBox.Show("La fecha y hora ingresadas no tienen el formato esperado."+ fechaHoraEnt.ToString());
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("La fecha y hora ingresadas no tienen el formato esperado."+ fechaHoraEnt.ToString());
+            //}
         }
 
         private void btnRegistrarSalida_Click(object sender, RoutedEventArgs e)
