@@ -35,22 +35,42 @@ namespace Vistas
             DataContext = this;
         }
 
+        /// <summary>
+        /// Botón para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            WinPrincipal winPri = new WinPrincipal();
+            winPri.Show();
+            this.Close();
         }
 
+        /// <summary>
+        /// Botón para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Metodo para poder arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+        /// <summary>
+        /// Metodo para cargar los datos a la lista de Sectores Ocupados.
+        /// </summary>
         private void cargarListView()
         {
             foreach(var item in listarTickets){
@@ -68,6 +88,11 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Función para calcular el tiempo transcurrido desde la entrada hasta el dia actual.
+        /// </summary>
+        /// <param name="fechaHoraEnt"></param>
+        /// <returns>string</returns>
         private string tiempoTranscurrido(DateTime fechaHoraEnt)
         {
             DateTime ahora = DateTime.Now;
@@ -79,12 +104,22 @@ namespace Vistas
             return horas + "Hs - " + minutos + "min";
         }
 
+        /// <summary>
+        /// Función para buscar la descripcion de un Vehiculo por su codigo.
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns>string</returns>
         private string tipoVehiculo(int codigo)
         {
             TipoVehiculo tipoVehiculo = TrabajarTipoVehiculo.buscarTipoVehiculoXCodigo(codigo);
             return tipoVehiculo.TypV_Descripcion;
         }
 
+        /// <summary>
+        /// Función para buscar el Nombre y Apellido de un Cliente por su DNI.
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <returns>string</returns>
         private string nombreCliente(int dni)
         {
             Cliente cliente = TrabajarCliente.buscarCliente(dni);
@@ -92,6 +127,11 @@ namespace Vistas
             return cliente.Cli_Apellido1 + ", " + cliente.Cli_Nombre1;
         }
 
+        /// <summary>
+        /// Función para calcular a la zona que pertenece.
+        /// </summary>
+        /// <param name="sector"></param>
+        /// <returns></returns>
         private int calcularZona(int sector)
         {
             if (sector <= 10)
@@ -109,6 +149,11 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Botón para ver la vista previa para imprimir la lista.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVistaPrevia_Click(object sender, RoutedEventArgs e)
         {
             VistaPreviaDeImpresionSecOcupados vPrevia = new VistaPreviaDeImpresionSecOcupados(listaSectoresOcupados);

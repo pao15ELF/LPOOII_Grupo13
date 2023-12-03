@@ -25,17 +25,32 @@ namespace Vistas
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Metodo para poder arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+        /// <summary>
+        /// Botón para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Botón para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             //Application.Current.Shutdown();
@@ -44,6 +59,11 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Menu Logout click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuLogout_Click(object sender, RoutedEventArgs e)
         {
             WinWelcome login = new WinWelcome();
@@ -51,10 +71,14 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Metodo para ocultar pestañas dependiendo del tipo de rol.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
-            if (Util.Util.getUsuario().User_UserName == "admin")
+            if (Util.Util.getUsuario().User_Rol == "Administrador")
             {
                 mnuSectores.Visibility = Visibility.Visible;
                 mnuTipoVehiculos.Visibility = Visibility.Visible;
@@ -65,7 +89,7 @@ namespace Vistas
             }
             else
             {
-                if (Util.Util.getUsuario().User_UserName == "operador")
+                if (Util.Util.getUsuario().User_Rol == "Operador")
                 {
                     mnuSectores.Visibility = Visibility.Collapsed;
                     mnuTipoVehiculos.Visibility = Visibility.Collapsed;
@@ -86,6 +110,11 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Menu Gestion Clientes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuGestionClientes_Click(object sender, RoutedEventArgs e)
         {
             WinABMClientes winClientes = new WinABMClientes();
@@ -93,6 +122,11 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Menu Gestion Vehiculos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuGestionVehiculos_Click(object sender, RoutedEventArgs e)
         {
             WinABMVehiculos winVehiculos = new WinABMVehiculos();
@@ -100,6 +134,11 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Menu Vehiculo en Playa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuVehiculoPlaya_Click(object sender, RoutedEventArgs e)
         {
             WinVehiculosPlayas winPlaya = new WinVehiculosPlayas();
@@ -107,6 +146,11 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Menu Estado Sectores.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuEstadoSectores_Click(object sender, RoutedEventArgs e)
         {
             WinEstadoSector winEsSectores = new WinEstadoSector();
@@ -114,6 +158,11 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Menu Gestion Usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuGestionUsuario_Click(object sender, RoutedEventArgs e)
         {
             WinABMUsuario winUsuarios = new WinABMUsuario();
@@ -121,6 +170,11 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Menu Listado de Usuarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuListadoUsuario_Click(object sender, RoutedEventArgs e)
         {
             WinListaUsuariosFiltros winLisUsuario = new WinListaUsuariosFiltros();
@@ -128,6 +182,11 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Menu Registrar Entrada al Estacionamiento.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuResgistrarEntrada_Click(object sender, RoutedEventArgs e)
         {
             WinRegistrarEntrada winRegEntrada = new WinRegistrarEntrada();
@@ -135,6 +194,11 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Menu Nosotros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuNosotros_Click(object sender, RoutedEventArgs e)
         {
             WinAcercaDeNosotros winNosotros = new WinAcercaDeNosotros();
@@ -142,6 +206,11 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Menu Registrar Salida del Estacionamiento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuResgistrarSalida_Click(object sender, RoutedEventArgs e)
         {
             WinRegistrarSalida winRegSalida = new WinRegistrarSalida();
@@ -149,6 +218,11 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Menu Sectores Ocupados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuSectoresOcupados_Click(object sender, RoutedEventArgs e)
         {
             WinListarSectores winListaReg = new WinListarSectores();
@@ -156,6 +230,11 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Menu Ventas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuVentas_Click(object sender, RoutedEventArgs e)
         {
             WinListarVentas winVentas = new WinListarVentas();

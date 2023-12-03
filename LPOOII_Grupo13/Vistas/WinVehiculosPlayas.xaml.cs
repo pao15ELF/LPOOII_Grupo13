@@ -33,88 +33,79 @@ namespace Vistas
             //suscribirBotones();
         }
 
+        /// <summary>
+        /// Metodo para comprobar el estado de los sectores y darle el color que correspone
+        /// Rojo: Ocupado.
+        /// Verde: Disponible.
+        /// Gris: Deshabilitado.
+        /// </summary>
         private void comprobarEstadoSectores()
         {
             SolidColorBrush colorDisponible = new SolidColorBrush(disponible);
             SolidColorBrush colorOcupado = new SolidColorBrush(ocupado);
+            SolidColorBrush colorDeshabilitado = new SolidColorBrush(deshabilitado);
             DataTable sectores = TrabajarSectores.traerSectores();
 
             for (int i = 1; i <= 30; i++)
             {
-                // Obtener el nombre del botón actual
                 string nombreBoton = "btnE" + i;
 
-                // Encontrar el botón correspondiente
                 Button boton = FindName(nombreBoton) as Button;
 
                 if (boton != null)
                 {
-                    // Obtener el registro correspondiente al botón actual
                     DataRow[] fila = sectores.Select("Sec_Identificador = 'E" + i + "'");
 
                     if (fila.Length > 0)
                     {
-                        // Obtener el estado del botón
                         string estado = fila[0]["Sec_Habilitado"].ToString();
 
-                        // Cambiar el color dependiendo del estado
                         if (estado == "Disponible")
                         {
                             boton.Background = colorDisponible; // Color verde si está habilitado
                         }
-                        else if (estado == "Ocupado")
+                        else 
                         {
-                            boton.Background = colorOcupado; // Color rojo si está ocupado
+                            if (estado == "Ocupado")
+                            {
+                                boton.Background = colorOcupado; // Color rojo si está ocupado
+                            }
+                            else 
+                            {
+                                boton.Background = colorDeshabilitado; //Color gris se esta deshabilitado.
+                            }
                         }
                     }
                 }
             }
         }
-        //private void comprobarEstadoSectores()
-        //{
-        //    SolidColorBrush colorDisponible = new SolidColorBrush(disponible);
-        //    SolidColorBrush colorOcupado = new SolidColorBrush(ocupado);
-        //    Button[] botones = new Button[] { btnE1, btnE2, btnE3, btnE4, btnE5, btnE6, btnE7, btnE8, btnE9, btnE10 };
-        //    DataTable sectores = TrabajarSectores.traerSectores();
-
-        //    foreach (Button boton in botones)
-        //    {
-        //        // Obtener el número del botón (E1, E2, ..., E10)
-        //        string nombreBoton = boton.Name;
-        //        string numeroBoton = nombreBoton.Substring(4); // Suponiendo que siempre son 4 caracteres "btnE"
-
-        //        // Obtener el registro correspondiente al botón actual
-        //        DataRow[] fila = sectores.Select("Sec_Identificador = 'E" + numeroBoton + "'");
-
-        //        if (fila.Length > 0)
-        //        {
-        //            // Obtener el estado del botón
-        //            string estado = fila[0]["Sec_Habilitado"].ToString();
-
-        //            // Cambiar el color dependiendo del estado
-        //            if (estado == "Disponible")
-        //            {
-        //                boton.Background = colorDisponible; // Color verde si está habilitado
-        //            }
-        //            else if (estado == "Ocupado")
-        //            {
-        //                boton.Background = colorOcupado; // Color rojo si está ocupado
-        //            }
-        //        }
-        //    }
-        //}
-
+       
+        /// <summary>
+        /// Metodo para arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+        /// <summary>
+        /// Botón para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Botón para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             //AGREGAR MESSAGE PARA PREGUNTAR SI VOLVER AL MENU PRINCIPAL
@@ -123,14 +114,21 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //son los datos cargados en el primer tp
-            //btnE7.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFEB0000"));
-            btnE4.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF6F6C6C"));
+            btnE4.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF6F6C6C")); //
         }
 
-
+        /// <summary>
+        /// Botón para salir del formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             WinPrincipal winPri = new WinPrincipal();
@@ -138,6 +136,10 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Metodo para comprobar el estado del sector.
+        /// </summary>
+        /// <param name="estado"></param>
         private void comprobarSector(Brush estado)
         {
             SolidColorBrush colorSolido = (SolidColorBrush)estado;
@@ -162,6 +164,11 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Metodo para cuando se haga click en algun sector.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Boton_Click(object sender, RoutedEventArgs e)
         {
             // Determinar qué botón se hizo clic
@@ -173,89 +180,11 @@ namespace Vistas
             }
         }
 
-        //private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-        //{
-        //    //DataTable datosTicket = TrabajarTicket.traerTicket();
-        //    //List<Button> botones = new List<Button> { btnE1, btnE2, btnE3, btnE4, btnE5, btnE6, btnE7,
-        //    //                                          btnE8, btnE9, btnE10, btnE11, btnE12, btnE13, btnE14,
-        //    //                                          btnE15, btnE16, btnE17, btnE18, btnE19, btnE20,
-        //    //                                          btnE21, btnE22, btnE23, btnE24, btnE25, btnE26,
-        //    //                                          btnE27, btnE28, btnE29, btnE30 };
-
-        //    if (sender is Button)
-        //    //foreach (Button boton in botones)
-        //    {
-        //        Button boton = (Button)sender;
-
-        //        // Verificar el color de fondo
-        //        //SolidColorBrush backgroundBrush = botones.Background as SolidColorBrush;
-
-        //        SolidColorBrush backgroundBrush = boton.Background as SolidColorBrush;
-
-        //        TextBlock mensajeTxtBlock = FindResource("mensajeTxtBlock") as TextBlock;
-        //        // TextBlock mensajeTxtBlock = (sender as Button).Template.FindName("mensajeTxtBlock", sender as Button) as TextBlock;
-
-
-        //        if (backgroundBrush != null)
-        //        {
-        //            Color colorFondo = backgroundBrush.Color;
-
-        //            if (colorFondo == disponible)
-        //            {
-        //                mensajeTxtBlock.Text = "Sector Libre";
-        //                // Mouestra el mensaje cuando el mouse entra en el botón
-        //                mensajeTxtBlock.Visibility = Visibility.Visible;
-
-        //            }
-        //            else
-        //            {
-        //                if (colorFondo == ocupado)
-        //                {
-
-        //                    mensajeTxtBlock.Text = "Sector Ocupado\n Tiempo ocupado: \nVehiculo:\n Monto a pagar:";
-        //                    // Mouestra el mensaje cuando el mouse entra en el botón
-        //                    mensajeTxtBlock.Visibility = Visibility.Visible;
-
-        //                }
-        //                else
-        //                {
-        //                    if (colorFondo == deshabilitado)
-        //                        mensajeTxtBlock.Text = "Sector NO Disponible";
-        //                    // Mouestra el mensaje cuando el mouse entra en el botón
-        //                    mensajeTxtBlock.Visibility = Visibility.Visible;
-
-        //                }
-        //            }
-        //        }
-        //    }
-        //}  
-
-
-        //private void Button_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
-        //{
-        //    TextBlock mensajeTxtBlock = FindResource("mensajeTxtBlock") as TextBlock;
-        //    //TextBlock mensajeTxtBlock = (sender as Button).Template.FindName("mensajeTxtBlock", sender as Button) as TextBlock;
-
-        //    // Oculta el mensaje cuando el mouse sale del botón
-        //    mensajeTxtBlock.Visibility = Visibility.Hidden;
-        //}
-
-
-        //private void Button_MouseEnter(object sender, MouseEventArgs e)
-        //{
-        //    // Cambiar la visibilidad del TextBlock a Visible cuando se pasa el ratón por encima
-        //    if (sender is Button)
-        //    {
-        //        Button button = sender as Button;
-        //        ContentControl contentControl = button.Template.FindName("mensajeTxtBlock", button) as ContentControl;
-        //        if (contentControl != null)
-        //        {
-        //            mensajeTxtBlock.Text = "Sector NO Disponible";
-        //            contentControl.Visibility = Visibility.Visible;
-        //        }
-        //    }
-        //}
-
+        /// <summary>
+        /// Metodo para cuando el mouse este sobre un sector.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_MouseEnter(object sender, MouseEventArgs e)
         {
             if (sender is Button)
@@ -297,10 +226,6 @@ namespace Vistas
                                 DateTime fechaHoraPredefinida = new DateTime(2023, 11, 29, 00, 15, 22); // Año, Mes, Día, Hora, Minuto, Segundo
                                 TimeSpan diferencia = calcularDiferenciaFecha(fechaHoraPredefinida);
 
-                                //string tiempo = string.Format("{0} Días\n Horas: {1}:{2}:{3}",
-                                //Math.Abs(diferencia.Days), Math.Abs(diferencia.Hours), Math.Abs(diferencia.Minutes), Math.Abs(diferencia.Seconds));
-
-                                //mensajeTxtBlock.Text = "Sector Libre \nNunca ocupado \n Tiempo: "+ tiempo;
                                 mensajeTxtBlock.Text = "Sector Libre \nNunca ocupado \n Tiempo: " + string.Format("{0} Días - ", Math.Abs(diferencia.Days)) + calcularHorasEntreFechas(fechaHoraPredefinida) + " Hs";
                             }
                         }
@@ -324,11 +249,6 @@ namespace Vistas
                                     int tipoV = Convert.ToInt32(row["Tic_TVCodigo"]);
                                     DateTime entrada = (DateTime)row["Tic_FecHoraEnt"];
 
-                                    // string x = tipoVehiculo(tipoV);
-                                    // MessageBox.Show("vehiculo" + tipoV);
-                                    // MessageBox.Show("Tiempo" + entrada);
-
-                                    //mensajeTxtBlock.Text = "Ingreso " + numboton;
                                     mensajeTxtBlock.Text = "Sector Ocupado\n Monto:" + row["Tic_Tarifa"].ToString()
                                         + "\nVehiculo: " + tipoVehiculo(tipoV) + "\nTiempo: " + calcularDuracionTiempo(entrada);
 
@@ -352,48 +272,11 @@ namespace Vistas
             }
         }
 
-        ///// <summary>
-        ///// E. ANDA
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //private void Button_MouseEnter(object sender, MouseEventArgs e)
-        //{
-        //    if (sender is Button)
-        //    {
-        //        Button button = sender as Button;
-        //        ContentControl contentControl = button.Template.FindName("mensajeContentControl", button) as ContentControl;
-
-        //        if (contentControl != null)
-        //        {
-        //            TextBlock mensajeTxtBlock = contentControl.Content as TextBlock;
-
-        //            if (mensajeTxtBlock != null)
-        //            {
-        //                mensajeTxtBlock.Text = "Sector NO Disponible";
-        //            }
-
-        //            contentControl.Visibility = Visibility.Visible;
-        //        }
-        //    }
-        //}
-
-
-        //private void Button_MouseLeave(object sender, MouseEventArgs e)
-        //{
-        //    // Cambiar la visibilidad del TextBlock a Hidden cuando el ratón sale del botón
-        //    if (sender is Button)
-        //    {
-        //        Button button = sender as Button;
-        //        ContentControl contentControl = button.Template.FindName("mensajeTxtBlock", button) as ContentControl;
-        //        if (contentControl != null)
-        //        {
-        //            contentControl.Visibility = Visibility.Hidden;
-        //        }
-        //    }
-        //}
-
-
+        /// <summary>
+        /// Metodo para cuando el mouse no este sobre un sector.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_MouseLeave(object sender, MouseEventArgs e)
         {
             if (sender is Button)
@@ -415,10 +298,14 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Función para mostrar el tipo de vehiculo que esta estacionado.
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
         private string tipoVehiculo(int codigo)
         {
             string tipoVeh;
-            //TipoVehiculo vehiculo = new TipoVehiculo();
 
             TipoVehiculo vehiculo = TrabajarTipoVehiculo.buscarTipoVehiculoXCodigo(codigo);
 
@@ -434,12 +321,15 @@ namespace Vistas
             return tipoVeh;
         }
 
+        /// <summary>
+        /// Función para calcular la duracion de tiempo entre dos fechas.
+        /// </summary>
+        /// <param name="fechaHoraEnt"></param>
+        /// <returns></returns>
         public string calcularDuracionTiempo(DateTime fechaHoraEnt)
         {
             string duracion;
-            // DateTime fechaHoraEntrada;
-            //if (DateTime.TryParseExact(txtFecYHoraEntrada.Text, "d/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaHoraEntrada))
-            //{
+            
             DateTime ahora = DateTime.Now;
 
             TimeSpan diferencia = ahora.Subtract(fechaHoraEnt);
@@ -451,9 +341,13 @@ namespace Vistas
 
             return duracion;
 
-            //} 
         }
 
+        /// <summary>
+        /// Funcion para calcular la diferencia entre dos fechas.
+        /// </summary>
+        /// <param name="fechaHoraPredefinida"></param>
+        /// <returns></returns>
         public TimeSpan calcularDiferenciaFecha(DateTime fechaHoraPredefinida)
         {
             DateTime ahora = DateTime.Now;
@@ -461,6 +355,11 @@ namespace Vistas
             return diferencia;
         }
 
+        /// <summary>
+        /// Función para calcular las horas entre una fecha.
+        /// </summary>
+        /// <param name="fechaHoraPredefinida"></param>
+        /// <returns></returns>
         public int calcularHorasEntreFechas(DateTime fechaHoraPredefinida)
         {
             DateTime ahora = DateTime.Now;

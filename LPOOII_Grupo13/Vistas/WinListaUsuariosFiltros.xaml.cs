@@ -28,6 +28,11 @@ namespace Vistas
             vistaColeccionFiltrada = Resources["FILTRO_USERNAME"] as CollectionViewSource;
         }
 
+        /// <summary>
+        /// Botón para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             //AGREGAR MESSAGE PARA PREGUNTAR SI VOLVER AL MENU PRINCIPAL
@@ -36,17 +41,32 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Botón para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Metodo para arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void eventVistaUsuario_Filter(object sender, FilterEventArgs e)
         {
             Usuario aUser = e.Item as Usuario;
@@ -64,6 +84,11 @@ namespace Vistas
 
         }
 
+        /// <summary>
+        /// Metodo para el cambio del valor de un textbox y poder filtrar la lista.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtFiltro_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (vistaColeccionFiltrada != null)
@@ -72,6 +97,11 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Botón para mostrar la vista previa para la impresion de la lista de Usuarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVistaPrevia_Click(object sender, RoutedEventArgs e)
         {        
             VistaPreviaDeImpresion vistaP = new VistaPreviaDeImpresion(vistaColeccionFiltrada);

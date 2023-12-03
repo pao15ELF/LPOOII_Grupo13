@@ -24,6 +24,11 @@ namespace Vistas
             mediaVideo.Source = new Uri("Video/SistemaEstacionamiento.mp4", UriKind.Relative); 
         }
 
+        /// <summary>
+        /// Botón para cerrar formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             WinPrincipal winPri = new WinPrincipal();
@@ -31,27 +36,52 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Botón para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Metodo para poder arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+        /// <summary>
+        /// Botón para dar play al video.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
             mediaVideo.Play();
         }
 
+        /// <summary>
+        /// Botón para dar pausa el video.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
             mediaVideo.Pause();
         }
 
+        /// <summary>
+        /// Botón para dar stop al video.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
             mediaVideo.Stop();

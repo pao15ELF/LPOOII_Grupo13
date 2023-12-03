@@ -32,6 +32,11 @@ namespace Vistas
             InitializeCombo();
         }
 
+        /// <summary>
+        /// Botón para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             if (controlarCancelar() == true)
@@ -58,6 +63,10 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Metodo para controlar que el formulario antes de cerrar.
+        /// </summary>
+        /// <returns></returns>
         private bool controlarCancelar()
         {
 
@@ -67,27 +76,45 @@ namespace Vistas
                 return false;
         }
 
+        /// <summary>
+        /// Botón para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Metodo para arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+
+        /// <summary>
+        /// Metodo para inicializar el combo box con los tres roles disponibles.
+        /// </summary>
         private void InitializeCombo()
         {
             List<string> listaRoles = new List<string>();
             listaRoles.Add("Administrador");
             listaRoles.Add("Operador");
             listaRoles.Add("Supervisor");
-            //this.cmbRoles.SelectedValuePath = "Rol";
             this.cmbRoles.ItemsSource = listaRoles;
         }
 
+        /// <summary>
+        /// Metodo para cargar los usuarios del Observable al Collection para mostrar en el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ObjectDataProvider odp = (ObjectDataProvider)this.Resources["LIST_USER"];
@@ -96,16 +123,31 @@ namespace Vistas
             Vista = (CollectionView)CollectionViewSource.GetDefaultView(canvas_content.DataContext);
         }
 
+        /// <summary>
+        /// Botón para mostrar el primer usuario de la lista.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFirst_Click(object sender, RoutedEventArgs e)
         {
             Vista.MoveCurrentToFirst();
         }
 
+        /// <summary>
+        /// Botón para mostrar el ultimo usuario de la lista.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLast_Click(object sender, RoutedEventArgs e)
         {
             Vista.MoveCurrentToLast();
         }
 
+        /// <summary>
+        /// Botón para mostrar el usuario anterior de la lista.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPrevious_Click(object sender, RoutedEventArgs e)
         {
             Vista.MoveCurrentToPrevious();
@@ -115,6 +157,11 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Botón para mostrar el siguiente usuario de la lista.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             Vista.MoveCurrentToNext();
@@ -124,6 +171,9 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Metodo para limpiar el formulario.
+        /// </summary>
         private void limpiarForm()
         {
             txtApellido.Text = "";
@@ -135,6 +185,10 @@ namespace Vistas
             txtApellido.Focus();
         }
 
+        /// <summary>
+        /// Metodo para controlar los datos del formulario para el alta de un Usuario.
+        /// </summary>
+        /// <returns></returns>
         private bool controlarDatos()
         {
             if (txtApellido.Text == "" || txtNombre.Text == "" || txtUsuario.Text == "" || txtPassword.Text == "" || cmbRoles.SelectedValue == null)
@@ -142,41 +196,54 @@ namespace Vistas
             else
                 return true;
         }
-
+        
+        /// <summary>
+        /// Botón para dar de alta un Usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
         {
             if (controlarDatos() == true)
             {
-                cargarDatos();
-                if (btnGuardarUsuario.Content.ToString() == "GUARDAR")
+                if(TrabajarUsuario.buscarUsuarioXUserName(txtUsuario.Text)==null)
                 {
-                    TrabajarUsuario.insertar_Usuario(oUsuario);
-                    MessageBox.Show("El nuevo Usuario " + txtUsuario.Text + " se agrego correctamente");
+                    cargarDatos();
+                    if (btnGuardarUsuario.Content.ToString() == "GUARDAR")
+                    {
+                        TrabajarUsuario.insertar_Usuario(oUsuario);
+                        MessageBox.Show("El nuevo Usuario " + txtUsuario.Text + " se agrego correctamente");
 
-                    cargarListaUsuario();
-                    //listaUsuario.Add(oUsuario);
-                    Vista.MoveCurrentToLast();
+                        cargarListaUsuario();
+                        //listaUsuario.Add(oUsuario);
+                        Vista.MoveCurrentToLast();
+                    }
+                    else
+                    {
+                        TrabajarUsuario.modificar_Usuario(oUsuario);
+                        int posActual = Vista.CurrentPosition;
+                        MessageBox.Show("Usuario actualizado correctamente");
+                        cargarListaUsuario();
+                        Vista.MoveCurrentToPosition(posActual);
+                        btnGuardarUsuario.Content = "GUARDAR";
+                    }
+
+                    limpiarForm();
                 }
                 else
                 {
-                    TrabajarUsuario.modificar_Usuario(oUsuario);
-                    int posActual = Vista.CurrentPosition;
-                    MessageBox.Show("Usuario actualizado correctamente");
-                    cargarListaUsuario();
-                    Vista.MoveCurrentToPosition(posActual);
-                    btnGuardarUsuario.Content = "GUARDAR";
+                    MessageBox.Show("EL USUARIO DE NOMBRE "+txtUsuario.Text+" YA SE ENCUNTRA REGISTRADO. \n USE OTRO NOMBRE DE USUARIO PARA REALIZAR EL ALTA", "Aviso", MessageBoxButton.OK);
                 }
-
-                limpiarForm();
             }
             else
             {
                 MessageBox.Show("TODOS LOS CAMPOS DEBEN ESTAR CARGADOS", "Aviso", MessageBoxButton.OK);
             }
-            
-            
         }
 
+        /// <summary>
+        /// Metodo para cargar los datos del textbox a un objeto Usuario.
+        /// </summary>
         private void cargarDatos()
         {
             if (txtIdUsuModificar.Text != "")
@@ -189,6 +256,9 @@ namespace Vistas
             oUsuario.User_Rol = cmbRoles.SelectedItem.ToString();
         }
 
+        /// <summary>
+        /// Metodo para cargar la lista de Usuarios al formulario.
+        /// </summary>
         private void cargarListaUsuario()
         {
             listaUsuario = TrabajarUsuario.TraerUsuarios();
@@ -196,6 +266,11 @@ namespace Vistas
             Vista = (CollectionView)CollectionViewSource.GetDefaultView(canvas_content.DataContext);
         }
 
+        /// <summary>
+        /// Botón para modificar los datos de un Usuario de la lista de Usuarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuario = (Usuario)Vista.CurrentItem;
@@ -210,6 +285,11 @@ namespace Vistas
             btnGuardarUsuario.Content = "ACTUALIZAR";
         }
 
+        /// <summary>
+        /// Botón para eliminar un Usuario de la lista de Usuarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult Result;

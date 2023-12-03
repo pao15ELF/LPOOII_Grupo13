@@ -20,9 +20,11 @@ namespace Vistas
     /// </summary>
     public partial class WinWelcome : Window
     {
-        private Usuario admin;
-        private Usuario operador;
-        private Usuario supervisor;
+        //private Usuario admin;
+        //private Usuario operador;
+        //private Usuario supervisor;
+
+        private Usuario buscarUsuario= new Usuario();
 
         private MediaPlayer mediaPlayer = new MediaPlayer();
 
@@ -35,9 +37,9 @@ namespace Vistas
 
         public void inicializarUsuarios()
         {
-            admin = new Usuario(1, "admin", "admin", "Flores", "Paola", "Administrador");
-            operador = new Usuario(2, "operador", "operador", "Zamudio", "Cintia", "Operador");
-            supervisor = new Usuario(3, "super","super","Flores","Karen", "Supervisor");
+            //admin = new Usuario(1, "admin", "admin", "Flores", "Paola", "Administrador");
+            //operador = new Usuario(2, "operador", "operador", "Zamudio", "Cintia", "Operador");
+            //supervisor = new Usuario(3, "super","super","Flores","Karen", "Supervisor");
         }
 
 
@@ -47,7 +49,10 @@ namespace Vistas
             
         }
 
-
+        /// <summary>
+        /// Metodo para reproducir un sonido al realizar un login correcto.
+        /// </summary>
+        /// <param name="ruta"></param>
          private void ReproducirSonido(string ruta)
         {
             try
@@ -60,46 +65,66 @@ namespace Vistas
                 MessageBox.Show("Error al reproducir el sonido: " + exep.Message);
             }
         }
+        
+        
 
-
+        /// <summary>
+        /// Botón para realizar la verificación de la contraseña y usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
             string nomUsuario = login.txtUsuario.Text;
             string contrasenia = new System.Net.NetworkCredential(string.Empty, login.txtPassword.Password).Password;
-            if ((nomUsuario == admin.User_UserName && contrasenia == admin.User_Password) ||
-                (nomUsuario == operador.User_UserName && contrasenia == operador.User_Password) ||
-                (nomUsuario == supervisor.User_UserName && contrasenia == supervisor.User_Password))
+
+            buscarUsuario.User_UserName = nomUsuario;
+            buscarUsuario.User_Password = new System.Net.NetworkCredential(string.Empty, login.txtPassword.Password).Password;
+
+            Usuario usuarioEncontrado =TrabajarUsuario.buscarUsuario(buscarUsuario);
+
+            if (usuarioEncontrado!=null)
             {
-                
+
                 ReproducirSonido("Sonido/intro.mp3");
 
                 MessageBox.Show("BIENVENIDO: " + nomUsuario);
                 WinPrincipal oWinPri = new WinPrincipal();
-                Usuario usu = new Usuario();
-                usu.User_UserName = nomUsuario;
-                usu.User_Password = contrasenia;
-                Util.Util.setUsuario(usu);
+                Util.Util.setUsuario(usuarioEncontrado);
                 oWinPri.Show();
-
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Usuario o contraseña incorrecta", "AVISO");
             }
-
         }
 
+        /// <summary>
+        /// Botón para cerrar el formulario login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
+        /// <summary>
+        /// Botón para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Metodo para poder arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

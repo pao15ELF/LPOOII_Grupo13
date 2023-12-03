@@ -29,29 +29,29 @@ namespace Vistas
         public WinRegistrarEntrada()
         {
             InitializeComponent();
-            //txtFecha.Text = DateTime.Now.ToString("dd/MM/yy");
-            //txtHora.Text = DateTime.Now.ToString("HH:mm");
             cargarNumTicketYFecHora();
-            //int numTicket=TrabajarTicket.traerTicket().Rows.Count+1;
-            //txtNTicket.Text = numTicket.ToString();
 
             cargarComboboxTipoVehiculo();
             cargarComboboxZonaSector();
         }
 
+        /// <summary>
+        /// Metodo para cargar combobox con los sectores disponibles.
+        /// </summary>
         private void cargarComboboxZonaSector()
         {
             DataTable dt = TrabajarTicket.traerZonaSectorDisponible();
-            //MessageBox.Show("cantidad de datos: " + dt.Rows.Count);
             if (dt != null)
             {
                 cmbZonaSector.ItemsSource = dt.DefaultView;
                 cmbZonaSector.DisplayMemberPath = "Sec_Descripcion";
                 cmbZonaSector.SelectedValuePath = "Sec_Codigo";
             }
-            //cmbZonaSector.SelectionChanged += cmbZonaSector.SelectionChanged;
         }
 
+        /// <summary>
+        /// Metodo para cargar Numero de Ticket y la fecha actual al formulario.
+        /// </summary>
         private void cargarNumTicketYFecHora()
         {
             int numTicket = TrabajarTicket.traerTicket().Rows.Count + 1;
@@ -61,6 +61,9 @@ namespace Vistas
             txtHora.Text = DateTime.Now.ToString("HH:mm");
         }
 
+        /// <summary>
+        /// Metodo para cargar el combobox con los tipos de Vehiculos.
+        /// </summary>
         private void cargarComboboxTipoVehiculo()
         {
             DataTable dt = TrabajarTicket.traerTipoVehiculoCombobox();
@@ -73,6 +76,11 @@ namespace Vistas
             cmbTipoVehiculo.SelectionChanged += cmbTipoVehiculo_SelectionChanged;
         }
 
+        /// <summary>
+        /// Botón para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             WinPrincipal winPri = new WinPrincipal();
@@ -80,17 +88,31 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Botón para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Metodo para arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+        /// <summary>
+        /// Función para controlar que todos los datos sean cargados en el formulario para el alta.
+        /// </summary>
+        /// <returns></returns>
         public bool controlarTextBox() 
         {
             bool completo = false;
@@ -102,6 +124,9 @@ namespace Vistas
             return completo;
         }
 
+        /// <summary>
+        /// Metodo para cargar los datos del formulario a un objeto Ticket.
+        /// </summary>
         public void cargarTicket() 
         {
             oTicket.Tick_TicketNro = Convert.ToInt32(txtNTicket.Text);
@@ -113,15 +138,16 @@ namespace Vistas
             cargarFechaTicket();
         }
 
+        /// <summary>
+        /// Metodo para cargar la fecha en formato "dd/MM/yy HH:mm"
+        /// </summary>
         private void cargarFechaTicket()
         {
             string fecha = txtFecha.Text;
             string hora = txtHora.Text;
 
-            // Concatena la fecha y la hora para crear un formato válido
             string fechaHora = fecha + " " + hora;
 
-            // Formato esperado: dd/MM/yy HH:mm
             DateTime fechaHoraEntrada;
             if (DateTime.TryParseExact(fechaHora, "dd/MM/yy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaHoraEntrada))
             {
@@ -134,24 +160,24 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Metodo para buscar la tarifa por el codigo del Vehiculo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbTipoVehiculo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cmbTipoVehiculo.SelectedItem != null)
             {
-    
                 DataTable tarifaVehiculo = TrabajarTicket.buscarTarifaVehiculo(Convert.ToInt32( cmbTipoVehiculo.SelectedValue.ToString()));
                 if (tarifaVehiculo.Rows.Count > 0)
                 {
                     txtTarifa.Text = tarifaVehiculo.Rows[0]["TV_Tarifa"].ToString();
-                    //string tarifaSeleccionada = cmbTipoVehiculo.SelectedValue.ToString();
-                    //txtTarifa.Text = tarifaSeleccionada;
                 }
                 else
                 {
                     MessageBox.Show("No se encontro vehiculo");
                 }
-
-                
             }
         }
 
@@ -160,6 +186,11 @@ namespace Vistas
 
         }
 
+        /// <summary>
+        /// Metodo que carga los textbox con los datos del cliente selecionado de la lista.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSeleccionarCliente_Click(object sender, RoutedEventArgs e)
         {
             if (lvwClientes.SelectedItem != null)
@@ -172,15 +203,23 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Metodo para cambiar el estado del sector en que se realiza un entrada.
+        /// </summary>
+        /// <param name="codigoSector"></param>
         private void cambiarEstadoSector(int codigoSector)
         {
             Sector cambiarEstadoSector = new Sector();
             cambiarEstadoSector.Sec_Codigo = codigoSector;
             cambiarEstadoSector.Sec_Habilitado= "Ocupado";
-            //MessageBox.Show("id: " + cambiarEstadoSector.Sec_Codigo + "estado: " + cambiarEstadoSector.Sec_Habilitado);
             TrabajarSectores.cambiarEstadoSector(cambiarEstadoSector);
         }
 
+        /// <summary>
+        /// Metodo para dar de alta el ticket de entrada y mostrar su ticket.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImprimirTicket_Click(object sender, RoutedEventArgs e)
         {
             if (controlarTextBox() == true)
@@ -204,6 +243,9 @@ namespace Vistas
             }  
         }
 
+        /// <summary>
+        /// Metodo para limpiar el formulario.
+        /// </summary>
         private void limpiarForm()
         {
             txtClienteDni.Text = "";

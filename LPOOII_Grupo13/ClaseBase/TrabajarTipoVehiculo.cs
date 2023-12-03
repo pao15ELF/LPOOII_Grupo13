@@ -80,13 +80,11 @@ namespace ClaseBase
             }
             // Depuración para verificar el tipo del DataContext
             //Console.WriteLine("DataContext type: " + (listaTipoVehiculo.GetType() != null ? listaTipoVehiculo.GetType().ToString() : "null"));
-
             return new ObservableCollection<TipoVehiculo>(listaTipoVehiculo);
-            //return listaTipoVehiculo;
         }
 
         /// <summary>
-        /// 
+        /// Metodo para dar de alta un tipo Vehiculo.
         /// </summary>
         /// <param name="tipoVehiculo"></param>
         public static void insertar_TipoVehiculo(TipoVehiculo tipoVehiculo)
@@ -109,6 +107,10 @@ namespace ClaseBase
             cnn.Close();
         }
 
+        /// <summary>
+        /// Metodo para eliminar un vehiculo.
+        /// </summary>
+        /// <param name="tipoVehiculo"></param>
         public static void eliminar_TipoVehiculo(TipoVehiculo tipoVehiculo)
         {
             SqlConnection cn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -124,6 +126,10 @@ namespace ClaseBase
             cn.Close();
         }
 
+        /// <summary>
+        /// Metodo para modificar los datos de un vehiculo.
+        /// </summary>
+        /// <param name="tipoVehiculo"></param>
         public static void modificar_TipoVehiculo(TipoVehiculo tipoVehiculo)
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -145,6 +151,11 @@ namespace ClaseBase
             cnn.Close();
         }
 
+        /// <summary>
+        /// Metodo para buscar la descripcion de un vehiculo por su codigo.
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
         public static TipoVehiculo buscarTipoVehiculoXCodigo(int codigo)
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -166,14 +177,6 @@ namespace ClaseBase
             {
                 TipoVehiculo tipoVehiculo = new TipoVehiculo();
                 tipoVehiculo.TypV_Descripcion = dt.Rows[0]["TV_Descripcion"].ToString();
-
-                //Cliente cliente = new Cliente();
-                //cliente.Cli_Id1 = Convert.ToInt32(dt.Rows[0]["Cli_Id"]);
-                //cliente.Cli_ClienteDni1 = Convert.ToInt32(dt.Rows[0]["Cli_Dni"]);
-                //cliente.Cli_Apellido1 = dt.Rows[0]["Cli_Apellido"].ToString();
-                //cliente.Cli_Nombre1 = dt.Rows[0]["Cli_Nombre"].ToString();
-                //cliente.Cli_Telefono1 = dt.Rows[0]["Cli_Telefono"].ToString();
-                //return cliente;
                 return tipoVehiculo;
             }
             else

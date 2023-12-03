@@ -175,5 +175,47 @@ namespace ClaseBase
                 return null;
             }
         }
+
+        /// <summary>
+        /// Metodo para buscar los clientes por dni.
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <returns></returns>
+        public static ObservableCollection<Cliente> busquedaClientes(int dni)
+        {
+            SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "SELECT * FROM Cliente ";
+            cmd.CommandText += " WHERE Cli_Estado LIKE 'Habilitado' AND CAST(Cli_Dni AS VARCHAR) LIKE @dni";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cnn;
+
+            cmd.Parameters.AddWithValue("@dni", "%" + dni.ToString() + "%");
+
+            //Ejecuta la consulta
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            //Llena los datos de la consulta en la DateTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            ObservableCollection<Cliente> listaCliente = new ObservableCollection<Cliente>();
+            foreach (DataRow row in dt.Rows)
+            {
+                Cliente cliente = new Cliente
+                {
+                    Cli_Id1 = (int)row["Cli_Id"],
+                    Cli_ClienteDni1 = (int)row["Cli_Dni"],
+                    Cli_Apellido1 = (string)row["Cli_Apellido"],
+                    Cli_Nombre1 = (string)row["Cli_Nombre"],
+                    Cli_Telefono1 = (string)row["Cli_Telefono"],
+                    Cli_Estado1 = (string)row["Cli_Estado"]
+                };
+                listaCliente.Add(cliente);
+            }
+            return listaCliente;
+        }
     }
 }
