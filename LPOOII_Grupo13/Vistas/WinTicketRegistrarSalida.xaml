@@ -22,7 +22,7 @@
         <TextBlock Name="txbTarifa" HorizontalAlignment="Left" Margin="21,375,0,0" Text="Tarifa:  $" VerticalAlignment="Top" FontFamily="Consolas"  />
         <TextBlock Name="txbUsuario" HorizontalAlignment="Left" Margin="20,488,0,0" Text="Usuario:  " VerticalAlignment="Top" FontFamily="Consolas" />
         <TextBlock FontFamily="Consolas" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="20,20,0,0" Name="textBlock1" Text="Playa de Estacionamiento 'TP5' " VerticalAlignment="Top" Width="268" Height="23" />
-        <TextBlock FontFamily="Consolas" HorizontalAlignment="left" Margin="20,60,0,0" Name="textBlock2" Text="Balcarse 200 " VerticalAlignment="Top" Width="91" />
+        <TextBlock FontFamily="Consolas" HorizontalAlignment="left" Margin="20,60,0,0" Name="textBlock2" Text="Balcarce 200 " VerticalAlignment="Top" Width="91" />
         <TextBlock FontFamily="Consolas" HorizontalAlignment="left" Margin="20,80,0,0" Name="textBlock3" Text="S.S. de Jujuy " VerticalAlignment="Top" />
         <TextBlock FontFamily="Consolas" HorizontalAlignment="left" Margin="156,60,0,0" Name="textBlock4" Text="CUIT: 30-12345678-6" VerticalAlignment="Top" />
         <TextBlock FontFamily="Consolas" HorizontalAlignment="left" Margin="156,80,0,0" Name="textBlock5" Text="IIBB: 999 " VerticalAlignment="Top" />
