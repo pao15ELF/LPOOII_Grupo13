@@ -34,6 +34,11 @@ namespace Vistas
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Botón para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             WinPrincipal winPri = new WinPrincipal();
@@ -41,17 +46,32 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Botón para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Metodo para arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+        /// <summary>
+        /// Botón para buscar las ventas entre dos fechas.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
             DateTime? fechaIni = dpFechaInicio.SelectedDate;
@@ -69,6 +89,9 @@ namespace Vistas
             else { MessageBox.Show("No se selecciono fechas"); }
         }
 
+        /// <summary>
+        /// Metodo para cargar una Venta a la lista de Ventas .
+        /// </summary>
         private void cargarListview(){
             foreach(var item in listarVentas){
                 Ventas venta = new Ventas();
@@ -92,14 +115,22 @@ namespace Vistas
             DataContext = this;
         }
 
-
-
+        /// <summary>
+        /// Función para buscar la descripción de un vehiculo por su codigo.
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
         private string tipoVehiculo(int codigo)
         {
             TipoVehiculo tipoVehiculo = TrabajarTipoVehiculo.buscarTipoVehiculoXCodigo(codigo);
             return tipoVehiculo.TypV_Descripcion;
         }
 
+        /// <summary>
+        /// Función para buscar el nombre y apellido de un cliente por su DNI.
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <returns></returns>
         private string nombreCliente(int dni)
         {
             Cliente cliente = TrabajarCliente.buscarCliente(dni);
@@ -107,6 +138,11 @@ namespace Vistas
             return cliente.Cli_Apellido1 + ", " + cliente.Cli_Nombre1;
         }
 
+        /// <summary>
+        /// Función para calcular la zona de un sector.
+        /// </summary>
+        /// <param name="sector"></param>
+        /// <returns></returns>
         private int calcularZona(int sector)
         {
             if (sector <= 10)
@@ -124,6 +160,11 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Botón para mostrar la vista previa para imprimir la lista de ventas.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVistaPrevia_Click(object sender, RoutedEventArgs e)
         {
             VistaPreviaDeImpresionVentas vPrevia = new VistaPreviaDeImpresionVentas(listarVentasGrilla);

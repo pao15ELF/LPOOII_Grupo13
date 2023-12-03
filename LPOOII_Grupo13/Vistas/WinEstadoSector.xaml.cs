@@ -23,6 +23,11 @@ namespace Vistas
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Botón para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             //AGREGAR MESSAGE PARA PREGUNTAR SI VOLVER AL MENU PRINCIPAL
@@ -31,11 +36,21 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Botón para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Metodo para arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

@@ -39,6 +39,9 @@ namespace Vistas
             cargarListaTickets();
         }
 
+        /// <summary>
+        /// Metodo para cargar la listas de ticket de entrada en el listview.
+        /// </summary>
         private void cargarListaTickets()
         {
             listarTickets = TrabajarTicket.traerTicketConHoraSalNull();
@@ -46,12 +49,20 @@ namespace Vistas
             DataContext = this;
         }
 
+        /// <summary>
+        /// Metodo para cargar la fecha y hora actual del sistema.
+        /// </summary>
         private void cargarFechaYHora() 
         {
             txtFecha.Text = DateTime.Now.ToString("dd/MM/yy");
             txtHora.Text = DateTime.Now.ToString("HH:mm");
         }
 
+        /// <summary>
+        /// Botón para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             WinPrincipal winPri = new WinPrincipal();
@@ -59,18 +70,33 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Botón para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
             
         }
 
+        /// <summary>
+        /// Metodo para arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+        /// <summary>
+        /// Botón para pasar los datos del ticket seleccionado para realizar el registro de salida del vehiculo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSeleccionarTicket_Click(object sender, RoutedEventArgs e)
         {
             if (lvwTickets.SelectedItem != null)
@@ -80,7 +106,6 @@ namespace Vistas
                 txtIdTicketSalida.Text = ticket.Tick_Id.ToString();
                 txtNTicket.Text = ticket.Tick_TicketNro.ToString();
                 txtFecYHoraEntrada.Text = ticket.Tick_FechaHoraEnt.ToString();
-                //txtClienteDni.Text = ticket.Tick_ClienteDni.ToString();
                 txtApellido.Text = TrabajarCliente.buscarCliente(ticket.Tick_ClienteDni).Cli_Apellido1;
                 txtPatente.Text = ticket.Tick_Patente;
                 txtTipoVehiculo.Text = TrabajarTipoVehiculo.buscarTipoVehiculoXCodigo(ticket.Tick_TVCodigo).TypV_Descripcion;
@@ -94,9 +119,13 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Metodo para calcular la cantidad de horas y minutos.
+        /// </summary>
+        /// <param name="fechaHoraEnt"></param>
         public void calcularTotalYHora(DateTime fechaHoraEnt)
         {
-            DateTime fechaHoraEntrada;
+            //DateTime fechaHoraEntrada;
             //if (DateTime.TryParseExact(txtFecYHoraEntrada.Text, "d/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaHoraEntrada))
             //{
                 // Continuar con el procesamiento
@@ -124,13 +153,13 @@ namespace Vistas
                 {
                     txtTotal.Text = txtTarifaXHora.Text;
                 }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("La fecha y hora ingresadas no tienen el formato esperado."+ fechaHoraEnt.ToString());
-            //}
         }
 
+        /// <summary>
+        /// Botón para realizar el regitro de salida de un vehiculo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegistrarSalida_Click(object sender, RoutedEventArgs e)
         {
             if (txtNTicket.Text != "")
@@ -160,6 +189,9 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Metodo para cargar los datos faltantes al ticket.
+        /// </summary>
         private void cargarDatosTicket()
         {
             ticketSalida.Tick_Id = Convert.ToInt32(txtIdTicketSalida.Text);
@@ -167,15 +199,22 @@ namespace Vistas
             ticketSalida.Tick_Total = Convert.ToDecimal(txtTotal.Text);
             ticketSalida.Tick_FechaHoraSal = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
         }
+
+        /// <summary>
+        /// Metodo para cambiar de estado un sector, de ocupado a disponible.
+        /// </summary>
+        /// <param name="codigoSector"></param>
         private void cambiarEstadoSector(int codigoSector)
         {
             Sector cambiarEstadoSector = new Sector();
             cambiarEstadoSector.Sec_Codigo = codigoSector;
             cambiarEstadoSector.Sec_Habilitado = "Disponible";
-            //MessageBox.Show("id: " + cambiarEstadoSector.Sec_Codigo + "estado: " + cambiarEstadoSector.Sec_Habilitado);
             TrabajarSectores.cambiarEstadoSector(cambiarEstadoSector);
         }
 
+        /// <summary>
+        /// Metodo para limpiar el formulario.
+        /// </summary>
         private void limpiarForm()
         {
             txtNTicket.Text = "";

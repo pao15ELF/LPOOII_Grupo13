@@ -25,27 +25,41 @@ namespace Vistas
     {
         private TipoVehiculo oTipoVehiculo = new TipoVehiculo();
         private ObservableCollection<TipoVehiculo> listaTipoVehiculos;
-        //ObservableCollection<TipoVehiculo> listaTipoVehiculos = new ObservableCollection<TipoVehiculo>();
 
         public WinABMVehiculos()
         {
             InitializeComponent();
-            listaTipoVehiculos = TrabajarTipoVehiculo.listarTipoVehiculo(); // Obtener la colección
-            lvwTipoVehiculos.ItemsSource = listaTipoVehiculos; // Asignar la colección al ListView
-            DataContext = this; // Establecer el DataContext de la ventana
+            listaTipoVehiculos = TrabajarTipoVehiculo.listarTipoVehiculo(); 
+            lvwTipoVehiculos.ItemsSource = listaTipoVehiculos;
+            DataContext = this; 
         }
 
+        /// <summary>
+        /// Metodo para poder arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+        /// <summary>
+        /// Metodo para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Boton para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             if (controlarCancelar() == true)
@@ -72,6 +86,11 @@ namespace Vistas
             }
         }
 
+
+        /// <summary>
+        /// Metodo para controlar el cierre del formulario.
+        /// </summary>
+        /// <returns></returns>
         private bool controlarCancelar()
         {
             if (txtCodVehiculo.Text == "" && txtDescripcion.Text == "" && txtTarifa.Text == "")
@@ -81,7 +100,7 @@ namespace Vistas
         }
 
         /// <summary>
-        /// 
+        /// Metodo para cargar los datos del textbox al objeto Tipo Vehiculo.
         /// </summary>
         private void cargarDatos()
         {
@@ -99,7 +118,7 @@ namespace Vistas
         }
 
         /// <summary>
-        /// 
+        /// Botón para dar de alta un Vehiculo.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -107,36 +126,41 @@ namespace Vistas
         {
             if (controlarDatos() == true)
             {
-                cargarDatos();
-
-                if (btnGuardarVehiculo.Content.ToString() == "GUARDAR")
+                if (TrabajarTipoVehiculo.buscarTipoVehiculoXCodigo(Convert.ToInt32(txtCodVehiculo.Text)) == null)
                 {
-                    TrabajarTipoVehiculo.insertar_TipoVehiculo(oTipoVehiculo);
+                    cargarDatos();
 
-                    // Actualizar la lista después de insertar un nuevo elemento
-                    listaTipoVehiculos = TrabajarTipoVehiculo.listarTipoVehiculo();
-                    lvwTipoVehiculos.ItemsSource = listaTipoVehiculos;
+                    if (btnGuardarVehiculo.Content.ToString() == "GUARDAR")
+                    {
+                        TrabajarTipoVehiculo.insertar_TipoVehiculo(oTipoVehiculo);
 
-                    MessageBox.Show("El Vehiculo con el codigo " + txtCodVehiculo.Text + " con la descripcion: " + txtDescripcion.Text + " se guardo correctamente");
+                        // Actualizar la lista después de insertar un nuevo elemento
+                        listaTipoVehiculos = TrabajarTipoVehiculo.listarTipoVehiculo();
+                        lvwTipoVehiculos.ItemsSource = listaTipoVehiculos;
+
+                        MessageBox.Show("El Vehiculo con el codigo " + txtCodVehiculo.Text + " con la descripcion: " + txtDescripcion.Text + " se guardo correctamente");
+                    }
+                    else
+                    {
+                        BitmapImage imagen = imgVehiculo.Source as BitmapImage;
+                        string x = imgBase64(imagen);
+                        oTipoVehiculo.TypV_Imagen = x;
+
+                        TrabajarTipoVehiculo.modificar_TipoVehiculo(oTipoVehiculo);
+
+                        // Actualizar la lista después de insertar un nuevo elemento
+                        listaTipoVehiculos = TrabajarTipoVehiculo.listarTipoVehiculo();
+                        lvwTipoVehiculos.ItemsSource = listaTipoVehiculos;
+
+                        MessageBox.Show("El Vehiculo con el codigo " + txtCodVehiculo.Text + " se modificar correctamente");
+                        btnGuardarVehiculo.Content = "GUARDAR";
+                    }
+                    limpiarForm();
                 }
                 else
                 {
-                    BitmapImage imagen = imgVehiculo.Source as BitmapImage;
-                    string x = imgBase64(imagen);
-                    oTipoVehiculo.TypV_Imagen = x;
-
-                    TrabajarTipoVehiculo.modificar_TipoVehiculo(oTipoVehiculo);
-
-                   // Actualizar la lista después de insertar un nuevo elemento
-                    listaTipoVehiculos = TrabajarTipoVehiculo.listarTipoVehiculo();
-                    lvwTipoVehiculos.ItemsSource = listaTipoVehiculos;
-
-                    MessageBox.Show("El Vehiculo con el codigo " + txtCodVehiculo.Text + " se modificar correctamente");
-                    btnGuardarVehiculo.Content = "GUARDAR";
+                    MessageBox.Show("EL VEHICULO CON CODIGO "+txtCodVehiculo.Text+" YA SE ENCUENTRA REGISTRADO", "Aviso", MessageBoxButton.OK);
                 }
-
-                
-                limpiarForm();
             }
             else
             {
@@ -145,14 +169,21 @@ namespace Vistas
             
         }
 
+        /// <summary>
+        /// Metodo para controlar los datos del formulario para el alta de un Vehiculo.
+        /// </summary>
+        /// <returns></returns>
         private bool controlarDatos()
         {
-            if(txtCodVehiculo.Text=="" || txtDescripcion.Text=="" || txtTarifa.Text=="")
+            if (txtCodVehiculo.Text == "" || txtDescripcion.Text == "" || txtTarifa.Text == "" || imgVehiculo.Source == null)
                 return false;
             else
                 return true;
         }
 
+        /// <summary>
+        /// Metodo para limpiar el formulario.
+        /// </summary>
         private void limpiarForm()
         {
             txtIdVehiculoMod.Text = "";
@@ -168,6 +199,11 @@ namespace Vistas
             //DataContext = FindResource("list_TipoVehiculo");
         }
 
+        /// <summary>
+        /// Botón para modificar los datos de un vehiculo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             cargarTextBox();
@@ -175,6 +211,9 @@ namespace Vistas
             btnInsertarImg.Content = "Cambiar Foto";
         }
 
+        /// <summary>
+        /// Metodo para cargar los datos del textbox a un objeto TipoVehiculo.
+        /// </summary>
         public void cargarTextBox()
         {
             if (lvwTipoVehiculos.SelectedItem != null)
@@ -191,6 +230,11 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Botón para eliminar un Vehiculo de la lista de Vehiculos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             TipoVehiculo tipoVehiculoElim = (TipoVehiculo)lvwTipoVehiculos.SelectedItem;
@@ -207,6 +251,11 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Botón para insertar una foto para dar de alta un Vehiculo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnInsertarFoto_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -234,7 +283,11 @@ namespace Vistas
             }
         }
 
-
+        /// <summary>
+        /// Metodo para convertir una imagen a base 64.
+        /// </summary>
+        /// <param name="foto"></param>
+        /// <returns></returns>
         private string imgBase64(BitmapImage foto)
         {
                 // Convertir la imagen a base64
@@ -272,10 +325,13 @@ namespace Vistas
          }
 
         //segundo
+        /// <summary>
+        /// Pasar una base 64 a imagen.
+        /// </summary>
+        /// <param name="base64String"></param>
         private void CargarImagenDesdeBase64(string base64String)
         {
-            //try
-            //{
+            
                 byte[] imageBytes = Convert.FromBase64String(base64String);
 
                 using (MemoryStream ms = new MemoryStream(imageBytes))
@@ -289,12 +345,6 @@ namespace Vistas
                     // Asignar la imagen cargada al Image
                     imgVehiculo.Source = bitmapImage;
                 }
-            //}
-            //catch (Exception ex)
-            //{
-            //    // Manejo de excepciones: muestra información sobre la excepción
-            //    Console.WriteLine("Error al inicializar BitmapImage desde Base64: " + ex.Message);
-            //}
         }
 
 

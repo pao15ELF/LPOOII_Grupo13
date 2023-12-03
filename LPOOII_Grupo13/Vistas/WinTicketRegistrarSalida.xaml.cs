@@ -25,6 +25,11 @@ namespace Vistas
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Carga los valores a los textbox para mostrar en el ticket.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             txbNTicket.Text = "Ticket:   #" + Util.Util.getTicketSalida().Tick_TicketNro.ToString();
@@ -42,6 +47,11 @@ namespace Vistas
             txbUsuario.Text = "Usuario:   " + Util.Util.getUsuario().User_UserName;
         }
 
+        /// <summary>
+        /// Función para traer la descripcion del tipo de Vehiculo.
+        /// </summary>
+        /// <param name="codigoVehiculo"></param>
+        /// <returns></returns>
         private string tipoVehiculo(int codigoVehiculo)
         {
             string tipoVeh;
@@ -53,6 +63,11 @@ namespace Vistas
             return tipoVeh;
         }
 
+        /// <summary>
+        /// Función para traer el nombre y apellido del cliente.
+        /// </summary>
+        /// <param name="dniCliente"></param>
+        /// <returns></returns>
         private string nombreCliente(int dniCliente)
         {
             string nombreCompleto;
@@ -64,6 +79,11 @@ namespace Vistas
             return nombreCompleto;
         }
 
+        /// <summary>
+        /// Metodo para mostrar las horas contabilizadas, se tiene una tiempo de 10 minutos de tolerancia.
+        /// Donde pasado de esos se cuenta como una hora completa a pagar.
+        /// </summary>
+        /// <returns></returns>
         private string calcularHoraContabilizadas()
         {
             int cantHoras;

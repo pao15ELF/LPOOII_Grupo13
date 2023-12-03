@@ -12,6 +12,10 @@ namespace ClaseBase
 {
     public class TrabajarSectores
     {
+        /// <summary>
+        /// Metodo para traer todos los sectores
+        /// </summary>
+        /// <returns></returns>
         public static DataTable traerSectores()
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -32,6 +36,10 @@ namespace ClaseBase
             return dt;
         }
 
+        /// <summary>
+        /// Metodo para modificar el estado de un sector.
+        /// </summary>
+        /// <param name="sector"></param>
         public static void cambiarEstadoSector(Sector sector)
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);

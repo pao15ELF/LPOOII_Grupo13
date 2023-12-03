@@ -11,6 +11,11 @@ namespace ClaseBase
 {
     public class TrabajarTicket
     {
+
+        /// <summary>
+        /// Metodo para traer todos los tickets
+        /// </summary>
+        /// <returns></returns>
         public static DataTable traerTicket()
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -31,6 +36,10 @@ namespace ClaseBase
             return dt;
         }
 
+        /// <summary>
+        /// Metodo para traer las descripcion de los vehiculos.
+        /// </summary>
+        /// <returns></returns>
         public static DataTable traerTipoVehiculoCombobox()
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -51,6 +60,10 @@ namespace ClaseBase
             return dt;
         }
 
+        /// <summary>
+        /// Metodo para traer los sectores disponibles.
+        /// </summary>
+        /// <returns></returns>
         public static DataTable traerZonaSectorDisponible()
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -72,6 +85,11 @@ namespace ClaseBase
             return dt;
         }
 
+        /// <summary>
+        /// Metodo que busca la tarifa de un vehiculo por su codigo
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
         public static DataTable buscarTarifaVehiculo(int codigo)
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -95,6 +113,10 @@ namespace ClaseBase
             return dt;
         }
 
+        /// <summary>
+        /// Metodo para registrar el ticket de entrada.
+        /// </summary>
+        /// <param name="ticket"></param>
         public static void registrarEntradaTicket(Ticket ticket)
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -138,6 +160,10 @@ namespace ClaseBase
         //    return dt;
         //}
 
+        /// <summary>
+        /// Metodo para traer todos los ticket sin horas de salida.
+        /// </summary>
+        /// <returns></returns>
         public static ObservableCollection<Ticket> traerTicketConHoraSalNull()
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -174,6 +200,10 @@ namespace ClaseBase
             return listaTicket;
         }
 
+        /// <summary>
+        /// Metodo para registrar el ticket de salida
+        /// </summary>
+        /// <param name="ticket"></param>
         public static void registrarSalidaTicket(Ticket ticket)
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -195,7 +225,13 @@ namespace ClaseBase
 
 
         }
-         //FALTA PONER LO DE LA FECHA
+        
+        /// <summary>
+        /// Metodo para traer las ventas realizadas entre dos fechas.
+        /// </summary>
+        /// <param name="fechaInicio"></param>
+        /// <param name="fechaFinal"></param>
+        /// <returns></returns>
         public static ObservableCollection<Ticket> traerTicketVentas(DateTime fechaInicio, DateTime fechaFinal)
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);
@@ -240,7 +276,10 @@ namespace ClaseBase
             return listaTicket;
         }
 
-        // trabaja con vehiculosPlaya
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static DataTable traerTicketRegEntrada()
         {
             SqlConnection cnn = new SqlConnection(ClaseBase.Properties.Settings.Default.playaConnectionString);

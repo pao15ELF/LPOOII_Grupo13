@@ -23,14 +23,6 @@ namespace Vistas
         
         private CollectionViewSource filtrada;
 
-       
-        //public VistaPreviaDeImpresion()
-        //{
-        //    InitializeComponent();
-        //    vistaColeccionFiltrada = Resources["FILTRO_USERNAME"] as CollectionViewSource;
-        //}
-
-
         public VistaPreviaDeImpresion(CollectionViewSource vistaColeccionFiltrada)
         {
             InitializeComponent();
@@ -39,7 +31,11 @@ namespace Vistas
 
         }
         
-
+        /// <summary>
+        /// Metodo para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             WinPrincipal winPri = new WinPrincipal();
@@ -47,18 +43,32 @@ namespace Vistas
             this.Close();
         }
 
+        /// <summary>
+        /// Metodo para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
-
+        
+        /// <summary>
+        /// Metodo para arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
-
+        /// <summary>
+        /// Botón para imprimir con documentos dinamicos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImprimir_Click(object sender, RoutedEventArgs e)
         {
             PrintDialog pdlg = new PrintDialog();

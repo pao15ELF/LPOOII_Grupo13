@@ -23,27 +23,50 @@ namespace Vistas
     {
         private Cliente oCliente = new Cliente();
         private ObservableCollection<Cliente> listaClientes;
+        private ObservableCollection<Cliente> listaClientesBusqueda;
 
         public WinABMClientes()
         {
             InitializeComponent();
-
-            listaClientes = TrabajarCliente.listarClientes(); // Obtener la colección
-            lvwClientes.ItemsSource= listaClientes; // Asignar la colección al ListView
-            DataContext = this; // Establecer el DataContext de la ventana
+            cargarListClientes();
         }
 
+        /// <summary>
+        /// Metodo para cargar todos los clientes en el listview
+        /// </summary>
+        private void cargarListClientes()
+        {
+            listaClientes = TrabajarCliente.listarClientes();
+            lvwClientes.ItemsSource = listaClientes;
+            DataContext = this;
+        }
+
+        /// <summary>
+        /// Metodo para arrastrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+        /// <summary>
+        /// Metodo para minimizar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Boton para cerrar el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             if (controlarCancelar() == true)
@@ -70,6 +93,11 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Metodo para controlar que los textbox no esten cargados
+        /// para poder cerrar el formulario.
+        /// </summary>
+        /// <returns></returns>
         private bool controlarCancelar()
         {
 
@@ -79,6 +107,9 @@ namespace Vistas
                 return false;
         }
 
+        /// <summary>
+        /// Metodo para cargar los datos del textbox al objeto cliente.
+        /// </summary>
         private void cargarDatos()
         {
             if (txtIdCliModificar.Text!="")
@@ -90,6 +121,9 @@ namespace Vistas
             oCliente.Cli_Estado1 = "Habilitado";
         }
 
+        /// <summary>
+        /// Metodo para limpiar el formulario.
+        /// </summary>
         private void limpiarForm()
         {
             txtIdCliModificar.Text = "";
@@ -100,34 +134,46 @@ namespace Vistas
             txtDniCliente.Focus();
         }
 
+        /// <summary>
+        /// Botón para dar de alta el Cliente en la base de datos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardarCliente_Click(object sender, RoutedEventArgs e)
         {
             if (controlarDatos() == true)
             {
-                cargarDatos();
-                if (btnGuardarCliente.Content.ToString() == "GUARDAR")
+                if (TrabajarCliente.buscarCliente(Convert.ToInt32(txtDniCliente.Text)) == null)
                 {
-                    TrabajarCliente.insertar_Cliente(oCliente);
-                    MessageBox.Show("El cliente " + txtApellido.Text + " con DNI " + txtDniCliente.Text + " se guardo correctamente");
-                    txtDniCliente.Text = "0";
+                    cargarDatos();
+                    if (btnGuardarCliente.Content.ToString() == "GUARDAR")
+                    {
+                        TrabajarCliente.insertar_Cliente(oCliente);
+                        MessageBox.Show("El cliente " + txtApellido.Text + " con DNI " + txtDniCliente.Text + " se guardo correctamente");
+                        txtDniCliente.Text = "0";
 
-                    listaClientes = TrabajarCliente.listarClientes(); // Obtener la colección
-                    lvwClientes.ItemsSource = listaClientes; // Asignar la colección al ListView
+                        listaClientes = TrabajarCliente.listarClientes();
+                        lvwClientes.ItemsSource = listaClientes;
+                    }
+                    else
+                    {
+                        TrabajarCliente.modificar_Cliente(oCliente);
+                        MessageBox.Show("Cliente actualizado correctamente");
+
+                        listaClientes = TrabajarCliente.listarClientes();
+                        lvwClientes.ItemsSource = listaClientes;
+
+                        txtDniCliente.Text = "0";
+                        txtDniCliente.IsEnabled = true;
+                        btnGuardarCliente.Content = "GUARDAR";
+
+                    }
+                    limpiarForm();
                 }
                 else
                 {
-                    TrabajarCliente.modificar_Cliente(oCliente);
-                    MessageBox.Show("Cliente actualizado correctamente");
-
-                    listaClientes = TrabajarCliente.listarClientes(); // Obtener la colección
-                    lvwClientes.ItemsSource = listaClientes; // Asignar la colección al ListView
-
-                    txtDniCliente.Text="0";
-                    txtDniCliente.IsEnabled = true;
-                    btnGuardarCliente.Content = "GUARDAR";
-                    
+                    MessageBox.Show("EL CLIENTE CON EL DNI"+txtDniCliente.Text+" YA SE ENCUENTRA DADO DE ALTA", "Aviso", MessageBoxButton.OK);
                 }
-                limpiarForm();
             }
             else
             {
@@ -135,6 +181,10 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Metodo para de controlar que el formulario este completo para el alta del Cliente.
+        /// </summary>
+        /// <returns></returns>
         private bool controlarDatos()
         {
             if (txtDniCliente.Text == "" || txtApellido.Text == "" || txtNombre.Text == "" || txtTelefono.Text == "")
@@ -143,6 +193,11 @@ namespace Vistas
                 return true;
         }
 
+        /// <summary>
+        /// Botón para modificar un Cliente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             cargarTextBox();
@@ -150,6 +205,9 @@ namespace Vistas
             txtDniCliente.IsEnabled = false;
         }
 
+        /// <summary>
+        /// Metodo para cargar los datos del Cliente a los textbox para realizar la modificación.
+        /// </summary>
         private void cargarTextBox()
         {
             if (lvwClientes.SelectedItem != null)
@@ -162,24 +220,6 @@ namespace Vistas
                 txtNombre.Text = clienteMod.Cli_Nombre1;
                 txtDniCliente.Text = clienteMod.Cli_ClienteDni1.ToString();
                 txtTelefono.Text = clienteMod.Cli_Telefono1;
-
-                //Para datatable
-
-                //DataRowView selectedRow = (DataRowView)lvwClientes.SelectedItem;
-                //DataRow row = selectedRow.Row;
-
-                //string id = row["Cli_Id"].ToString();
-                //string dni = row["Cli_Dni"].ToString();
-                //string apellido = row["Cli_Apellido"].ToString();
-                //string nombre = row["Cli_Nombre"].ToString();
-                //string tel = row["Cli_Telefono"].ToString(); 
-
-                // Luego, puedes asignar el valor a tu TextBox u otro control
-                //txtIdCliModificar.Text = id;
-                //txtApellido.Text = apellido;
-                //txtDniCliente.Text = dni;
-                //txtNombre.Text = nombre;
-                //txtTelefono.Text = tel;
             }
            
         }
@@ -189,6 +229,11 @@ namespace Vistas
             
         }
 
+        /// <summary>
+        /// Botón para eliminar un Cliente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             Cliente clienteEli = (Cliente)lvwClientes.SelectedItem;
@@ -197,10 +242,68 @@ namespace Vistas
             {
                 clienteEli.Cli_Estado1 = "Deshabilitado";
                 TrabajarCliente.eliminar_Cliente(clienteEli);
-                listaClientes = TrabajarCliente.listarClientes(); // Obtener la colección
-                lvwClientes.ItemsSource = listaClientes; // Asignar la colección al ListView
+                listaClientes = TrabajarCliente.listarClientes();
+                lvwClientes.ItemsSource = listaClientes; 
             }
 
         }
+
+        /// <summary>
+        /// Metodo para cuando el textbox tenga el focus.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBusqueda_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtBusqueda.Text == "Ingrese el DNI del Cliente a buscar...")
+            {
+                txtBusqueda.Text = string.Empty; // Limpiar el texto predeterminado
+              
+            }
+        }
+
+        /// <summary>
+        /// Metodo para cuando el textbox pierda el focus.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBusqueda_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
+            {
+                txtBusqueda.Text = "Ingrese el DNI del Cliente a buscar..."; // Restaurar el texto predeterminado
+                cargarListClientes();
+            }
+        }
+
+        /// <summary>
+        /// Botón para buscar los clientes por DNI.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtBusqueda.Text == "" || txtBusqueda.Text == "Ingrese el DNI del Cliente a buscar...")
+            {
+                cargarListClientes();
+            }
+            else
+            {
+                listaClientesBusqueda = TrabajarCliente.busquedaClientes(Convert.ToInt32( txtBusqueda.Text));
+                if (listaClientesBusqueda.Count > 0)
+                {
+                    lvwClientes.ItemsSource = listaClientesBusqueda;
+                    DataContext = this;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro al Cliente con el DNI: " + txtBusqueda.Text);
+                    cargarListClientes();
+                }
+            }
+
+
+        }
+
     }
 }
