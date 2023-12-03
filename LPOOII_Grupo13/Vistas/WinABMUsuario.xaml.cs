@@ -206,17 +206,26 @@ namespace Vistas
         {
             if (controlarDatos() == true)
             {
-                if(TrabajarUsuario.buscarUsuarioXUserName(txtUsuario.Text)==null)
+                MessageBoxResult result = MessageBox.Show("¿Desea guardar los datos?", "MENSAJE DE CONFIRMACIÓN", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
                 {
                     cargarDatos();
                     if (btnGuardarUsuario.Content.ToString() == "GUARDAR")
                     {
-                        TrabajarUsuario.insertar_Usuario(oUsuario);
-                        MessageBox.Show("El nuevo Usuario " + txtUsuario.Text + " se agrego correctamente");
+                        if (TrabajarUsuario.buscarUsuarioXUserName(txtUsuario.Text) == null)
+                        {
+                            TrabajarUsuario.insertar_Usuario(oUsuario);
+                            MessageBox.Show("El nuevo Usuario " + txtUsuario.Text + " se agrego correctamente");
 
-                        cargarListaUsuario();
-                        //listaUsuario.Add(oUsuario);
-                        Vista.MoveCurrentToLast();
+                            cargarListaUsuario();
+                            //listaUsuario.Add(oUsuario);
+                            Vista.MoveCurrentToLast();
+                        }
+                        else
+                        {
+                            MessageBox.Show("EL USUARIO DE NOMBRE " + txtUsuario.Text + " YA SE ENCUNTRA REGISTRADO. \n USE OTRO NOMBRE DE USUARIO PARA REALIZAR EL ALTA", "Aviso", MessageBoxButton.OK);
+                        }
                     }
                     else
                     {
@@ -226,13 +235,15 @@ namespace Vistas
                         cargarListaUsuario();
                         Vista.MoveCurrentToPosition(posActual);
                         btnGuardarUsuario.Content = "GUARDAR";
+                        txtUsuario.IsEnabled = true;
                     }
 
                     limpiarForm();
                 }
                 else
                 {
-                    MessageBox.Show("EL USUARIO DE NOMBRE "+txtUsuario.Text+" YA SE ENCUNTRA REGISTRADO. \n USE OTRO NOMBRE DE USUARIO PARA REALIZAR EL ALTA", "Aviso", MessageBoxButton.OK);
+                    txtUsuario.IsEnabled = true;
+                    limpiarForm();
                 }
             }
             else
@@ -281,6 +292,8 @@ namespace Vistas
             txtUsuario.Text = usuario.User_UserName;
             txtPassword.Text = usuario.User_Password;
             cmbRoles.SelectedValue = usuario.User_Rol;
+
+            txtUsuario.IsEnabled = false;
 
             btnGuardarUsuario.Content = "ACTUALIZAR";
         }

@@ -126,19 +126,27 @@ namespace Vistas
         {
             if (controlarDatos() == true)
             {
-                if (TrabajarTipoVehiculo.buscarTipoVehiculoXCodigo(Convert.ToInt32(txtCodVehiculo.Text)) == null)
+                MessageBoxResult result = MessageBox.Show("¿Desea guardar los datos?", "MENSAJE DE CONFIRMACIÓN", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
                 {
                     cargarDatos();
 
                     if (btnGuardarVehiculo.Content.ToString() == "GUARDAR")
                     {
-                        TrabajarTipoVehiculo.insertar_TipoVehiculo(oTipoVehiculo);
+                        if (TrabajarTipoVehiculo.buscarTipoVehiculoXCodigo(Convert.ToInt32(txtCodVehiculo.Text)) == null)
+                        {
+                            TrabajarTipoVehiculo.insertar_TipoVehiculo(oTipoVehiculo);
 
-                        // Actualizar la lista después de insertar un nuevo elemento
-                        listaTipoVehiculos = TrabajarTipoVehiculo.listarTipoVehiculo();
-                        lvwTipoVehiculos.ItemsSource = listaTipoVehiculos;
+                            // Actualizar la lista después de insertar un nuevo elemento
+                            listaTipoVehiculos = TrabajarTipoVehiculo.listarTipoVehiculo();
+                            lvwTipoVehiculos.ItemsSource = listaTipoVehiculos;
 
-                        MessageBox.Show("El Vehiculo con el codigo " + txtCodVehiculo.Text + " con la descripcion: " + txtDescripcion.Text + " se guardo correctamente");
+                            MessageBox.Show("El Vehiculo con el codigo " + txtCodVehiculo.Text + " con la descripcion: " + txtDescripcion.Text + " se guardo correctamente");
+                        }
+                        else
+                        {
+                            MessageBox.Show("EL VEHICULO CON CODIGO " + txtCodVehiculo.Text + " YA SE ENCUENTRA REGISTRADO", "Aviso", MessageBoxButton.OK);
+                        }
                     }
                     else
                     {
@@ -154,12 +162,15 @@ namespace Vistas
 
                         MessageBox.Show("El Vehiculo con el codigo " + txtCodVehiculo.Text + " se modificar correctamente");
                         btnGuardarVehiculo.Content = "GUARDAR";
+
+                        txtCodVehiculo.IsEnabled = true;
                     }
                     limpiarForm();
                 }
                 else
                 {
-                    MessageBox.Show("EL VEHICULO CON CODIGO "+txtCodVehiculo.Text+" YA SE ENCUENTRA REGISTRADO", "Aviso", MessageBoxButton.OK);
+                    txtCodVehiculo.IsEnabled = true;
+                    limpiarForm();
                 }
             }
             else
@@ -209,6 +220,8 @@ namespace Vistas
             cargarTextBox();
             btnGuardarVehiculo.Content = "ACTUALIZAR";
             btnInsertarImg.Content = "Cambiar Foto";
+
+            txtCodVehiculo.IsEnabled = false;
         }
 
         /// <summary>

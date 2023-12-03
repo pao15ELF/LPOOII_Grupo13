@@ -143,17 +143,26 @@ namespace Vistas
         {
             if (controlarDatos() == true)
             {
-                if (TrabajarCliente.buscarCliente(Convert.ToInt32(txtDniCliente.Text)) == null)
+                MessageBoxResult result = MessageBox.Show("¿Desea guardar los datos?", "MENSAJE DE CONFIRMACIÓN", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
                 {
                     cargarDatos();
                     if (btnGuardarCliente.Content.ToString() == "GUARDAR")
                     {
-                        TrabajarCliente.insertar_Cliente(oCliente);
-                        MessageBox.Show("El cliente " + txtApellido.Text + " con DNI " + txtDniCliente.Text + " se guardo correctamente");
-                        txtDniCliente.Text = "0";
+                        if (TrabajarCliente.buscarCliente(Convert.ToInt32(txtDniCliente.Text)) == null)
+                        {
+                            TrabajarCliente.insertar_Cliente(oCliente);
+                            MessageBox.Show("El cliente " + txtApellido.Text + " con DNI " + txtDniCliente.Text + " se guardo correctamente");
+                            txtDniCliente.Text = "0";
 
-                        listaClientes = TrabajarCliente.listarClientes();
-                        lvwClientes.ItemsSource = listaClientes;
+                            listaClientes = TrabajarCliente.listarClientes();
+                            lvwClientes.ItemsSource = listaClientes;
+                        }
+                        else 
+                        {
+                            MessageBox.Show("EL CLIENTE CON EL DNI" + txtDniCliente.Text + " YA SE ENCUENTRA DADO DE ALTA", "Aviso", MessageBoxButton.OK);
+                        }
                     }
                     else
                     {
@@ -168,11 +177,15 @@ namespace Vistas
                         btnGuardarCliente.Content = "GUARDAR";
 
                     }
-                    limpiarForm();
+                    //limpiarForm();
                 }
                 else
                 {
-                    MessageBox.Show("EL CLIENTE CON EL DNI"+txtDniCliente.Text+" YA SE ENCUENTRA DADO DE ALTA", "Aviso", MessageBoxButton.OK);
+                    txtDniCliente.Text = "0";
+                    txtDniCliente.IsEnabled = true;
+                    btnGuardarCliente.Content = "GUARDAR";
+                    limpiarForm();
+
                 }
             }
             else
